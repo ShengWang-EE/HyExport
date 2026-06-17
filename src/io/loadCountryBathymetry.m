@@ -1,0 +1,31 @@
+function bathymetry_interpolated = loadCountryBathymetry(countryEEZ,countryName,nGrid)
+
+load(resolveProjectFile(['bathymetry_2022_',countryName,'.mat'])); % var name bathymetry_2022
+
+minLonIndex = max(find(countryEEZ.minLon>=bathymetry_2022.longitude));
+maxLonIndex = min(find(countryEEZ.maxLon<=bathymetry_2022.longitude));
+minLatIndex = max(find(countryEEZ.minLat>=bathymetry_2022.latitude));
+maxLatIndex = min(find(countryEEZ.maxLat<=bathymetry_2022.latitude));
+
+% nLon = maxLonIndex - minLonIndex + 1;
+% nLat = maxLatIndex - minLatIndex + 1;
+% minLon = bathymetry_2022.longitude(minLonIndex); maxLon = bathymetry_2022.longitude(maxLonIndex);
+% minLat = bathymetry_2022.latitude(minLatIndex); maxLat = bathymetry_2022.latitude(maxLatIndex);
+
+bathymetry.lon = bathymetry_2022.longitude(minLonIndex:maxLonIndex);
+bathymetry.lat = bathymetry_2022.latitude(minLatIndex:maxLatIndex);
+bathymetry.elevation = bathymetry_2022.elevation(minLatIndex:maxLatIndex,minLonIndex:maxLonIndex);
+
+%% adjust resolution(别用插值，算不过来，找个最近的就行了）
+lonGrid = linspace(countryEEZ.minLon,countryEEZ.maxLon,nGrid);
+latGrid = linspace(countryEEZ.minLat, countryEEZ.maxLat,nGrid);
+
+[~, iLon] = min(abs(bsxfun(@minus, lonGrid, bathymetry.lon)));
+[~, iLat] = min(abs(bsxfun(@minus, latGrid, bathymetry.lat)));
+
+
+bathymetry_interpolated.lon = lonGrid;
+bathymetry_interpolated.lat = latGrid;
+bathymetry_interpolated.elevation = bathymetry.elevation(iLat,iLon);
+
+end

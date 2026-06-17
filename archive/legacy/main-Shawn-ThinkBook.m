@@ -1,0 +1,140 @@
+%% obtain the DMAP
+clear
+clc
+
+[colorData] = colorData();
+IrelandShp = loadIrelandShpData();
+[vesselDensity.value,vesselDensity.info] = readgeoraster('vesseldensity_all_2022.tif');
+vesselDensity.value(abs(vesselDensity.value)>500) = nan;
+
+
+% evaluate wake effect (only related to wind turbine not wind speed)
+ratedPower = 15; % 15 MW type model
+% power curve of wind turbine
+windSpeedTest = 0:0.1:0.1;
+[electricityGenerationCurve,windTurbine] = windTurbineModel(windSpeedTest,ratedPower);
+
+
+nGridWake = 200;
+resolution = 10000/nGridWake; % range should be at least 10000m
+[minDistanceWT] = evaluateWakeEffect(windTurbine,resolution,nGridWake);
+% or we can directly load calculated results
+% minDistanceWT = load('wakeEffectResults.mat');
+
+% offshore wind cost
+EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Norway", "Portugal", "Spain", "Sweden", "United Kingdom"];
+nCountry = size(EUcountryList,2);
+% EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Portugal", "Spain", "Sweden", "United Kingdom"];
+EUshpEEZ = getEUEEZ('eez_v12.shp',EUcountryList);
+EUportShp = readshp('EMODnet_HA_Main_Ports_20231106.shp');
+worldCitiesTable = readtable('worldcities.csv');
+EUshp.boundingBox = [-16.1,36.5;34.8,74.6];
+EUcitiesIndex = find(worldCitiesTable.lng>-16.1 & worldCitiesTable.lng<34.8 & worldCitiesTable.lat>36.5 & worldCitiesTable.lat<74.6);
+EUcitiesCoordinates = flip(table2array(worldCitiesTable(EUcitiesIndex,3:4)),2);
+
+OWFcapacity = 1050; % assume 1050MW for a wind farm
+
+nGrid = 100; % keep it smaller for demo, and increase afterward
+excludedAreas = [];
+LCOEcurveAll = zeros(nGrid^2,2*nCountry);
+LCOEall = [];
+
+for i = 1:size(EUcountryList,2)
+    countryName = char(EUcountryList(i));
+%     countryName = 'Norway';
+    [LCOE{i},LCOH{i},LCOA{i},spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i}] = ...
+        evaluateOffshoreProductionCost(countryName,nGrid,EUcitiesCoordinates,OWFcapacity,ratedPower,...
+        EUshpEEZ,minDistanceWT,windTurbine);
+    [LCOEcurve{i},LCOHcurve{i},LCOAcurve{i}] = evaluateSupplyCurve(LCOE{i},LCOH{i},LCOA{i},minDistanceWT,...
+        spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i},excludedAreas,vesselDensity,ratedPower,nGrid);
+%     plot(LCOEcurve{i}.xValue,LCOEcurve{i}.yValue);
+    LCOEcurveAll(1:size(LCOEcurve{i}.xValue,1),2*(i-1)+1:2*i) = [LCOEcurve{i}.xValue,LCOEcurve{i}.yValue;];
+    LCOEall = [LCOEall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOE{i},[nGrid^2,1])] ];
+end
+LCOEall(isnan(LCOEall(:,3)),:) = [];
+
+for i = 1:size(EUcountryList,2)
+    countryName = char(EUcountryList(i));
+    plot(LCOEcurve{i}.xValue,LCOEcurve{i}.yValue,'LineWidth', 2,'DisplayName',countryName);
+    hold on;
+end
+xlim([0, 6*1e5]); ylim([0,200]);
+legend('Location', 'best');
+hold off;
+
+save stop1.mat
+%% simulation
+clear
+clc
+load stop3.mat
+load mpcIreland.mat
+%
+
+mpc0 = mpc;
+[PQ, PV, REF, NONE, BUS_I, BUS_TYPE, PD, QD, GS, BS, BUS_AREA, VM, ...
+    VA, BASE_KV, ZONE, VMAX, VMIN, LAM_P, LAM_Q, MU_VMAX, MU_VMIN] = idx_bus;
+[GEN_BUS, PG, QG, QMAX, QMIN, VG, MBASE, GEN_STATUS, PMAX, PMIN, ...
+    MU_PMAX, MU_PMIN, MU_QMAX, MU_QMIN, PC1, PC2, QC1MIN, QC1MAX, ...
+    QC2MIN, QC2MAX, RAMP_AGC, RAMP_10, RAMP_30, RAMP_Q, APF] = idx_gen;
+[F_BUS, T_BUS, BR_R, BR_X, BR_B, RATE_A, RATE_B, RATE_C, ...
+    TAP, SHIFT, BR_STATUS, PF, QF, PT, QT, MU_SF, MU_ST, ...
+    ANGMIN, ANGMAX, MU_ANGMIN, MU_ANGMAX] = idx_brch;
+[PW_LINEAR, POLYNOMIAL, MODEL, STARTUP, SHUTDOWN, NCOST, COST] = idx_cost;
+baseMVA = 100;
+genTypeSet = ["Water"; "Gas"; "Gasoil";"Waste";"Peat";"Coal";"Oil";"Wind";"Solar"];
+% get onshore wind generation and PV generation
+onshoreWindGenIndex = find(mpc.genType == 'Wind');
+nOnshoreWind = size(onshoreWindGenIndex,1);
+onshoreWindBusIndex = mpc.gen(onshoreWindGenIndex,1);
+onshoreWindCoordinates = table2array(mpc.busName(onshoreWindBusIndex,3:4));
+
+for i = 1:nOnshoreWind
+    lonIndex = max(find(onshoreWindCoordinates(i,1)>windMatrix.lon0));
+    latIndex = max(find(onshoreWindCoordinates(i,2)>windMatrix.lat0));
+    coordinateSet = [windMatrix.lon0(lonIndex),windMatrix.lat0(latIndex); windMatrix.lon0(lonIndex+1), windMatrix.lat0(latIndex); ...
+        windMatrix.lon0(lonIndex),windMatrix.lat0(latIndex+1);windMatrix.lon0(lonIndex+1),windMatrix.lat0(latIndex+1)];
+    windSpeedSet = [windMatrix.SPEED(:,windMatrix.pointer(lonIndex,latIndex)),windMatrix.SPEED(:,windMatrix.pointer(lonIndex+1,latIndex)),...
+        windMatrix.SPEED(:,windMatrix.pointer(lonIndex,latIndex+1)),windMatrix.SPEED(:,windMatrix.pointer(lonIndex+1,latIndex+1))];
+    distanceToVertex = distance(repmat(onshoreWindCoordinates(i,:),[4,1]),coordinateSet);
+    weight = 1./distanceToVertex.^2 / sum(sum(1./distanceToVertex.^2));
+
+    onshoreWind.windSpeed(:,i) = windSpeedSet * weight; % get wind speed of onshore wind
+    onshoreWind.dispatchableCapacity(:,i) = windTurbineModel(onshoreWind.windSpeed(:,i),15) / 15 * mpc.gen(onshoreWindGenIndex(i),PMAX);
+end
+ 
+
+gppIndex_gen = mpc.GEcon(:,3);
+mpc.gencost(gppIndex_gen,5:7) = 0; % cost of gpp = 0
+mpc.gen(find(mpc.genType == 'Solar'),PMAX) = 0; % set solar generation to zero, can change it later
+waterGenIndex = find(mpc.genType == 'Water');
+mpc.gen(waterGenIndex,PMAX) = mpc0.gen(waterGenIndex,PMAX)/2; % water generator容量减半
+
+% calculation for a winter week
+weekIndex = 20;
+nDay = 7;
+startHour = (weekIndex-1) * 7 * 24 + 1;
+endHour = weekIndex * 7 * 24;
+
+% optimize without offshore wind
+NK = 24;
+for iDay = 1:nDay
+    yalmip('clear')
+    onshoreWindCapacity = onshoreWind.dispatchableCapacity(startHour+(iDay-1)*24+1:startHour+iDay*24,:);
+    gasDemandCurve = mpc0.gasDemandCurve(startHour+(iDay-1)*24+1:startHour+iDay*24);
+    electricityDemandCurve = mpc0.electricityDemandCuve(startHour+(iDay-1)*24+1:startHour+iDay*24);
+    gasDemandPowerProportion = mpc0.gasDemandPowerProportion(startHour+(iDay-1)*24+1:startHour+iDay*24);
+    [solution, solution_info] = runGEopf_continous(mpc,onshoreWindCapacity,electricityDemandCurve,gasDemandCurve,gasDemandPowerProportion,NK);
+    for iGenType = 1:size(genTypeSet,1)
+        typeName = genTypeSet(iGenType);
+        genIndex = find(mpc.genType == typeName);
+        generation((iDay-1)*24+1:iDay*24,iGenType) = sum(solution.Pg(:,genIndex'),2); % 回头得加上hydro和solar
+    end
+end
+% optimize with offshore wind
+for iOWF = 1:nOWF
+    % modify the mpc file
+    mpc_withOWF = mpcUpdateWithOWF(mpc);
+    results = runGEopf_continous(mpc_withOWF);
+end
+save stop5.mat
+%% evaluate LCOH of other countries

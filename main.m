@@ -1,0 +1,312 @@
+%% obtain the DMAP
+clear
+clc
+projectRoot = setupHyExport();
+checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
+
+IrelandShp = loadIrelandShpData();
+[vesselDensity.value,vesselDensity.info] = readgeoraster(resolveProjectFile('vesseldensity_all_2022.tif'));
+% [vesselDensity.value,vesselDensity.info] = readgeoraster('vesseldensity_all_2022.tif');
+vesselDensity.value(abs(vesselDensity.value)>500) = nan;
+
+
+% evaluate wake effect (only related to wind turbine not wind speed)
+ratedPower = 8; % 15 MW type model
+% power curve of wind turbine
+windSpeedTest = 0:0.1:0.1;
+[electricityGenerationCurve,windTurbine] = windTurbineModel(windSpeedTest,ratedPower);
+
+
+nGridWake = 500;
+resolution = 10000/nGridWake; % range should be at least 10000m
+[minDistanceWT,wakeEffectSingle] = evaluateWakeEffect(windTurbine,resolution,nGridWake);
+% or we can directly load calculated results
+% minDistanceWT = load('wakeEffect.mat');
+
+% offshore wind cost
+EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Norway", "Portugal", "Spain", "Sweden", "United Kingdom"];
+nCountry = size(EUcountryList,2);
+% EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Portugal", "Spain", "Sweden", "United Kingdom"];
+EUshpEEZ = getEUEEZ(resolveProjectFile('eez_v12.shp'),EUcountryList);
+EUportShp = readshp(resolveProjectFile('EMODnet_HA_Main_Ports_20231106.shp'));
+worldCitiesTable = readtable(resolveProjectFile('worldcities.csv'));
+EUshp.boundingBox = [-16.1,36.5;34.8,74.6];
+EUcitiesIndex = find(worldCitiesTable.lng>-16.1 & worldCitiesTable.lng<34.8 & worldCitiesTable.lat>36.5 & worldCitiesTable.lat<74.6);
+EUcitiesCoordinates = flip(table2array(worldCitiesTable(EUcitiesIndex,3:4)),2);
+
+OWFcapacity = 1050; % assume 1050MW for a wind farm
+
+nGrid = 100; % keep it smaller for demo, and increase afterward
+excludedAreas = [];
+[LCOEcurveAll,LCOHcurveAll,LCOAcurveAll] = deal(zeros(nGrid^2,2*nCountry));
+LCOEall = []; LCOHall = []; LCOAall = [];
+
+for i = 1:size(EUcountryList,2)
+% for i = 1:3
+% for ii = 1:2
+%     i = list(ii);
+    countryName = char(EUcountryList(i));
+    % countryName = 'Ireland';
+    [LCOE{i},LCOH{i},LCOA{i},distanceToPort{i},waterDepth{i},capacityFactor{i},spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i}] = ...
+        evaluateOffshoreProductionCost(countryName,nGrid,EUcitiesCoordinates,OWFcapacity,ratedPower,...
+        EUshpEEZ,minDistanceWT,windTurbine);
+    [LCOEcurve0{i},LCOHcurve0{i},LCOAcurve0{i},waterDepthColumn{i},vesselDensityGrid{i},powerPerGridNew{i}, ...
+        probabilityOfHigherDensity{i},powerPerGirdDiscountFactor{i},lonColumn{i},latColumn{i}] ...
+        = evaluateSupplyCurve(LCOE{i},LCOH{i},LCOA{i},minDistanceWT,...
+        spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i},waterDepth{i},excludedAreas,vesselDensity,ratedPower,nGrid);
+    % adjust resolution
+    capacityRange = 1.5*1e5; %0-150 GW
+    capacityResolution = 200; % 200 points at max
+    [LCOEcurve{i},waterDepthArrayE{i},lonColumnE{i},latColumnE{i}] = adjustSupplyCurve(LCOEcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
+    [LCOHcurve{i},waterDepthArrayH{i},~,~] = adjustSupplyCurve(LCOHcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
+    [LCOAcurve{i},waterDepthArrayA{i},~,~] = adjustSupplyCurve(LCOAcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
+    % accumulated curve
+    LCOEcurve_accumulated{i} = [LCOEcurve{i}(1,:);[LCOEcurve{i}(2:end,1),cumsum(diff(LCOEcurve{i}(:,1)).*LCOEcurve{i}(1:end-1,2))] ];
+    LCOHcurve_accumulated{i} = [LCOHcurve{i}(1,:);[LCOHcurve{i}(2:end,1),cumsum(diff(LCOHcurve{i}(:,1)).*LCOHcurve{i}(1:end-1,2))] ];
+    LCOAcurve_accumulated{i} = [LCOAcurve{i}(1,:);[LCOAcurve{i}(2:end,1),cumsum(diff(LCOAcurve{i}(:,1)).*LCOAcurve{i}(1:end-1,2))] ];
+    %
+    LCOEcurveAll(1:size(LCOEcurve{i},1),2*(i-1)+1:2*i) = [LCOEcurve{i}(:,1),LCOEcurve{i}(:,2);];
+    LCOEall = [LCOEall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOE{i},[nGrid^2,1])] ];
+    LCOHcurveAll(1:size(LCOHcurve{i},1),2*(i-1)+1:2*i) = [LCOHcurve{i}(:,1),LCOHcurve{i}(:,2);];
+    LCOHall = [LCOHall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOH{i},[nGrid^2,1])] ];
+    LCOAcurveAll(1:size(LCOAcurve{i},1),2*(i-1)+1:2*i) = [LCOAcurve{i}(:,1),LCOAcurve{i}(:,2);];
+    LCOAall = [LCOAall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOA{i},[nGrid^2,1])] ];
+end
+LCOEall(isnan(LCOEall(:,3)),:) = []; LCOHall(isnan(LCOHall(:,3)),:) = []; LCOAall(isnan(LCOAall(:,3)),:) = [];
+
+% cost reduction
+reductionRate = table2array(readtable(projectFile('tables','offshore wind cost reduction.xlsx'),'Range','O11:P14'));
+[LCOEcurve2030,LCOHcurve2030,LCOAcurve2030,LCOEcurve2030_accumulated,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated, ...
+    LCOEcurve2040,LCOHcurve2040,LCOAcurve2040,LCOEcurve2040_accumulated,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated, ...
+    LCOEcurve2050,LCOHcurve2050,LCOAcurve2050,LCOEcurve2050_accumulated,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated] = ...
+    owfCostReduction(LCOEcurve,LCOHcurve,LCOAcurve,reductionRate,nCountry,waterDepthArrayE,waterDepthArrayH,waterDepthArrayA);
+
+% rank the LCOH
+EUoffshoreCapacity = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
+blueHyPriceCap = 68.92;
+for iYear = 1:3
+    switch iYear
+        case 1
+            LCOHcurve_used = LCOHcurve2030;
+        case 2
+            LCOHcurve_used = LCOHcurve2040;
+        case 3
+            LCOHcurve_used = LCOHcurve2050;
+    end
+    for ic = 1:nCountry
+        offshoreCapacity = EUoffshoreCapacity(ic,iYear);
+        [capacityIndex(ic,iYear)] = max(find(offshoreCapacity * 1e3 > LCOHcurve_used{ic}(:,1)));
+        marginalLCOH(ic,iYear) = LCOHcurve_used{ic}(capacityIndex(ic,iYear),2);
+        averageLCOH(ic,iYear) = mean(LCOHcurve_used{ic}(1:capacityIndex(ic,iYear),2));
+        if ~isempty(max(find(LCOHcurve_used{ic}(:,2)<blueHyPriceCap)))
+            hyUnderBlueIndex(ic,iYear) = max(find(LCOHcurve_used{ic}(:,2)<blueHyPriceCap));
+            hyUnderBlue(ic,iYear) = LCOHcurve_used{ic}(hyUnderBlueIndex(ic,iYear),1)/1e3;
+        else
+            hyUnderBlueIndex(ic,iYear) = 0;
+            hyUnderBlue(ic,iYear) = 0;
+        end
+        
+    end
+    [~,marginalLCOHindex(:,iYear)] = sort(marginalLCOH(:,iYear));
+    [~,averageLCOHindex(:,iYear)] = sort(averageLCOH(:,iYear));
+    marginalLCOHrank(marginalLCOHindex(:,iYear),iYear) = 1:nCountry;
+    averageLCOHrank(averageLCOHindex(:,iYear),iYear) = 1:nCountry;
+end
+%
+save(fullfile(checkpointDir,'stop1.mat'))
+%% simulation
+clear
+clc
+projectRoot = setupHyExport();
+checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
+load(fullfile(checkpointDir,'stop1.mat'))
+load(fullfile(checkpointDir,'mpcIreland.mat'))
+irelandPowerSystemOperation = readtable(projectFile('tables','System-Data-Qtr-Hourly-2023.xlsx'));
+%
+mpc0 = mpc;
+[PQ, PV, REF, NONE, BUS_I, BUS_TYPE, PD, QD, GS, BS, BUS_AREA, VM, ...
+    VA, BASE_KV, ZONE, VMAX, VMIN, LAM_P, LAM_Q, MU_VMAX, MU_VMIN] = idx_bus;
+[F_BUS, T_BUS, BR_R, BR_X, BR_B, RATE_A, RATE_B, RATE_C, ...
+    TAP, SHIFT, BR_STATUS, PF, QF, PT, QT, MU_SF, MU_ST, ...
+    ANGMIN, ANGMAX, MU_ANGMIN, MU_ANGMAX] = idx_brch;
+[PW_LINEAR, POLYNOMIAL, MODEL, STARTUP, SHUTDOWN, NCOST, COST] = idx_cost;
+baseMVA = 100;
+[GCV, M, fs, a, R, T_stp, Prs_stp, Z_ref, T_gas, eta, CDF,rho_stp] = initializeParameters_J13();
+
+genTypeSet = ["Coal";"Waste";"Peat"; "Oil";"Gasoil"; "Gas";"Water"; "Solar";"Wind";"Offshore"];
+
+% onshore wind/solar/hydro/interconnector generation capacity
+[onshoreWindAvaliableCapacity,onshoreSolarAvaliableCapacity,hydroAvaliableCapacity,interconnectorAvaliableCapacity,offshoreWindAvaliableCapacityCoeff] ...
+    = renewableGeneration(EUshpEEZ,mpc,nGrid,irelandPowerSystemOperation,lonColumnE{5},latColumnE{5},LCOEcurve{5});
+
+gppIndex_gen = mpc.GEcon(:,3);
+mpc.gencost(gppIndex_gen,5:7) = 0; % cost of gpp = 0
+
+% correction from interconnector, moyle is connected to BYC, EWIC is connected to PRT
+mpc.interconnectorBus = [65;302];
+
+% run simulations
+seasonSet = {'summer','winter','spring'}; yearSet = {'2030','2040','2050'};
+hymaxSet = {0,0.2,1}; exportSet = {0,0.5,1};
+for iYear = 1:3
+    for iSeason = 1:3
+        options.year = yearSet{iYear}; options.season = seasonSet{iSeason}; options.hymax = hymaxSet{iYear};
+        % year = '2040'; season = 'summer'; options.hymax = 0.2;
+        options.export = 0;
+        [solutionNoExport{iYear,iSeason}, solution_infoNoExport{iYear,iSeason},electricityGenerationNoExport{iYear,iSeason},windCurtailmentNoExport{iYear,iSeason},gasDemandNoExport{iYear,iSeason}, ...
+            GPPgasConsumptionNoExport{iYear,iSeason},interconnectorPowerNoExport{iYear,iSeason},electricityDemandNoExport{iYear,iSeason}] ...
+            = unitCommitmentIreland(mpc,options,genTypeSet, ...
+            onshoreWindAvaliableCapacity,onshoreSolarAvaliableCapacity,hydroAvaliableCapacity,interconnectorAvaliableCapacity,offshoreWindAvaliableCapacityCoeff,lonColumnE{5},latColumnE{5},LCOEcurve{5});
+        options.export = 1;
+        [solutionExport{iYear,iSeason}, solution_infoExport{iYear,iSeason},electricityGenerationExport{iYear,iSeason},windCurtailmentExport{iYear,iSeason},gasDemandExport{iYear,iSeason}, ...
+            GPPgasConsumptionExport{iYear,iSeason},interconnectorPowerExport{iYear,iSeason},electricityDemandExport{iYear,iSeason}] ...
+            = unitCommitmentIreland(mpc,options,genTypeSet, ...
+            onshoreWindAvaliableCapacity,onshoreSolarAvaliableCapacity,hydroAvaliableCapacity,interconnectorAvaliableCapacity,offshoreWindAvaliableCapacityCoeff,lonColumnE{5},latColumnE{5},LCOEcurve{5});
+       
+    end
+end
+
+% data processing
+nDay = size(windCurtailmentNoExport{1,1},1) / 24;
+[windPowerTotal,usedWindTotal,exportWindTotal,curtailedWindTotal,usedWindbyEtotal,usedWindbyGtotal, ...
+    electricityDemandTotal,gasDemandTotal] = deal(zeros(3,1));
+for iYear = 1:3
+    for iSeason = 1:3
+        % wind curtail rate
+        curtailmentRateNoExport{iYear,iSeason} = windCurtailmentNoExport{iYear,iSeason} ./ ...
+            ( windCurtailmentNoExport{iYear,iSeason} + electricityGenerationNoExport{iYear,iSeason}(:,9) + electricityGenerationNoExport{iYear,iSeason}(:,10) );
+        curtailmentRateExport{iYear,iSeason} = windCurtailmentExport{iYear,iSeason} ./ ...
+            ( windCurtailmentExport{iYear,iSeason} + electricityGenerationExport{iYear,iSeason}(:,9) + electricityGenerationExport{iYear,iSeason}(:,10) );
+        % wind consumption decomposition
+        windPower(iYear,iSeason) = sum(windCurtailmentNoExport{iYear,iSeason} + electricityGenerationNoExport{iYear,iSeason}(:,9) + electricityGenerationNoExport{iYear,iSeason}(:,10));
+        usedWind(iYear,iSeason) = sum(electricityGenerationNoExport{iYear,iSeason}(:,9) + electricityGenerationNoExport{iYear,iSeason}(:,10));
+        usedWindbyG(iYear,iSeason) = 0;
+        hydrogenProduction(iYear,iSeason) = 0;
+        PgOffshore(iYear,iSeason) = 0;
+        for iDay = 1:nDay
+            usedWindbyG(iYear,iSeason) = usedWindbyG(iYear,iSeason) + sum(sum(solutionNoExport{iYear,iSeason}{iDay}.Pptg)) * baseMVA; 
+            hydrogenProduction(iYear,iSeason) = hydrogenProduction(iYear,iSeason) + sum(sum(sum(solutionNoExport{iYear,iSeason}{iDay}.Qptg/24))); 
+        end
+        usedWindbyE(iYear,iSeason) = usedWind(iYear,iSeason) -  usedWindbyG(iYear,iSeason);
+        exportWind(iYear,iSeason) = sum(electricityGenerationExport{iYear,iSeason}(:,9) + electricityGenerationExport{iYear,iSeason}(:,10));
+        curtailedWind(iYear,iSeason) = sum(windCurtailmentExport{iYear,iSeason});
+        % total energy demand
+        electricityDemand(iYear,iSeason) = sum(electricityDemandExport{iYear,iSeason}); % MWh in 3 days
+        gasDemand(iYear,iSeason) = sum(gasDemandExport{iYear,iSeason});
+        PgOffshore(iYear,iSeason) = PgOffshore(iYear,iSeason) + sum(electricityGenerationNoExport{iYear,iSeason}(:,10));
+    end
+
+    windPowerTotal(iYear) = (windPower(iYear,1) + windPower(iYear,2) + windPower(iYear,3)) / 3 / 3 * 365;
+    usedWindTotal(iYear) = (usedWind(iYear,1) + usedWind(iYear,2) + usedWind(iYear,3)) / 3 / 3 * 365;
+    usedWindbyEtotal(iYear) = (usedWindbyE(iYear,1) + usedWindbyE(iYear,2) + usedWindbyE(iYear,3)) / 3 / 3 * 365;
+    usedWindbyGtotal(iYear) = (usedWindbyG(iYear,1) + usedWindbyG(iYear,2) + usedWindbyG(iYear,3)) / 3 / 3 * 365;
+    exportWindTotal(iYear) = (exportWind(iYear,1) + exportWind(iYear,2) + exportWind(iYear,3)) / 3 / 3 * 365;
+    curtailedWindTotal(iYear) = (curtailedWind(iYear,1) + curtailedWind(iYear,2) + curtailedWind(iYear,3)) / 3 / 3 * 365;
+    hydrogenProductionTotal(iYear) = (hydrogenProduction(iYear,1) + hydrogenProduction(iYear,2) + hydrogenProduction(iYear,3)) / 3 / 3 * 365;
+    electricityDemandTotal(iYear) = (electricityDemand(iYear,1) + electricityDemand(iYear,2) + electricityDemand(iYear,3)) / 3 / 3 * 365;
+    gasDemandTotal(iYear) = (gasDemand(iYear,1) + gasDemand(iYear,2) + gasDemand(iYear,3)) / 3 / 3 * 365;
+    PgOffshoreTotal(iYear) = (PgOffshore(iYear,1) + PgOffshore(iYear,2) + PgOffshore(iYear,3)) / 3 / 3 * 365;
+end
+windConsump = [usedWindbyEtotal,usedWindbyGtotal,exportWindTotal,curtailedWindTotal]/1e6;% TWh
+carbonReduction = hydrogenProductionTotal * 1e6 * 1 / 1e6; % ton
+% domestic offshore wind used factor (divided by energy demand)
+totalDemandTotal = electricityDemandTotal + gasDemandTotal;
+offshoreFactor = PgOffshoreTotal./totalDemandTotal;
+offshoreByElectricityFactor = usedWindbyEtotal./electricityDemandTotal;
+offshoreByGasFactor = usedWindbyGtotal./gasDemandTotal;
+offshoreCurtailedRate = curtailedWindTotal ./ ([5;20;37]*1e3 * 8760);
+% other countries
+EUhydrogenDemand = readtable(projectFile('tables','tables.xlsx'),'Sheet','hydemand','Range','A36:P47');
+EUoffshoreCapacity = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
+% load port data and its countries
+[ferryPortShp_noAggregation,ferryPortShp_aggregated,portIndexPerCountry,portInCountry] ...
+    = loadFerryPort(resolveProjectFile('EMODnet_HA_Main_Ports_20231106.shp'),nCountry);
+EUelectricityDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','B26:L53')); % GW
+EUgasDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','P26:Z53')); % GWh/day
+EUnonPowerGasDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','BD26:BN53'));
+% estimate offshore wind consumption
+% EUenergyDemand = table2array(readtable('tables.xlsx','Sheet','energy demand','Range','AQ26:BA53')); % GW, average value
+% EUoffshoreDomesticConsumption = ([EUenergyDemand(8,:);EUenergyDemand(18,:);EUenergyDemand(28,:)] .* repmat(offshoreFactor',[1,nCountry]) * 0.6)';
+% compare
+EUoffshoreDomesticConsumptionByElectricity = ([EUelectricityDemand(8,:);EUelectricityDemand(18,:);EUelectricityDemand(28,:)] ...
+    .* repmat(offshoreByElectricityFactor,[1,nCountry]) * 0.6)'; % 0.6是算上onshore wind的系数
+EUoffshoreDomesticConsumptionByGas = ([EUnonPowerGasDemand(8,:);EUnonPowerGasDemand(18,:);EUnonPowerGasDemand(28,:)] ...
+    .* repmat(offshoreByGasFactor,[1,nCountry]) * 0.6)';
+EUoffshoreDomesticConsumption = EUoffshoreDomesticConsumptionByElectricity + EUoffshoreDomesticConsumptionByGas;
+% total
+capacityFactor_mean = zeros(nCountry,1);
+for ic = 1:nCountry
+    capacityFactor_mean(ic) = mean(mean(capacityFactor{ic}(~isnan(waterDepth{ic}))));
+end
+
+loadFactor = 0.95;
+EUoffshoreGenerationTotal = EUoffshoreCapacity .* repmat(capacityFactor_mean,[1,3]) * loadFactor;
+% curtailed
+EUoffshoreCurtailedTotal = EUoffshoreGenerationTotal .* repmat(offshoreCurtailedRate',[nCountry,1]) * 0.6; 
+%
+for iYear = 1:3
+    windExport{iYear} = EUoffshoreGenerationTotal(:,iYear) - EUoffshoreDomesticConsumptionByElectricity(:,iYear) - EUoffshoreDomesticConsumptionByGas(:,iYear) - ...
+        EUoffshoreCurtailedTotal(:,iYear);
+    EUwindConsump{iYear} = [EUoffshoreDomesticConsumptionByElectricity(:,iYear),EUoffshoreDomesticConsumptionByGas(:,iYear), ...
+        windExport{iYear},EUoffshoreCurtailedTotal(:,iYear)] * 8760/1e3;
+    EUwindConsump_new{iYear} = EUwindConsump{iYear};
+    % deduction
+    deduction{iYear} = zeros(nCountry,3);
+    deduction{iYear} = repmat(-windExport{iYear} ./ sum([EUoffshoreDomesticConsumptionByElectricity(:,iYear),EUoffshoreDomesticConsumptionByGas(:,iYear), ...
+        EUoffshoreCurtailedTotal(:,iYear)],2),[1,3]) .* [EUoffshoreDomesticConsumptionByElectricity(:,iYear),EUoffshoreDomesticConsumptionByGas(:,iYear), ...
+        EUoffshoreCurtailedTotal(:,iYear)]* 8760/1e3;
+    deduction{iYear}(deduction{iYear}<0) = 0;
+    [EUwindConsump_new{iYear}(:,1),EUwindConsump_new{iYear}(:,2),EUwindConsump_new{iYear}(:,4)] = ...
+        deal(EUwindConsump{iYear}(:,1) - deduction{iYear}(:,1),EUwindConsump{iYear}(:,2) - deduction{iYear}(:,2), ...
+        EUwindConsump{iYear}(:,4) - deduction{iYear}(:,3));
+    EUwindConsump_new{iYear}(EUwindConsump_new{iYear}<0) = 0;
+end
+%
+
+save(fullfile(checkpointDir,'stop2.mat'))
+%% shipping cost
+clc
+clear
+projectRoot = setupHyExport();
+checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
+load(fullfile(checkpointDir,'stop2.mat'))
+yalmip('clear')
+
+
+nPort = size(ferryPortShp_aggregated,1);
+capacityFactor_mean = zeros(nCountry,1);
+for ic = 1:nCountry
+    capacityFactor_mean(ic) = mean(mean(capacityFactor{ic}(~isnan(waterDepth{ic}))));
+end
+% solve optimal transportation problem
+year = '2030';
+[solution{1},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+    portIndexPerCountry,portInCountry,LCOHcurve2030,LCOAcurve2030,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated,...
+    EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
+year = '2040';
+[solution{2},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+    portIndexPerCountry,portInCountry,LCOHcurve2040,LCOAcurve2040,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated,...
+    EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
+year = '2050';
+[solution{3},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+    portIndexPerCountry,portInCountry,LCOHcurve2050,LCOAcurve2050,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated,...
+    EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
+% give the results of production cost + transportation cost to each countries from Ireland
+
+% evaluate decarbonization potential
+
+% overall imprt and export
+totalExport = zeros(3,nCountry+1);
+for iYear = 1:3
+    tradingArray = solution{iYear}.tradingArray;
+    for ij = 1:size(tradingArray,1)
+        ic = tradingArray(ij,1); jc = tradingArray(ij,2);
+        if ic ~= jc
+            totalExport(iYear,ic) = totalExport(iYear,ic) + tradingArray(ij,4);
+            totalExport(iYear,jc) = totalExport(iYear,jc) - tradingArray(ij,4);
+        end
+    end
+end
+
+save(fullfile(checkpointDir,'stop3.mat'))
+
