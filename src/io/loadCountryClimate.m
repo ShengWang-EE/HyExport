@@ -6,10 +6,10 @@ climate.lat = flip(ncread(fileName, 'latitude')); % lat is reversed!
 climate.windSpeed = sqrt((flip(ncread(fileName, 'u100'),2)).^2 + (flip(ncread(fileName, 'v100'),2)).^2);
 % climate.ssr = flip(ncread(fileName, 'ssr'),2);
 
-minLonIndex = max(find(EEZ.minLon>=climate.lon)); % climate should cover all EEZ
-maxLonIndex = min(find(EEZ.maxLon<=climate.lon));
-minLatIndex = max(find(EEZ.minLat>=climate.lat));
-maxLatIndex = min(find(EEZ.maxLat<=climate.lat));
+minLonIndex = find(EEZ.minLon>=climate.lon,1,'last'); % climate should cover all EEZ
+maxLonIndex = find(EEZ.maxLon<=climate.lon,1,'first');
+minLatIndex = find(EEZ.minLat>=climate.lat,1,'last');
+maxLatIndex = find(EEZ.maxLat<=climate.lat,1,'first');
 % save as the same name to save memory
 nLon = maxLonIndex - minLonIndex + 1;
 nLat = maxLatIndex - minLatIndex + 1;

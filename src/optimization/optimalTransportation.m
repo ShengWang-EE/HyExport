@@ -214,8 +214,8 @@ totalCost = value(objfcn);
 % marginal production cost
 marginalCostHy = zeros(nCountry,3); marginalCostAm = zeros(nCountry,3);
 for ic = 1:nCountry
-    indexHy = max(find(Q_hyspl(ic) > LCOHcurve{ic}(:,1)));
-    indexAm = max(find(Q_amspl(ic) > LCOAcurve{ic}(:,1)));
+    indexHy = find(Q_hyspl(ic) > LCOHcurve{ic}(:,1),1,'last');
+    indexAm = find(Q_amspl(ic) > LCOAcurve{ic}(:,1),1,'last');
     if isempty(indexHy)
         indexHy = 1;
     end
@@ -239,23 +239,23 @@ for ic = 1:nCountry
 end
 shipHyFuelProportion = shipConsumption .* travelTime / Q_shiphymax; % 每次运输所消耗hy占全船所运的hy的百分比
 shipAmFuelProportion = shipConsumption .* travelTime / Q_shipammax; % 每次运输所消耗am占全船所运的am的百分比
-shipHyFuelCost = shipHyFuelProportion .* marginalCostHy(tradingArray(:,2),3) + hyShipOperationCost * travelTime; % 运送每MWh的hy的fuelcost（marginal）
-shipAmFuelCost = shipAmFuelProportion .* marginalCostAm(tradingArray(:,2),3) + amShipOperationCost * travelTime; % 运送每MWh的hy的fuelcost（marginal）
+shipHyFuelCost = shipHyFuelProportion .* marginalCostHy(tradingArray(:,2),2) + hyShipOperationCost * travelTime; % 运送每MWh的hy的fuelcost（marginal）
+shipAmFuelCost = shipAmFuelProportion .* marginalCostAm(tradingArray(:,2),2) + amShipOperationCost * travelTime; % 运送每MWh的am的fuelcost（marginal）
 tradingArray(:,10:13) = [shipHyFuelProportion,shipAmFuelProportion,shipHyFuelCost,shipAmFuelCost];
 % add intenational trade array
 addTradingArray = zeros(nCountry,size(tradingArray,2));
-addTradingArray(:,1) = 12; addTradingArray(:,2) = (1:11)';
-addTradingArray(:,4) = Q_hy_im; 
-addTradingArray(:,6) = Q_am_im; 
+addTradingArray(:,1) = nCountry + 1; addTradingArray(:,2) = (1:nCountry)';
+addTradingArray(:,4) = Q_hy_im;
+addTradingArray(:,5) = Q_am_im;
 tradingArray = [tradingArray;addTradingArray];
 
 
 shipHyFuelCostMatrix = zeros(nCountry); shipAmFuelCostMatrix = zeros(nCountry);
 for ic = 1:nCountry
     for jc = 1:nCountry
-        shipHyFuelCostMatrix(ic,jc) = shipConsumption .* shippingLineMatrix(ic,jc)/shipSpeed / Q_shiphymax .* marginalCostHy(ic,3) ...
+        shipHyFuelCostMatrix(ic,jc) = shipConsumption .* shippingLineMatrix(ic,jc)/shipSpeed / Q_shiphymax .* marginalCostHy(ic,2) ...
             + hyShipOperationCost * shippingLineMatrix(ic,jc)/shipSpeed;
-        shipAmFuelCostMatrix(ic,jc) = shipConsumption .* shippingLineMatrix(ic,jc)/shipSpeed / Q_shipammax .* marginalCostAm(ic,3) ...
+        shipAmFuelCostMatrix(ic,jc) = shipConsumption .* shippingLineMatrix(ic,jc)/shipSpeed / Q_shipammax .* marginalCostAm(ic,2) ...
             + amShipOperationCost * shippingLineMatrix(ic,jc)/shipSpeed;
         if ic == jc
             shipHyFuelCostMatrix(ic,jc) = nan; shipAmFuelCostMatrix(ic,jc) = nan;
@@ -293,7 +293,7 @@ for ij = 1:nShippingLine
     end   
 end
 % international
-carbonReductionContributionMatrix(12,1:nCountry) = Q_hy_im' * 8760 * 3600 / naturalGasHeatValue / 16 * 44 / 1e9 + Q_am_im' * 8760 * 3600 / ammoniaHeatValue / 17 * 44 / 1e9;
+carbonReductionContributionMatrix(nCountry+1,1:nCountry) = Q_hy_im' * 8760 * 3600 / naturalGasHeatValue / 16 * 44 / 1e9 + Q_am_im' * 8760 * 3600 / ammoniaHeatValue / 17 * 44 / 1e9;
 for ic = 1:nCountry
     carbonReductionContributionMatrix(ic,ic) = carbonReductionByCountry(ic) - sum(carbonReductionContributionMatrix(:,ic));
 end

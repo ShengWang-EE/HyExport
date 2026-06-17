@@ -11,7 +11,10 @@ climate.lat = double(flip(ncread(fileName, 'latitude'))); % lat is reversed!
 climate.windSpeed = double(sqrt((flip(ncread(fileName, 'u100'),2)).^2 + (flip(ncread(fileName, 'v100'),2)).^2));
 climate.ssr = double(flip(ncread(fileName, 'ssr'),2));
 
-[~,nOffshoreWind] = max(LCOEcurve(:,1) > 37000);
+nOffshoreWind = find(LCOEcurve(:,1) > 37000,1,'first');
+if isempty(nOffshoreWind)
+    nOffshoreWind = size(LCOEcurve,1);
+end
 %% onshore wind
 onshoreWindGenIndex = find(mpc.genType == 'Wind');
 nOnshoreWind = size(onshoreWindGenIndex,1);

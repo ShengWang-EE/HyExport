@@ -100,7 +100,7 @@ exportgraphics(gcf, 'figs/fig power curve of wind turbine.pdf', 'ContentType', '
 %% wake effect
 % draw line
 for iRow = 1:size(wakeEffectSingle,1)
-    iColumn = max(find(wakeEffectSingle(iRow,:)>0.11));
+    iColumn = find(wakeEffectSingle(iRow,:)>0.11,1,'last');
     if ~isempty(iColumn)
         record(iRow,[1,2]) = [iRow,iColumn];
     end

@@ -11,7 +11,7 @@ end
 % 就取实数部分也行
 windDecreaseFactor_real = real(windDecreaseFactor);
 % 截取一段进行画图
-indexRow = max(find(max(windDecreaseFactor_real,[],2) > 1e-2));
+indexRow = find(max(windDecreaseFactor_real,[],2) > 1e-2,1,'last');
 indexColumn = ceil(indexRow / 6);
 wakeEffectSingle = windDecreaseFactor_real(1:indexRow,1:indexColumn);
 % 风机间距

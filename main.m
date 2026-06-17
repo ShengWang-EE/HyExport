@@ -95,11 +95,12 @@ for iYear = 1:3
     end
     for ic = 1:nCountry
         offshoreCapacity = EUoffshoreCapacity(ic,iYear);
-        [capacityIndex(ic,iYear)] = max(find(offshoreCapacity * 1e3 > LCOHcurve_used{ic}(:,1)));
+        capacityIndex(ic,iYear) = find(offshoreCapacity * 1e3 > LCOHcurve_used{ic}(:,1),1,'last');
         marginalLCOH(ic,iYear) = LCOHcurve_used{ic}(capacityIndex(ic,iYear),2);
         averageLCOH(ic,iYear) = mean(LCOHcurve_used{ic}(1:capacityIndex(ic,iYear),2));
-        if ~isempty(max(find(LCOHcurve_used{ic}(:,2)<blueHyPriceCap)))
-            hyUnderBlueIndex(ic,iYear) = max(find(LCOHcurve_used{ic}(:,2)<blueHyPriceCap));
+        hyUnderBlueIndexNow = find(LCOHcurve_used{ic}(:,2)<blueHyPriceCap,1,'last');
+        if ~isempty(hyUnderBlueIndexNow)
+            hyUnderBlueIndex(ic,iYear) = hyUnderBlueIndexNow;
             hyUnderBlue(ic,iYear) = LCOHcurve_used{ic}(hyUnderBlueIndex(ic,iYear),1)/1e3;
         else
             hyUnderBlueIndex(ic,iYear) = 0;
@@ -236,7 +237,7 @@ EUoffshoreDomesticConsumption = EUoffshoreDomesticConsumptionByElectricity + EUo
 % total
 capacityFactor_mean = zeros(nCountry,1);
 for ic = 1:nCountry
-    capacityFactor_mean(ic) = mean(mean(capacityFactor{ic}(~isnan(waterDepth{ic}))));
+    capacityFactor_mean(ic) = mean(capacityFactor{ic}(~isnan(waterDepth{ic})),'omitnan');
 end
 
 loadFactor = 0.95;
@@ -276,19 +277,19 @@ yalmip('clear')
 nPort = size(ferryPortShp_aggregated,1);
 capacityFactor_mean = zeros(nCountry,1);
 for ic = 1:nCountry
-    capacityFactor_mean(ic) = mean(mean(capacityFactor{ic}(~isnan(waterDepth{ic}))));
+    capacityFactor_mean(ic) = mean(capacityFactor{ic}(~isnan(waterDepth{ic})),'omitnan');
 end
 % solve optimal transportation problem
 year = '2030';
-[solution{1},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+[solution{1},solutionInfo{1}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2030,LCOAcurve2030,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
 year = '2040';
-[solution{2},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+[solution{2},solutionInfo{2}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2040,LCOAcurve2040,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
 year = '2050';
-[solution{3},solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
+[solution{3},solutionInfo{3}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2050,LCOAcurve2050,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
 % give the results of production cost + transportation cost to each countries from Ireland
@@ -302,8 +303,9 @@ for iYear = 1:3
     for ij = 1:size(tradingArray,1)
         ic = tradingArray(ij,1); jc = tradingArray(ij,2);
         if ic ~= jc
-            totalExport(iYear,ic) = totalExport(iYear,ic) + tradingArray(ij,4);
-            totalExport(iYear,jc) = totalExport(iYear,jc) - tradingArray(ij,4);
+            exportFlow = tradingArray(ij,4) + tradingArray(ij,5);
+            totalExport(iYear,ic) = totalExport(iYear,ic) + exportFlow;
+            totalExport(iYear,jc) = totalExport(iYear,jc) - exportFlow;
         end
     end
 end

@@ -21,7 +21,10 @@ GbusCord = table2array(mpc.GbusName(:,2:3));
 addGen = []; addPTG = [];
 nOWF = 0;
 if OWFcapacity ~= 0
-    [~,nOWF] = max(LCOEcurve(:,1) > OWFcapacity * 1e3);
+    nOWF = find(LCOEcurve(:,1) > OWFcapacity * 1e3,1,'first');
+    if isempty(nOWF)
+        nOWF = size(LCOEcurve,1);
+    end
     for i = 1:nOWF
         lat = latColumn(i); lon = lonColumn(i);
         distanceToBusE = (lon-busCord(:,1)).^2 + (lat-busCord(:,2)).^2;
@@ -76,7 +79,7 @@ for iDay = 1:nDay
 end
 nHour = endHour - startHour + 1;
 electricityGeneration = zeros(nHour,size(genTypeSet,1));
-[onshoreWindCurtailment,offshoreWindCurtailment,gasDemand,GPPgasConsumption] = deal(zeros(nHour,1));
+[onshoreWindCurtailment,offshoreWindCurtailment,gasDemand,GPPgasConsumption,interconnectorPower] = deal(zeros(nHour,1));
 for iDay = 1:nDay
     for iGenType = 1:size(genTypeSet,1)
         typeName = genTypeSet(iGenType);
@@ -87,8 +90,8 @@ for iDay = 1:nDay
     offshoreWindCurtailment((iDay-1)*24+1:iDay*24) = sum(solution{iDay}.offshoreWindCurtailment,2) * baseMVA; % MW
     gasDemand((iDay-1)*24+1:iDay*24) = sum(solution{iDay}.energyDemandMultiPeriods,2) * 1e9 / 3600 / 24; % MWh/h
     GPPgasConsumption((iDay-1)*24+1:iDay*24) = sum(solution{iDay}.gasEnergyConsumption,2) * baseMVA; % MW
+    interconnectorPower((iDay-1)*24+1:iDay*24) = sum(solution{iDay}.Pic,2); % MW
 end
 windCurtailment = onshoreWindCurtailment + offshoreWindCurtailment;
-interconnectorPower = sum(interconnectorAvaliableCapacity(startHour:endHour,:),2);
 electricityDemand = mpc.electricityDemandCuve(startHour:endHour); % MW
 end

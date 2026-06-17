@@ -2,10 +2,10 @@ function bathymetry_interpolated = loadCountryBathymetry(countryEEZ,countryName,
 
 load(resolveProjectFile(['bathymetry_2022_',countryName,'.mat'])); % var name bathymetry_2022
 
-minLonIndex = max(find(countryEEZ.minLon>=bathymetry_2022.longitude));
-maxLonIndex = min(find(countryEEZ.maxLon<=bathymetry_2022.longitude));
-minLatIndex = max(find(countryEEZ.minLat>=bathymetry_2022.latitude));
-maxLatIndex = min(find(countryEEZ.maxLat<=bathymetry_2022.latitude));
+minLonIndex = find(countryEEZ.minLon>=bathymetry_2022.longitude,1,'last');
+maxLonIndex = find(countryEEZ.maxLon<=bathymetry_2022.longitude,1,'first');
+minLatIndex = find(countryEEZ.minLat>=bathymetry_2022.latitude,1,'last');
+maxLatIndex = find(countryEEZ.maxLat<=bathymetry_2022.latitude,1,'first');
 
 % nLon = maxLonIndex - minLonIndex + 1;
 % nLat = maxLatIndex - minLatIndex + 1;
