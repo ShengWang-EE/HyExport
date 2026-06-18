@@ -1,6 +1,6 @@
 # Project Truth
 
-Last updated: 2026-06-17
+Last updated: 2026-06-18
 
 ## Source Of Truth
 
@@ -37,6 +37,10 @@ Secondary contribution types:
 
 Europe's offshore hydrogen trade is shaped by the interaction of production costs, domestic energy-system absorption, shipping economics, and hydrogen/ammonia demand. This interaction can shift decarbonisation value through west-to-east offshore hydrogen trade, making Ireland and the UK strategically important suppliers even when they are not always the lowest-cost producers.
 
+## Locked Manuscript Framework
+
+The current Results sequence and main-figure roles are locked in `manuscript/notes/NC_locked_framework_and_submission_tasks.md`. Future revisions should preserve this structure unless the user explicitly approves a structural change.
+
 ## Current Main Risk
 
-The SI draft is detailed but not aligned with the current NC story. The main manuscript still needs a claim-evidence map, verified headline numbers, sensitivity analysis, and figure redesign before prose polishing.
+The main story and figure sequence are now coherent, but the manuscript is not yet submission-ready. The remaining risks are SI alignment, source-data coverage for all main displays, citation hygiene, final figure readability, and submission-package statements.
