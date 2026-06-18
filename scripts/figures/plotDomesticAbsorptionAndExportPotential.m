@@ -3,13 +3,6 @@ if nargin == 0
     projectRoot = pwd;
 end
 
-checkpointFile = fullfile(projectRoot, 'results', 'checkpoints', 'stop3.mat');
-data = load(checkpointFile, ...
-    'curtailmentRateNoExport', 'curtailmentRateExport', ...
-    'windCurtailmentNoExport', 'windCurtailmentExport', ...
-    'electricityGenerationNoExport', 'electricityGenerationExport', ...
-    'EUwindConsump_new');
-
 figureDir = fullfile(projectRoot, 'figs');
 manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'figs');
 if exist(figureDir, 'dir') ~= 7
@@ -19,8 +12,14 @@ if exist(manuscriptFigureDir, 'dir') ~= 7
     mkdir(manuscriptFigureDir);
 end
 
-plotCurtailmentSummary(data, figureDir, manuscriptFigureDir);
-plotExportPotentialSummary(data, figureDir, manuscriptFigureDir);
+syncMainFigure(figureDir, manuscriptFigureDir, ...
+    'fig unit commitment main.pdf', 'fig_unit_commitment_main.pdf');
+syncMainFigure(figureDir, manuscriptFigureDir, ...
+    'fig wind decomposition.pdf', 'fig_wind_decomposition.pdf');
+end
+
+function syncMainFigure(figureDir, manuscriptFigureDir, sourceName, targetName)
+copyfile(fullfile(figureDir, sourceName), fullfile(manuscriptFigureDir, targetName));
 end
 
 function plotCurtailmentSummary(data, figureDir, manuscriptFigureDir)
@@ -80,9 +79,9 @@ legend(barHandle, {'Used by power system', 'Curtailed'}, 'Location', 'northeast'
 ylim([0, max([usedNoExport + curtailedNoExport, usedExport + curtailedExport]) * 1.18]);
 text(0.01, 1.03, 'b', 'Units', 'normalized', 'FontWeight', 'bold', 'FontName', 'Arial');
 
-outputPdf = fullfile(figureDir, 'fig unit commitment main.pdf');
+outputPdf = fullfile(figureDir, 'fig unit commitment summary.pdf');
 exportgraphics(fig, outputPdf, 'ContentType', 'vector');
-copyfile(outputPdf, fullfile(manuscriptFigureDir, 'fig_unit_commitment_main.pdf'));
+copyfile(outputPdf, fullfile(manuscriptFigureDir, 'fig_unit_commitment_summary.pdf'));
 close(fig);
 end
 
@@ -165,8 +164,8 @@ ax.XTickLabel = yearNames;
 ylabel('Available export potential (TWh yr^{-1})');
 text(0.01, 1.03, 'd', 'Units', 'normalized', 'FontWeight', 'bold', 'FontName', 'Arial');
 
-outputPdf = fullfile(figureDir, 'fig wind decomposition.pdf');
+outputPdf = fullfile(figureDir, 'fig wind decomposition summary.pdf');
 exportgraphics(fig, outputPdf, 'ContentType', 'vector');
-copyfile(outputPdf, fullfile(manuscriptFigureDir, 'fig_wind_decomposition.pdf'));
+copyfile(outputPdf, fullfile(manuscriptFigureDir, 'fig_wind_decomposition_summary.pdf'));
 close(fig);
 end

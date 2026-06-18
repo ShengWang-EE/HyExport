@@ -332,7 +332,7 @@ fprintf('Stage 3/5: save stop3.mat\n');
 save(fullfile(checkpointDir,'stop3.mat'))
 
 %% Domestic absorption and export-potential figures
-% 默认生成新版 Fig. 3/4：国内吸纳机制摘要和欧洲出口潜力摘要。
+% 同步恢复的原始 Fig. 4/5 到 manuscript/figs，避免摘要诊断图覆盖主文图。
 fprintf('Stage 4/5: domestic absorption and export-potential figures\n');
 plotDomesticAbsorptionAndExportPotential(projectRoot);
 
