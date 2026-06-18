@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{61}
+\begin{thebibliography}{60}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -137,16 +137,6 @@ Global Hydrogen Review 2023.
 \endbibitem
 
 %%% 10
-\bibitem[\protect\citeauthoryear{Economie}{2024}]{windenergyroadmap}
-\begin{botherref}
-\oauthor{\bsnm{Economie}}:
-wind energy roadmap.
-\url{https://www.seai.ie/publications/Wind_Energy_Roadmap_2011-2050.pdf}
-(2024)
-\end{botherref}
-\endbibitem
-
-%%% 11
 \bibitem[\protect\citeauthoryear{Rogeau et~al.}{2023}]{rogeau2023techno}
 \begin{barticle}
 \bauthor{\bsnm{Rogeau}, \binits{A.}},
@@ -164,7 +154,7 @@ wind energy roadmap.
 \end{barticle}
 \endbibitem
 
-%%% 12
+%%% 11
 \bibitem[\protect\citeauthoryear{Giampieri et~al.}{2024}]{giampieri2024techno}
 \begin{barticle}
 \bauthor{\bsnm{Giampieri}, \binits{A.}},
@@ -179,7 +169,7 @@ wind energy roadmap.
 \end{barticle}
 \endbibitem
 
-%%% 13
+%%% 12
 \bibitem[\protect\citeauthoryear{Komorowska
   et~al.}{2023}]{komorowska2023evaluating}
 \begin{barticle}
@@ -195,7 +185,7 @@ wind energy roadmap.
 \end{barticle}
 \endbibitem
 
-%%% 14
+%%% 13
 \bibitem[\protect\citeauthoryear{Gonzalez-Arceo
   et~al.}{2024}]{gonzalez2024techno}
 \begin{barticle}
@@ -215,7 +205,7 @@ wind energy roadmap.
 \end{barticle}
 \endbibitem
 
-%%% 15
+%%% 14
 \bibitem[\protect\citeauthoryear{Calado et~al.}{2024}]{calado2024assessment}
 \begin{barticle}
 \bauthor{\bsnm{Calado}, \binits{G.}},
@@ -231,7 +221,7 @@ wind energy roadmap.
 \end{barticle}
 \endbibitem
 
-%%% 16
+%%% 15
 \bibitem[\protect\citeauthoryear{UK}{2024}]{HydrogenImport}
 \begin{botherref}
 \oauthor{\bsnm{UK}, \binits{H.}}:
@@ -241,7 +231,7 @@ Hydrogen Import and Export: Unlocking the UK’s hydrogen trade potential.
 \end{botherref}
 \endbibitem
 
-%%% 17
+%%% 16
 \bibitem[\protect\citeauthoryear{Hersbach et~al.}{2024}]{ERA5}
 \begin{botherref}
 \oauthor{\bsnm{Hersbach}, \binits{H.}},
@@ -265,7 +255,7 @@ ERA5 hourly data on single levels from 1940 to present.
 \end{botherref}
 \endbibitem
 
-%%% 18
+%%% 17
 \bibitem[\protect\citeauthoryear{Musial et~al.}{2019}]{musial2019oregon}
 \begin{botherref}
 \oauthor{\bsnm{Musial}, \binits{W.D.}},
@@ -281,7 +271,7 @@ National Renewable Energy Lab.(NREL), Golden, CO (United States)
 \end{botherref}
 \endbibitem
 
-%%% 19
+%%% 18
 \bibitem[\protect\citeauthoryear{EMODnet}{2022}]{bathymetry_2022}
 \begin{botherref}
 \oauthor{\bsnm{EMODnet}}:
@@ -291,7 +281,7 @@ bathymetry2022.
 \end{botherref}
 \endbibitem
 
-%%% 20
+%%% 19
 \bibitem[\protect\citeauthoryear{Commission}{2024}]{EMODnet}
 \begin{botherref}
 \oauthor{\bsnm{Commission}, \binits{E.}}:
@@ -301,7 +291,7 @@ EMODnet Map Viewer.
 \end{botherref}
 \endbibitem
 
-%%% 21
+%%% 20
 \bibitem[\protect\citeauthoryear{IEA}{2024}]{Globalaveragelevelised}
 \begin{botherref}
 \oauthor{\bsnm{IEA}}:
@@ -312,7 +302,7 @@ Global average levelised cost of hydrogen production by energy source and
 \end{botherref}
 \endbibitem
 
-%%% 22
+%%% 21
 \bibitem[\protect\citeauthoryear{Wiser et~al.}{2021}]{wiser2021expert}
 \begin{barticle}
 \bauthor{\bsnm{Wiser}, \binits{R.}},
@@ -331,7 +321,7 @@ Global average levelised cost of hydrogen production by energy source and
 \end{barticle}
 \endbibitem
 
-%%% 23
+%%% 22
 \bibitem[\protect\citeauthoryear{EirGrid}{2022}]{OperationalPolicy}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}}:
@@ -341,7 +331,7 @@ Operational Policy Roadmap 2023-2030.
 \end{botherref}
 \endbibitem
 
-%%% 24
+%%% 23
 \bibitem[\protect\citeauthoryear{Association}{2021}]{BritainsHydrogenNetworkPlan}
 \begin{botherref}
 \oauthor{\bsnm{Association}, \binits{E.N.}}:
@@ -351,7 +341,7 @@ Britain's Hydrogen Network Plan.
 \end{botherref}
 \endbibitem
 
-%%% 25
+%%% 24
 \bibitem[\protect\citeauthoryear{SEAI}{2024}]{COemissions}
 \begin{botherref}
 \oauthor{\bsnm{SEAI}}:
@@ -361,7 +351,7 @@ CO$_2$ emissions.
 \end{botherref}
 \endbibitem
 
-%%% 26
+%%% 25
 \bibitem[\protect\citeauthoryear{Commission}{2026}]{EuropeanCommissionHydrogen2026}
 \begin{botherref}
 \oauthor{\bsnm{Commission}, \binits{E.}}:
@@ -372,7 +362,7 @@ Hydrogen.
 \end{botherref}
 \endbibitem
 
-%%% 27
+%%% 26
 \bibitem[\protect\citeauthoryear{{International Energy
   Agency}}{2025a}]{IEAGlobalHydrogenReview2025}
 \begin{botherref}
@@ -383,7 +373,7 @@ Global Hydrogen Review 2025.
 \end{botherref}
 \endbibitem
 
-%%% 28
+%%% 27
 \bibitem[\protect\citeauthoryear{{International Energy
   Agency}}{2025b}]{IEAGlobalHydrogenReviewTrade2025}
 \begin{botherref}
@@ -394,7 +384,7 @@ Trade and infrastructure: Global Hydrogen Review 2025.
 \end{botherref}
 \endbibitem
 
-%%% 29
+%%% 28
 \bibitem[\protect\citeauthoryear{{International Renewable Energy
   Agency}}{2022a}]{IRENAGlobalHydrogenTradeOutlook2022}
 \begin{botherref}
@@ -406,7 +396,7 @@ Global Hydrogen Trade to Meet the 1.5 C Climate Goal: Trade Outlook for 2050
 \end{botherref}
 \endbibitem
 
-%%% 30
+%%% 29
 \bibitem[\protect\citeauthoryear{{International Renewable Energy
   Agency}}{2022b}]{IRENAGreenHydrogenCostPotential2022}
 \begin{botherref}
@@ -418,7 +408,7 @@ Global Hydrogen Trade to Meet the 1.5 C Climate Goal: Green Hydrogen Cost and
 \end{botherref}
 \endbibitem
 
-%%% 31
+%%% 30
 \bibitem[\protect\citeauthoryear{{Marine Regions}}{2025}]{Marineregions}
 \begin{botherref}
 \oauthor{\bsnm{{Marine Regions}}}:
@@ -428,7 +418,7 @@ Marine regions.
 \end{botherref}
 \endbibitem
 
-%%% 32
+%%% 31
 \bibitem[\protect\citeauthoryear{Tao et~al.}{2019}]{tao2019optimal}
 \begin{barticle}
 \bauthor{\bsnm{Tao}, \binits{S.}},
@@ -444,7 +434,7 @@ Marine regions.
 \end{barticle}
 \endbibitem
 
-%%% 33
+%%% 32
 \bibitem[\protect\citeauthoryear{Paul et~al.}{2019}]{paul2019multi}
 \begin{barticle}
 \bauthor{\bsnm{Paul}, \binits{S.}},
@@ -459,7 +449,7 @@ Marine regions.
 \end{barticle}
 \endbibitem
 
-%%% 34
+%%% 33
 \bibitem[\protect\citeauthoryear{Tao et~al.}{2020}]{tao2020joint}
 \begin{barticle}
 \bauthor{\bsnm{Tao}, \binits{S.}},
@@ -475,7 +465,7 @@ Marine regions.
 \end{barticle}
 \endbibitem
 
-%%% 35
+%%% 34
 \bibitem[\protect\citeauthoryear{Figshare}{2024}]{Figshare}
 \begin{botherref}
 \oauthor{\bsnm{Figshare}}:
@@ -486,7 +476,7 @@ Enhancing Offshore Wind Integration by Integrated Electricity and Gas Systems
 \end{botherref}
 \endbibitem
 
-%%% 36
+%%% 35
 \bibitem[\protect\citeauthoryear{Catapult}{2020}]{OffshoreWindandHydrogen}
 \begin{botherref}
 \oauthor{\bsnm{Catapult}}:
@@ -496,7 +486,7 @@ Offshore Wind and Hydrogen: Solving the Integration Challenge.
 \end{botherref}
 \endbibitem
 
-%%% 37
+%%% 36
 \bibitem[\protect\citeauthoryear{for Energy~Security and
   Zero}{2021}]{HydrogenAnalyticalAnnex}
 \begin{botherref}
@@ -508,7 +498,7 @@ Hydrogen Analytical Annex.
 \end{botherref}
 \endbibitem
 
-%%% 38
+%%% 37
 \bibitem[\protect\citeauthoryear{EMODnet}{2019}]{RouteDensityMap}
 \begin{botherref}
 \oauthor{\bsnm{EMODnet}}:
@@ -518,7 +508,7 @@ EMODnet Human Activities, EMSA Route Density Map.
 \end{botherref}
 \endbibitem
 
-%%% 39
+%%% 38
 \bibitem[\protect\citeauthoryear{Guo et~al.}{2023}]{guo2023grid}
 \begin{barticle}
 \bauthor{\bsnm{Guo}, \binits{X.}},
@@ -536,7 +526,7 @@ EMODnet Human Activities, EMSA Route Density Map.
 \end{barticle}
 \endbibitem
 
-%%% 40
+%%% 39
 \bibitem[\protect\citeauthoryear{Backbone}{2025}]{EuropeanHydrogenBackbone}
 \begin{botherref}
 \oauthor{\bsnm{Backbone}, \binits{E.H.}}:
@@ -546,7 +536,7 @@ The European Hydrogen Backbone (EHB) initiative.
 \end{botherref}
 \endbibitem
 
-%%% 41
+%%% 40
 \bibitem[\protect\citeauthoryear{HyDeploy}{2025}]{HyDeploy}
 \begin{botherref}
 \oauthor{\bsnm{HyDeploy}}:
@@ -556,7 +546,7 @@ HyDeploy.
 \end{botherref}
 \endbibitem
 
-%%% 42
+%%% 41
 \bibitem[\protect\citeauthoryear{of~Energy}{2025}]{HyBlend}
 \begin{botherref}
 \oauthor{\bsnm{Energy}, \binits{U.S.D.}}:
@@ -566,7 +556,7 @@ HyBlend: Opportunities for Hydrogen Blending in Natural Gas Pipelines.
 \end{botherref}
 \endbibitem
 
-%%% 43
+%%% 42
 \bibitem[\protect\citeauthoryear{for Energy~Security and
   Zero}{2023}]{HydrogenblendinginGB}
 \begin{botherref}
@@ -578,7 +568,7 @@ Hydrogen blending in GB distribution networks: strategic decision.
 \end{botherref}
 \endbibitem
 
-%%% 44
+%%% 43
 \bibitem[\protect\citeauthoryear{Association}{2023}]{BritainsHydrogen}
 \begin{botherref}
 \oauthor{\bsnm{Association}, \binits{E.N.}}:
@@ -588,7 +578,7 @@ Britain's Hydrogen Network Plan.
 \end{botherref}
 \endbibitem
 
-%%% 45
+%%% 44
 \bibitem[\protect\citeauthoryear{EirGrid and
   Soni}{2022}]{OperationalPolicyRoadmap}
 \begin{botherref}
@@ -600,7 +590,7 @@ Operational Policy Roadmap 2023-2030.
 \end{botherref}
 \endbibitem
 
-%%% 46
+%%% 45
 \bibitem[\protect\citeauthoryear{EirGrid}{2025}]{CelticInterconnector}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}}:
@@ -610,7 +600,7 @@ Celtic Interconnector.
 \end{botherref}
 \endbibitem
 
-%%% 47
+%%% 46
 \bibitem[\protect\citeauthoryear{Legislation.gov.uk}{2023}]{TheGasSafety2023}
 \begin{botherref}
 \oauthor{\bsnm{Legislation.gov.uk}}:
@@ -620,7 +610,7 @@ The Gas Safety (Management) (Amendment) Regulations 2023.
 \end{botherref}
 \endbibitem
 
-%%% 48
+%%% 47
 \bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023optimal}
 \begin{barticle}
 \bauthor{\bsnm{Wang}, \binits{S.}},
@@ -635,7 +625,7 @@ The Gas Safety (Management) (Amendment) Regulations 2023.
 \end{barticle}
 \endbibitem
 
-%%% 49
+%%% 48
 \bibitem[\protect\citeauthoryear{Committee}{2020}]{SEMPLEXOS}
 \begin{botherref}
 \oauthor{\bsnm{Committee}, \binits{S.-E.-M.}}:
@@ -645,7 +635,7 @@ SEM-20-003 SEM PLEXOS Forecast Model (2020-2025).
 \end{botherref}
 \endbibitem
 
-%%% 50
+%%% 49
 \bibitem[\protect\citeauthoryear{EirGrid}{2025}]{SystemandRenewableDataReports}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}}:
@@ -655,7 +645,7 @@ System and Renewable Data Reports.
 \end{botherref}
 \endbibitem
 
-%%% 51
+%%% 50
 \bibitem[\protect\citeauthoryear{Ireland}{2022}]{GasForecastStatement2022}
 \begin{botherref}
 \oauthor{\bsnm{Ireland}, \binits{G.N.}}:
@@ -665,7 +655,7 @@ Gas Forecast Statement 2022.
 \end{botherref}
 \endbibitem
 
-%%% 52
+%%% 51
 \bibitem[\protect\citeauthoryear{EirGrid and Soni}{2024}]{GenerationCapacity}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}},
@@ -676,7 +666,7 @@ Ten-Year Generation Capacity Statement 2023–2032 T.
 \end{botherref}
 \endbibitem
 
-%%% 53
+%%% 52
 \bibitem[\protect\citeauthoryear{EirGrid}{2024}]{SmartGridDashboard}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}}:
@@ -686,7 +676,7 @@ Smart Grid Dashboard.
 \end{botherref}
 \endbibitem
 
-%%% 54
+%%% 53
 \bibitem[\protect\citeauthoryear{Ireland}{2024}]{GasconsumptionbyMarketSector}
 \begin{botherref}
 \oauthor{\bsnm{Ireland}, \binits{G.N.}}:
@@ -696,7 +686,7 @@ Gas consumption by Market Sector.
 \end{botherref}
 \endbibitem
 
-%%% 55
+%%% 54
 \bibitem[\protect\citeauthoryear{EirGrid}{2023}]{AllIslandTenYear}
 \begin{botherref}
 \oauthor{\bsnm{EirGrid}}:
@@ -706,7 +696,7 @@ All-Island Ten Year Transmission Forecast Statement.
 \end{botherref}
 \endbibitem
 
-%%% 56
+%%% 55
 \bibitem[\protect\citeauthoryear{Ireland}{2024}]{NetworkDevelopmentPlan}
 \begin{botherref}
 \oauthor{\bsnm{Ireland}, \binits{G.N.}}:
@@ -716,7 +706,7 @@ Network Development Plan.
 \end{botherref}
 \endbibitem
 
-%%% 57
+%%% 56
 \bibitem[\protect\citeauthoryear{Ekhtiari et~al.}{2022}]{ekhtiari2022green}
 \begin{barticle}
 \bauthor{\bsnm{Ekhtiari}, \binits{A.}},
@@ -731,7 +721,7 @@ Network Development Plan.
 \end{barticle}
 \endbibitem
 
-%%% 58
+%%% 57
 \bibitem[\protect\citeauthoryear{Department of~the Environment and
   Communications}{2024}]{FutureFrameworkforOffshore}
 \begin{botherref}
@@ -743,7 +733,7 @@ Future Framework for Offshore Renewable Energy.
 \end{botherref}
 \endbibitem
 
-%%% 59
+%%% 58
 \bibitem[\protect\citeauthoryear{for Energy Security \&
   Net~Zero}{2023}]{Offshorewindnet}
 \begin{botherref}
@@ -754,7 +744,7 @@ Offshore wind net zero investment roadmap.
 \end{botherref}
 \endbibitem
 
-%%% 60
+%%% 59
 \bibitem[\protect\citeauthoryear{Commission}{2024}]{Offshorerenewableenergy}
 \begin{botherref}
 \oauthor{\bsnm{Commission}, \binits{E.}}:
@@ -764,7 +754,7 @@ Offshore renewable energy.
 \end{botherref}
 \endbibitem
 
-%%% 61
+%%% 60
 \bibitem[\protect\citeauthoryear{Backbone}{2021}]{Analysingfuturedemand}
 \begin{botherref}
 \oauthor{\bsnm{Backbone}, \binits{E.H.}}:
