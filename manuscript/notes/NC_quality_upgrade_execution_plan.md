@@ -95,7 +95,7 @@ Purpose:
 
 Priority:
 - First improve the domestic absorption/export-potential part, because it is the weakest bridge.
-- The cost table has been moved to SI so the main Results can advance the claim faster.
+- The cost table has been restored to the main Results after the user requested the original figure sequence.
 
 Actions:
 - Audit each main figure for a one-sentence claim and panel role.

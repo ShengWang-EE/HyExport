@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 16:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -755,7 +755,7 @@ File: figs/fig_LCOH_map_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_map_manu.pdf>
 Package pdftex.def Info: figs/fig_LCOH_map_manu.pdf  used on input line 188.
 (pdftex.def)             Requested size: 368.28204pt x 220.14467pt.
-<figs/fig_LCOH_curves_manu.pdf, id=114, 412.54124pt x 276.03125pt>
+<figs/fig_LCOH_curves_manu.pdf, id=115, 412.54124pt x 276.03125pt>
 File: figs/fig_LCOH_curves_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_curves_manu.pdf>
 Package pdftex.def Info: figs/fig_LCOH_curves_manu.pdf  used on input line 199.
@@ -765,58 +765,64 @@ Package pdftex.def Info: figs/fig_LCOH_curves_manu.pdf  used on input line 199.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+<figs/fig_cost_table.pdf, id=130, 390.45876pt x 373.395pt>
+File: figs/fig_cost_table.pdf Graphic file (type pdf)
+<use figs/fig_cost_table.pdf>
+Package pdftex.def Info: figs/fig_cost_table.pdf  used on input line 257.
+(pdftex.def)             Requested size: 297.60114pt x 284.60928pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./figs/fig_LCOH_map_manu.pdf>]
-<figs/fig_unit_commitment_main.pdf, id=140, 477.785pt x 244.915pt>
+<figs/fig_unit_commitment_main.pdf, id=143, 430.60875pt x 313.17pt>
 File: figs/fig_unit_commitment_main.pdf Graphic file (type pdf)
 <use figs/fig_unit_commitment_main.pdf>
 Package pdftex.def Info: figs/fig_unit_commitment_main.pdf  used on input line 
-266.
-(pdftex.def)             Requested size: 368.28204pt x 188.78317pt.
+274.
+(pdftex.def)             Requested size: 368.28204pt x 267.84914pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./figs/fig_LCOH_curves_manu.pdf>]
-<figs/fig_wind_decomposition.pdf, id=157, 480.79625pt x 350.30875pt>
+<figs/fig_wind_decomposition.pdf, id=160, 623.32875pt x 624.3325pt>
 File: figs/fig_wind_decomposition.pdf Graphic file (type pdf)
 <use figs/fig_wind_decomposition.pdf>
-Package pdftex.def Info: figs/fig_wind_decomposition.pdf  used on input line 27
-5.
-(pdftex.def)             Requested size: 368.28204pt x 268.3381pt.
+Package pdftex.def Info: figs/fig_wind_decomposition.pdf  used on input line 28
+4.
+(pdftex.def)             Requested size: 368.28204pt x 368.87694pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./figs/fig_unit_commitment_main.pdf>]
-<figs/fig_nc_lcoh_counterfactual.pdf, id=186, 823.075pt x 428.60126pt>
+ [6 <./figs/fig_cost_table.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7 <./figs/fig_unit_commitment_main.pdf>]
+<figs/fig_nc_lcoh_counterfactual.pdf, id=348, 823.075pt x 428.60126pt>
 File: figs/fig_nc_lcoh_counterfactual.pdf Graphic file (type pdf)
 <use figs/fig_nc_lcoh_counterfactual.pdf>
 Package pdftex.def Info: figs/fig_nc_lcoh_counterfactual.pdf  used on input lin
-e 288.
+e 298.
 (pdftex.def)             Requested size: 368.28204pt x 191.77661pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./figs/fig_wind_decomposition.pdf>]
+ [8 <./figs/fig_wind_decomposition.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <./figs/fig_nc_lcoh_counterfactual.pdf>]
-<figs/fig_hy_am_flow_sankey.pdf, id=258, 385.44pt x 574.145pt>
+ [9 <./figs/fig_nc_lcoh_counterfactual.pdf>]
+<figs/fig_hy_am_flow_sankey.pdf, id=509, 385.44pt x 574.145pt>
 File: figs/fig_hy_am_flow_sankey.pdf Graphic file (type pdf)
 <use figs/fig_hy_am_flow_sankey.pdf>
-Package pdftex.def Info: figs/fig_hy_am_flow_sankey.pdf  used on input line 305
+Package pdftex.def Info: figs/fig_hy_am_flow_sankey.pdf  used on input line 315
 .
 (pdftex.def)             Requested size: 260.39886pt x 387.88158pt.
-<figs/fig_nc_outside_option_robustness.pdf, id=264, 758.835pt x 330.23375pt>
+<figs/fig_nc_outside_option_robustness.pdf, id=515, 758.835pt x 330.23375pt>
 File: figs/fig_nc_outside_option_robustness.pdf Graphic file (type pdf)
 <use figs/fig_nc_outside_option_robustness.pdf>
 Package pdftex.def Info: figs/fig_nc_outside_option_robustness.pdf  used on inp
-ut line 319.
+ut line 329.
 (pdftex.def)             Requested size: 353.39886pt x 153.79393pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
@@ -835,7 +841,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [15]
-Underfull \hbox (badness 2521) in paragraph at lines 418--419
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+Underfull \hbox (badness 2521) in paragraph at lines 428--429
 \OT1/cmr/m/n/10 M.M.B. con-tributed to the energy-system inter-pre-ta-tion, pol
 -icy con-text and
  []
@@ -843,11 +852,8 @@ Underfull \hbox (badness 2521) in paragraph at lines 418--419
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
-(./sn-article.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [17]
+(./sn-article.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18]
@@ -856,16 +862,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20])
+ [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
+ [21])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22 <./figs/fig_hy_am_flow_sankey.pdf>]
+ [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23 <./figs/fig_nc_outside_option_robustness.pdf>] (./sn-article.aux)
+ [23 <./figs/fig_hy_am_flow_sankey.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24 <./figs/fig_nc_outside_option_robustness.pdf>] (./sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -876,38 +885,39 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.48314pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: DCC5AB6DB7A1423411F2511D5BB05375;3294.
+(rerunfilecheck)             Checksum: 8031D9770FF36D3FE62430E84E0A0191;3295.
  ) 
 Here is how much of TeX's memory you used:
- 14999 strings out of 467525
- 231399 string characters out of 5418983
- 696112 words of memory out of 5000000
- 43533 multiletter control sequences out of 15000+600000
+ 15010 strings out of 467525
+ 231673 string characters out of 5418983
+ 695485 words of memory out of 5000000
+ 43541 multiletter control sequences out of 15000+600000
  648301 words of font info for 125 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,8n,93p,1583b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,7n,93p,1583b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
 pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pf
 b></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb>
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
-cal/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/202
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on sn-article.pdf (23 pages, 1502412 bytes).
+usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+26/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on sn-article.pdf (24 pages, 1887416 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 584 compressed objects within 6 object streams
- 117 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 951 PDF objects out of 1000 (max. 8388607)
+ 842 compressed objects within 9 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
