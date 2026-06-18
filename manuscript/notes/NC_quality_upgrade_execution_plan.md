@@ -95,7 +95,7 @@ Purpose:
 
 Priority:
 - First improve the domestic absorption/export-potential part, because it is the weakest bridge.
-- Then consider whether the cost table should remain a main figure or move to SI.
+- The cost table has been moved to SI so the main Results can advance the claim faster.
 
 Actions:
 - Audit each main figure for a one-sentence claim and panel role.
@@ -168,4 +168,3 @@ Start with Step 1. Update the claim-evidence map against the current main manusc
 - needs domestic sensitivity support
 - needs figure redesign
 - needs carbon-method/source-number support
-

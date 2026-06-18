@@ -21,7 +21,7 @@ Status: strong enough for Nature Communications framing, but it needs stronger S
 | Abstract, `sn-article.tex:143` | Modelled offshore hydrogen contributes about 175.5 Mt CO2 yr^-1 mitigation. | `NC_story_comparison.csv`: 175.499942 Mt CO2 yr^-1 in 2050 integrated model. | Supported but method-sensitive | Clarify carbon mitigation attribution and displacement baseline in SI/Methods. |
 | Abstract and Results, `sn-article.tex:323-325` | External imports near 2-3 EUR kg^-1 displace European offshore supply; around 4 EUR kg^-1 restores UK/Ireland export pattern. | `NC_outside_option_sensitivity.csv`: 2050 European offshore supply is 0, 98, and 766.6 TWh at 2, 3, and 4 EUR kg^-1. | Supported | Add SI method subsection and full year-by-year table/figure. |
 | Introduction, `sn-article.tex:176` | Separate national LCOH studies cannot show production-cost interactions with domestic absorption, shipping, demand and imports. | Existing cited LCOH studies plus this paper's integrated model. | Partial | Add explicit literature-feature comparison; keep novelty strong. |
-| Results 1, `sn-article.tex:182-195` | Denmark dominates LCOH, while Ireland/UK are mid-ranking and need systems assessment. | Fig. LCOH map/curves/cost table; cost table values. | Supported | Figure quality improvement: consider compressing cost table or moving dense rank table to SI. |
+| Results 1, `sn-article.tex:182-195` | Denmark dominates LCOH, while Ireland/UK are sufficiently cost-competitive but not lowest-cost winners. | Fig. LCOH map/curves; SI cost-rank figure. | Supported | Cost table moved to SI; main text now uses costs only to motivate the systems test. |
 | Results 2, `sn-article.tex:265-280` | Domestic power-gas constraints create exportable surplus; Ireland reaches 170 TWh yr^-1 export potential. | Unit-commitment results and `EUwindConsump_new`; Fig. unit commitment and wind decomposition. | Partial | Add domestic absorption sensitivity to SI and improve figure expression. |
 | Results 3, `sn-article.tex:292-300` | Production cost alone misidentifies strategic exporters. | `NC_story_comparison.csv`; Fig. counterfactual. | Supported | SI should define baseline clearly and provide country table. |
 | Results 4, `sn-article.tex:305-317` | Integrated trade reallocates carbon-mitigation value across Europe. | Sankey figure and `solution.carbonReductionContributionMatrix`; `NC_story_comparison.csv`. | Supported but method-sensitive | Clarify H2/ammonia energy-equivalent units and carbon attribution. |
@@ -59,8 +59,8 @@ Status: strong enough for Nature Communications framing, but it needs stronger S
 3. Carbon mitigation attribution is central but still too code-dependent.
    - Fix: add source-number table and carbon attribution explanation.
 
-4. Main figure sequence still has report-style diagnostic figures.
-   - Fix: redesign domestic absorption/export potential figure before further prose polishing.
+4. Main figure sequence is improved, but the Sankey/trade figure still reads denser than the other NC-style figures.
+   - Fix: redesign the trade/carbon figure if another figure-quality pass is requested.
 
 ## Canonical Terms
 
@@ -79,4 +79,3 @@ Proceed to Step 2:
 1. Add a novelty comparison table to SI.
 2. Add one short Introduction sentence that points to the comparison without weakening the novelty claim.
 3. Keep the main text concise; put the detailed feature-by-feature defence in SI.
-
