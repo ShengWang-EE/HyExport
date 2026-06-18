@@ -1041,6 +1041,35 @@ The transportation cost of ammonia ($C_{ip,jp}^{trans,am}$) can be calculated si
 
 Due to the discontinuity of the hydrogen and ammonia cost-supply curves, the original problem is formulated as a mixed integer linear programming problem, and is solved by Gurobi \cite{Gurobi} commercial solver via the Yalmip modelling toolbox in Matlab.
 
+\subsection{Carbon-mitigation accounting}
+
+After solving the international trading model, carbon mitigation is reported as a direct displacement-accounting metric rather than a full lifecycle assessment. Hydrogen and ammonia quantities are represented in the optimisation as average delivered power $Q$ in MW, so annual delivered energy is $Q \times 8760 \times 3600$ MJ yr$^{-1}$. For demand country $ic$, the model reports:
+\begin{align}
+    M_{ic}^{hy} &= Q_{ic}^{hy,dm} \frac{8760 \times 3600}{H^{ng}}\frac{44}{16}\frac{1}{10^9},\\
+    M_{ic}^{am} &= Q_{ic}^{am,dm} \frac{8760 \times 3600}{H^{am}}\frac{44}{17}\frac{1}{10^9},\\
+    M_{ic} &= M_{ic}^{hy} + M_{ic}^{am},
+\end{align}
+where $M_{ic}$ is in Mt CO$_2$ yr$^{-1}$, $H^{ng}=50$ MJ kg$^{-1}$ is the natural-gas lower heating value used for the hydrogen-demand displacement term, and $H^{am}=23$ MJ kg$^{-1}$ is the ammonia lower heating value used for the ammonia-demand displacement term. The factors 44/16 and 44/17 convert methane and ammonia mass-equivalent terms to CO$_2$ mass-equivalent terms in the model accounting.
+
+The supplier contribution matrix applies the same conversion to optimized hydrogen and ammonia deliveries between each supplier and demand country. If a positive flow is sent from supplier $ic$ to demand country $jc$, the corresponding avoided CO$_2$ is assigned to matrix element $A_{ic,jc}$. If the optimized route variable is negative, the direction is reversed before assignment. External imports are assigned to an additional international-import row, labelled ITN in the Sankey figure. Domestic self-supply is assigned on the diagonal as the residual demand-country mitigation after imported contributions are subtracted:
+\begin{align}
+    A_{ic,ic} = M_{ic} - \sum_{r \neq ic} A_{r,ic}.
+\end{align}
+The total carbon mitigation reported in the main text is $\sum_r \sum_{ic} A_{r,ic}$. The European offshore supplier contribution excludes the ITN row and is therefore smaller than the total whenever external imports contribute to meeting demand.
+
+\begin{table}[h]
+\centering
+\caption{Carbon-mitigation accounting values used in the main manuscript. Total mitigation includes the external import node when present. European offshore contribution excludes the external import node.}
+\label{tab carbon accounting summary}
+\begin{tabular}{lrrr}
+\hline
+Metric & 2030 & 2040 & 2050 \\ \hline
+Total mitigation (Mt CO$_2$ yr$^{-1}$) & 43.5 & 129.8 & 175.5 \\
+European offshore contribution (Mt CO$_2$ yr$^{-1}$) & 43.5 & 103.2 & 158.3 \\
+External import (TWh yr$^{-1}$) & 0.0 & 116.2 & 62.2 \\ \hline
+\end{tabular}
+\end{table}
+
 
 
 

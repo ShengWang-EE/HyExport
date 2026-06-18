@@ -18,3 +18,4 @@
 \contentsline {subsection}{\numberline {6.1}Demand and supply models of hydrogen and ammonia}{29}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Domestic absorption sensitivity}{31}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Optimal international trading model}{31}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Carbon-mitigation accounting}{34}{subsection.6.4}%

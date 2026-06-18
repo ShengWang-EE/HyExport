@@ -49,7 +49,7 @@ These terms should not be interchanged in the abstract, Results, captions, or Di
 
 ## Strongest Current Evidence
 
-- Base-case carbon mitigation totals are directly reproducible from `stop3.mat`: 43.5323, 129.3212, and 175.1608 Mt CO2/year.
+- Base-case carbon mitigation totals are directly reproducible from `results/tables/NC_story_comparison.csv`: 43.4568, 129.7737, and 175.4999 Mt CO2/year. The corresponding European offshore supplier contributions are 43.4568, 103.1895, and 158.3014 Mt CO2/year.
 - The cost-supply story is well supported by existing curves, maps, and cost tables.
 - The systems-interaction story is plausible and important: Ireland/UK are not always lowest-LCOH countries, but export surplus and demand geography make them strategically important.
 
