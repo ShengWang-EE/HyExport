@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1781811142.29785 "sn-article.aux" "sn-article.bbl" "sn-article" 1781814712.17471 0
+["bibtex sn-article"] 1781816462.62302 "sn-article.aux" "sn-article.bbl" "sn-article" 1781816857.02044 0
   "./sn-bibliography.bib" 1781787746.99294 17573 ebb7ed36222201b8ca0bac107490f87a ""
   "./sn-mathphys.bst" 1781682860.4424 64141 2560fd4f8e8321a304f732d035eb1b51 ""
-  "sn-article.aux" 1781814711.63746 19420 77f5c4154a18dbeb40d25cd2905e881b "pdflatex"
+  "sn-article.aux" 1781816856.55886 19228 bcf55de1dce23d48e8d8eb5645b0cae0 "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1781814710.15109 "sn-article.tex" "sn-article.pdf" "sn-article" 1781814712.17595 0
+["pdflatex"] 1781816855.41093 "sn-article.tex" "sn-article.pdf" "sn-article" 1781816857.02083 0
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -158,15 +158,15 @@
   "figs/fig_LCOH_curves_manu.pdf" 1781682860.41991 66323 b9fcf10b28bb680b677d3ad6195f2b13 ""
   "figs/fig_LCOH_map_manu.pdf" 1781800144.87886 696239 4ca03ba01442a2acc4e9b4a224028718 ""
   "figs/fig_cost_table.pdf" 1781682860.42836 91348 1f2884611cc0c70d62d5dedb0410b7c1 ""
-  "figs/fig_hy_am_flow_sankey.pdf" 1781682860.43087 345864 ec2069c4f8db627e24c0d811a61fca76 ""
+  "figs/fig_hy_am_flow_sankey.pdf" 1781816849 275260 df54b9a8f4a423d2095e812ccfb6e938 ""
   "figs/fig_nc_lcoh_counterfactual.pdf" 1781782742 63194 a327448ad78cd67f1dcf2b3eeb60018a ""
   "figs/fig_nc_outside_option_robustness.pdf" 1781782809 24969 597dea6f8af31929a14c867c3c48c027 ""
-  "figs/fig_unit_commitment_main.pdf" 1781803261.41399 124973 400c3858547ea7b5ecedf5046e695ff7 ""
-  "figs/fig_wind_decomposition.pdf" 1781803261.41642 214596 dc9b3c1dc0223fba71268ef2257058d4 ""
-  "sn-article.aux" 1781814711.63746 19420 77f5c4154a18dbeb40d25cd2905e881b "pdflatex"
-  "sn-article.bbl" 1781811142.48439 24287 382970c95d9b2512353846e74c6c7497 "bibtex sn-article"
-  "sn-article.out" 1781814711.63978 3295 ce3854f6a9bda6f68604838cf691bd91 "pdflatex"
-  "sn-article.tex" 1781814680.00218 65878 8a5ad42f40f375e5df6cf5221ef84203 ""
+  "figs/fig_unit_commitment_main.pdf" 1781803261 124973 400c3858547ea7b5ecedf5046e695ff7 ""
+  "figs/fig_wind_decomposition.pdf" 1781803261 214596 dc9b3c1dc0223fba71268ef2257058d4 ""
+  "sn-article.aux" 1781816856.55886 19228 bcf55de1dce23d48e8d8eb5645b0cae0 "pdflatex"
+  "sn-article.bbl" 1781816462.80275 24287 382970c95d9b2512353846e74c6c7497 "bibtex sn-article"
+  "sn-article.out" 1781816856.56138 3295 ce3854f6a9bda6f68604838cf691bd91 "pdflatex"
+  "sn-article.tex" 1781816454.66379 65783 c1c678221475e67c46283122b139ffcf ""
   "sn-jnl.cls" 1781682860.44179 55955 9ffe8c18852ce1a0831203326cf3ad0f ""
   (generated)
   "sn-article.aux"

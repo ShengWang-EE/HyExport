@@ -336,6 +336,10 @@ save(fullfile(checkpointDir,'stop3.mat'))
 fprintf('Stage 4/5: domestic absorption and export-potential figures\n');
 plotDomesticAbsorptionAndExportPotential(projectRoot);
 
+%% Trade-flow and carbon-mitigation figure
+fprintf('Stage 4/5: trade-flow and carbon-mitigation figure\n');
+plotTradeAndCarbonFigure(projectRoot);
+
 %% NC story counterfactual
 % 统一入口：新增的论文分析从 main.m 进入，不单独手动运行 scripts/analysis 里的文件。
 % 这个函数用 stop3.mat 生成 LCOH-only baseline 和 integrated model 的对比表。
@@ -343,7 +347,7 @@ fprintf('Stage 4/5: NC LCOH-only counterfactual\n');
 runLCOHOnlyCounterfactual(projectRoot);
 
 %% NC story figure
-% 用 counterfactual 表生成 Fig. 4 草图，后续正文改稿直接引用这张图。
+% 用 counterfactual 表生成 Fig. 7 诊断图。
 fprintf('Stage 4/5: NC story comparison figure\n');
 plotNCStoryComparison(projectRoot);
 
@@ -353,7 +357,7 @@ fprintf('Stage 5/5: outside-option sensitivity\n');
 runOutsideOptionSensitivity(projectRoot);
 
 %% NC outside-option robustness figure
-% 用 outside-option sensitivity 表生成 Fig. 6 robustness 草图。
+% 用 outside-option sensitivity 表生成 Fig. 8 robustness 图。
 fprintf('Stage 5/5: outside-option robustness figure\n');
 plotNCOutsideOptionRobustness(projectRoot);
 

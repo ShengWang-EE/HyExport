@@ -829,19 +829,19 @@ ylim([0,60]);
 lgd = legend('Location', 'north','NumColumns',3);
 text(-0.15, 0.01, 'b', 'Units', 'normalized', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'top','FontWeight','bold');
 % lgd.Position = [0.244 0.84 0.4 0.06];
-ylabel('CO_2 emission reduction (Mt/year)');
+ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})');
 subfig5 = axes('Position', [0.55, 0.37, 0.35, 0.27]); % [left, bottom, width, height]
 bar(solution{2}.carbonReductionContributionMatrix','stacked','BarWidth',0.5,'FaceAlpha',0.75);
 xticklabels({"BE","DK","FR","DE","IE","NL","NO","PT","ES","SE","GB"});
 ylim([0,60]);
-ylabel('CO_2 emission reduction (Mt/year)');
+ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})');
 text(-0.15, 0.01, 'd', 'Units', 'normalized', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'top','FontWeight','bold');
 
 subfig6 = axes('Position', [0.55, 0.05, 0.35, 0.27]); % [left, bottom, width, height]
 bar(solution{3}.carbonReductionContributionMatrix','stacked','BarWidth',0.5,'FaceAlpha',0.75);
 xticklabels({"BE","DK","FR","DE","IE","NL","NO","PT","ES","SE","GB"});
 ylim([0,60]);
-ylabel('CO_2 emission reduction (Mt/year)');
+ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})');
 text(-0.15, 0.01, 'f', 'Units', 'normalized', 'HorizontalAlignment', 'right', 'VerticalAlignment', 'top','FontWeight','bold');
 
 set(fig, 'Position', [100, 100, 600, 800]);  % 同样的参数
