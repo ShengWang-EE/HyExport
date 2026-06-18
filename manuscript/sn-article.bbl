@@ -435,6 +435,17 @@ Marine regions.
 \endbibitem
 
 %%% 32
+\bibitem[\protect\citeauthoryear{Figshare}{2024}]{Figshare}
+\begin{botherref}
+\oauthor{\bsnm{Figshare}}:
+Enhancing Offshore Wind Integration by Integrated Electricity and Gas Systems
+  With Hydrogen Blending: The Case of Ireland.
+\url{https://doi.org/10.6084/m9.figshare.25655427.v2}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 33
 \bibitem[\protect\citeauthoryear{Paul et~al.}{2019}]{paul2019multi}
 \begin{barticle}
 \bauthor{\bsnm{Paul}, \binits{S.}},
@@ -449,7 +460,7 @@ Marine regions.
 \end{barticle}
 \endbibitem
 
-%%% 33
+%%% 34
 \bibitem[\protect\citeauthoryear{Tao et~al.}{2020}]{tao2020joint}
 \begin{barticle}
 \bauthor{\bsnm{Tao}, \binits{S.}},
@@ -463,17 +474,6 @@ Marine regions.
 \bfpage{834}--\blpage{844}
 (\byear{2020})
 \end{barticle}
-\endbibitem
-
-%%% 34
-\bibitem[\protect\citeauthoryear{Figshare}{2024}]{Figshare}
-\begin{botherref}
-\oauthor{\bsnm{Figshare}}:
-Enhancing Offshore Wind Integration by Integrated Electricity and Gas Systems
-  With Hydrogen Blending: The Case of Ireland.
-\url{https://doi.org/10.6084/m9.figshare.25655427.v2}
-(2024)
-\end{botherref}
 \endbibitem
 
 %%% 35
