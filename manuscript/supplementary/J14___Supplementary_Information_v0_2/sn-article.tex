@@ -945,13 +945,13 @@ where $P_{ic}^{owf,max}$ is the total offshore wind capacity for country $ic$, a
 
 \subsection{Domestic absorption sensitivity}
 
-The main manuscript uses the hourly Ireland power-gas optimisation to estimate how much offshore production can be absorbed domestically, then scales the resulting domestic absorption by country-level electricity and gas demand before applying country export limits in the European trade model. To test whether this extrapolation drives the strategic-exporter conclusion, we multiply the domestic absorption estimate by 0.75 and 1.25 and resolve the integrated trade model. A lower factor means less domestic absorption and therefore more available export potential; a higher factor means more domestic absorption and therefore less available export potential.
+The main manuscript uses the hourly Ireland power-gas optimisation to estimate how much offshore production can be absorbed domestically, then scales the resulting domestic absorption by country-level electricity and gas demand before applying country export limits in the European trade model. This extrapolation is designed as a European screening step: it transfers the system-level relationship between offshore generation, electricity demand and gas-network hydrogen absorption, but it does not claim to reproduce the detailed unit-commitment operation of every country. To test whether this bridge drives the strategic-exporter conclusion, we multiply the domestic absorption estimate by 0.75 and 1.25 and resolve the integrated trade model. A lower factor means less domestic absorption and therefore more available export potential; a higher factor means more domestic absorption and therefore less available export potential. The perturbation is applied to domestic absorption directly because the main uncertainty being tested is the export limit passed from the domestic model into the international trade model.
 
 \begin{table}[h]
 \centering
 \tiny
 \setlength{\tabcolsep}{1pt}
-\caption{Sensitivity of integrated trade results to domestic absorption scaling. Export potential (Export pot.), European offshore supply (Offshore), external imports (Import), Ireland net exports (IE net) and UK net exports (UK net) are reported in TWh yr$^{-1}$.}
+\caption{Sensitivity of integrated trade results to domestic absorption scaling. Low and high cases multiply the base domestic absorption estimate by 0.75 and 1.25, respectively. Export potential (Export pot.), European offshore supply (Offshore), external imports (Import), Ireland net exports (IE net) and UK net exports (UK net) are reported in TWh yr$^{-1}$.}
 \label{tab:domestic-absorption-sensitivity}
 \begin{tabular}{llrrrrrr}
 \hline
@@ -968,7 +968,7 @@ Year & Case & Factor & Export pot. & Offshore & Import & IE net & UK net \\ \hli
 \end{tabular}
 \end{table}
 
-The sensitivity changes the amount of European offshore supply that can compete with external imports, but it does not restore the lowest-LCOH exporter geography. In 2050, lower domestic absorption strengthens the UK as the largest net exporter, while higher domestic absorption makes Ireland the largest net exporter. Under the base case the two countries are nearly tied, at about 162 TWh yr$^{-1}$ each. The exact UK/Ireland ordering is therefore sensitive to domestic absorption, but Ireland remains one of the leading exporters across the tested range, and the integrated model continues to differ from the LCOH-only baseline.
+The sensitivity changes the amount of European offshore supply that can compete with external imports, but it does not restore the lowest-LCOH exporter geography. In 2040, European offshore supply ranges from 380 to 610 TWh yr$^{-1}$ and external imports range from 4 to 229 TWh yr$^{-1}$ across the tested domestic-absorption factors. In 2050, European offshore supply ranges from 571 to 830 TWh yr$^{-1}$ and external imports range from 0 to 254 TWh yr$^{-1}$. These changes show that domestic absorption is a material system constraint, not a cosmetic adjustment. However, the strategic interpretation remains stable: the integrated model does not revert to the LCOH-only allocation, and the UK and Ireland remain the key high-surplus island systems in the 2050 cases. Lower domestic absorption strengthens the UK as the largest net exporter, while higher domestic absorption makes Ireland the largest net exporter. Under the base case the two countries are nearly tied, at about 162 TWh yr$^{-1}$ each. The exact UK/Ireland ordering is therefore sensitive to domestic absorption, but the conclusion that integrated domestic-absorption and trade constraints reshape the exporter ranking is preserved.
 
 \subsection{Optimal international trading model}
 
