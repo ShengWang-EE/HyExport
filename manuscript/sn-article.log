@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,10 +850,11 @@ Underfull \hbox (badness 2521) in paragraph at lines 426--427
 -icy con-text and
  []
 
-(./sn-article.bbl
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
+(./sn-article.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18]
@@ -888,13 +889,13 @@ Package rerunfilecheck Info: File `sn-article.out' has not changed.
 (rerunfilecheck)             Checksum: 8031D9770FF36D3FE62430E84E0A0191;3295.
  ) 
 Here is how much of TeX's memory you used:
- 15007 strings out of 467525
- 231631 string characters out of 5418983
- 690845 words of memory out of 5000000
- 43539 multiletter control sequences out of 15000+600000
- 648133 words of font info for 124 fonts, out of 8000000 for 9000
+ 15010 strings out of 467525
+ 231673 string characters out of 5418983
+ 693845 words of memory out of 5000000
+ 43541 multiletter control sequences out of 15000+600000
+ 648301 words of font info for 125 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,8n,93p,1627b,728s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,8n,93p,1627b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
@@ -912,11 +913,12 @@ ive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 26/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/202
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2026/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on sn-article.pdf (24 pages, 10164896 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/tex
+mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on sn-article.pdf (24 pages, 10176990 bytes).
 PDF statistics:
- 40651 PDF objects out of 45951 (max. 8388607)
- 20481 compressed objects within 205 object streams
+ 40658 PDF objects out of 45951 (max. 8388607)
+ 20486 compressed objects within 205 object streams
  120 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
