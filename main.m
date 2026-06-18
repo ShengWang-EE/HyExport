@@ -331,6 +331,11 @@ end
 fprintf('Stage 3/5: save stop3.mat\n');
 save(fullfile(checkpointDir,'stop3.mat'))
 
+%% Domestic absorption and export-potential figures
+% 默认生成新版 Fig. 3/4：国内吸纳机制摘要和欧洲出口潜力摘要。
+fprintf('Stage 4/5: domestic absorption and export-potential figures\n');
+plotDomesticAbsorptionAndExportPotential(projectRoot);
+
 %% NC story counterfactual
 % 统一入口：新增的论文分析从 main.m 进入，不单独手动运行 scripts/analysis 里的文件。
 % 这个函数用 stop3.mat 生成 LCOH-only baseline 和 integrated model 的对比表。

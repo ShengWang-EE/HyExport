@@ -264,7 +264,7 @@ Technology and supply-chain learning reduce LCOH in later scenarios, but the cou
 
 Because the offshore wind ambitions of Ireland and the UK exceed their projected domestic power demands, we next estimate how much offshore production can be absorbed domestically before it becomes available for export. We develop a whole-energy-system optimisation model that simulates hourly power and gas operation over a full year under uncertain offshore wind generation. Power and natural gas systems are coupled through gas-fired power plants and onshore/offshore electrolysers, allowing bidirectional energy conversion to expand system flexibility. Hydrogen blending and pure-hydrogen network cases are represented through different maximum hydrogen fractions in the gas network. Hourly unit commitment includes the All-Ireland generator fleet, interconnectors, reserve, inertia, must-run and system non-synchronous penetration constraints, and observed hourly demand profiles (Methods; Supplementary Information) \cite{OperationalPolicy}.
 
-The unit-commitment results compare seasons, model years and export/no-export cases (Fig. \ref{fig unit commitment}). We assume a maximum 20\% hydrogen blending ratio in 2040, reflecting near-term blending demonstrations and policy movement, and a pure-hydrogen network in 2050 in line with the UK's hydrogen network roadmap \cite{BritainsHydrogenNetworkPlan}. Without export, the average summer wind-curtailment rate increases from 62.36\% in 2030 to 69.80\% in 2050 because high offshore generation coincides with low seasonal demand. In winter, the curtailment rate falls from 32.05\% in 2030 to 13.47\% in 2050 because higher hydrogen blending allows the gas system to absorb more offshore energy.
+The domestic absorption summary compares seasons, model years and export/no-export cases (Fig. \ref{fig unit commitment}). We assume a maximum 20\% hydrogen blending ratio in 2040, reflecting near-term blending demonstrations and policy movement, and a pure-hydrogen network in 2050 in line with the UK's hydrogen network roadmap \cite{BritainsHydrogenNetworkPlan}. Without export, the average summer wind-curtailment rate increases from 62.36\% in 2030 to 69.80\% in 2050 because high offshore generation coincides with low seasonal demand. In winter, the curtailment rate falls from 32.05\% in 2030 to 13.47\% in 2050 because higher hydrogen blending allows the gas system to absorb more offshore energy.
 
 Even after extensive hydrogen use in the gas system, domestic demand cannot absorb the full offshore wind output. Export access substantially increases utilisation across all model years and seasons by creating an outlet for surplus hydrogen. In the 2050 summer case, for example, the average wind-curtailment rate falls to 10.46\% with export access, and the full-year decomposition identifies approximately 170 TWh yr$^{-1}$ of Irish export potential. Curtailment does not fall to zero because operating reserves, inertia requirements and must-run constraints still limit how much uncertain offshore output can be used at the margin.
 
@@ -272,8 +272,7 @@ Even after extensive hydrogen use in the gas system, domestic demand cannot abso
 \begin{figure}
     \centering
     \includegraphics[width = 0.99\columnwidth]{figs/fig_unit_commitment_main.pdf}
-    \caption{\textbf{Power system operation results.} Different years, seasons, hydrogen blending ratios and export conditions are compared. 2030, 2040 and 2050 indicate the model year; sum and win indicate a typical summer day (high wind and low demand) and a typical winter day (low wind and high demand), respectively; 0\%, 20\% and 100\% indicate different maximum allowed hydrogen blending potentials; ex indicates export access.
-   }
+    \caption{\textbf{Export access reduces domestic wind curtailment in the Ireland power-gas case.} \textbf{a} Mean wind-curtailment rates across representative summer and winter periods in 2030, 2040 and 2050, with and without export access. \textbf{b} Decomposition of available wind energy in the 2050 summer representative period. Export access converts otherwise curtailed wind into energy used by the power system, but residual curtailment remains because operating constraints still bind at the margin.}
     \label{fig unit commitment}
 \end{figure}
 
@@ -282,8 +281,7 @@ We then use the full-year Ireland results to estimate offshore wind utilisation 
 \begin{figure}
     \centering
     \includegraphics[width = 0.99\columnwidth]{figs/fig_wind_decomposition.pdf}
-    \caption{\textbf{Utilisation of offshore wind.} 
-    \textbf{a}, \textbf{b}, and \textbf{c} decompose the utilisation of wind in 2030, 2040, and 2050, respectively.}
+    \caption{\textbf{Domestic absorption creates uneven exportable offshore surplus across Europe.} \textbf{a--c} Country-level decomposition of offshore wind use in 2030, 2040 and 2050, ordered by 2050 available export potential. Power-system use, gas-system use, available export potential and residual curtailment are reported in TWh yr$^{-1}$. \textbf{d} Export-potential trajectories for the United Kingdom, Ireland, the Netherlands and Denmark.}
     \label{fig wind decomposition}
 \end{figure}
 
