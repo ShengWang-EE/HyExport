@@ -856,9 +856,95 @@ hold off;
 
 % -----------------------manuscript----------------------------------
 %% LCOH map
-plotLCOHMapAndWindDensities(projectRoot);
+clear
 load(fullfile(checkpointDir,'stop3.mat'))
+nGrid = 100;
+EUshpEEZ = getEUEEZ(resolveProjectFile('eez_v12.shp'),EUcountryList);
 EUcountryList = {'Belgium', 'Denmark', 'France', 'Germany', 'Ireland', 'Netherlands', 'Norway', 'Portugal', 'Spain', 'Sweden', 'United Kingdom'};
+shortNameList = ["BE","DK","FR","DE","IE","NL","NO","PT","ES","SE","GB"];
+fig = figure;
+set(fig, 'Position', [100, 100, 940, 600]);  % 同样的参数
+subplot1 = axes('Position', [0.1, 0.1, 0.7, 0.9]); % [left, bottom, width, height]
+colormap(nclCM(15,100));
+for ic = 1:nCountry
+    countryName = EUcountryList{ic};
+    countryEEZ = EUshpEEZ(strcmp(string({EUshpEEZ.TERRITORY1}), string(countryName)));
+    map = geoshow(latGrid_mesh{ic},lonGrid_mesh{ic},LCOH{ic},'DisplayType','surface');
+    hold on;
+    
+end
+geoshow(EUshpEEZ,'DisplayType','Polygon','FaceColor','none');
+hold off;
+xlabel('Longtitute'); ylabel('Latitude');
+c = colorbar;
+clim([90 200]);
+c.Label.String = 'LCOH (€/MWh)'; 
+text(1.106, 1.0224, '/above','Units', 'normalized', 'VerticalAlignment', 'top');
+
+countryEEZcentre = [
+    0.37   0.50
+    0.44  0.59
+    0.22  0.39
+    0.38   0.55
+    0.1 0.5
+    0.43  0.56
+    0.38   0.77
+    0.12 0.18
+    0.12 0.3
+    0.61  0.62
+    0.3   0.62
+    ];
+for ic = 1:nCountry
+    text(countryEEZcentre(ic,1), countryEEZcentre(ic,2), shortNameList(ic), ...
+        'Units', 'normalized','VerticalAlignment', 'middle', 'Color', 'white','FontWeight', 'bold');
+end
+text(-0.06, 1.06, 'a', ...
+        'Units', 'normalized', 'HorizontalAlignment','left', 'VerticalAlignment', 'top', 'Color', 'black','FontWeight', 'bold');
+
+grid on;
+hold on;
+%
+for ic = 1:nCountry
+    countryEEZ = EUshpEEZ(strcmp(string({EUshpEEZ.TERRITORY1}), string(EUcountryList{ic})));
+    [climate,spatiResolution,lonGrid_mesh, latGrid_mesh] = loadCountryClimate(countryEEZ,100);
+    [size1,size2,size3] = size(climate.windSpeed);
+    [f{ic}, xi{ic}] = ksdensity(reshape(climate.windSpeed,[size1*size2*size3,1]));  % 计算概率密度
+end
+%
+for ic = 1:nCountry
+    subplot2 = axes('Position', [0.88, 0.95 - ic*0.07, 0.07, 0.05 ]); % [left, bottom, width, height]
+    h = area(xi{ic}, f{ic});  % 绘制概率密度曲线
+    h.FaceColor = colors(ic,:);
+    h.FaceAlpha = 0.1;
+    h.EdgeColor = colors(ic,:);
+    % axis off;
+    if ic == 1
+        text(-0.3, 1.7, 'b', ...
+        'Units', 'normalized', 'HorizontalAlignment','left', 'VerticalAlignment', 'top', 'Color', 'black','FontWeight', 'bold');
+    end
+    if ic ~= 11
+        set(gca, 'XTickLabel', []);
+    end
+    if ic == 6
+        ylabel('Probability density');
+    end
+    if ic == 11
+        xlabel("Wind speed (m/s)");
+        subplot2.XTick = [0,20];
+    end
+    subplot2.YTick = [0,0.1];
+    text(1, 1, shortNameList(ic), ...
+        'Units', 'normalized', 'HorizontalAlignment', 'right','VerticalAlignment', 'top', 'Color', 'black');
+    hold on;
+    xlim([0,20]);
+    ylim([0,0.15]);
+    [maxDensity, idx] = max(f{ic});
+    maxDensityPoint = xi{ic}(idx);
+    plot([maxDensityPoint maxDensityPoint], [0, maxDensity], '-', 'LineWidth', 0.5,'Color',[0.5,0.5,0.5]);
+end
+
+
+exportgraphics(gcf, 'figs/fig LCOH map manu.pdf', 'ContentType', 'image', 'Resolution', 600);
 %% LCOH supply curve
 colors = generateColorData('gem12');
 fig = figure;
