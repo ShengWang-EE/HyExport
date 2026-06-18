@@ -2,15 +2,22 @@
 *.asv
 
 # Large local input data copied from external repositories.
-data/raw/
 *.nc
+data/raw/bathymetry_2022_Spain.mat
+data/raw/bathymetry_2022_Ireland.mat
+data/raw/bathymetry_2022_Denmark.mat
+data/raw/bathymetry_2022_United Kingdom.mat
+data/raw/bathymetry_2022_Sweden.mat
+data/raw/bathymetry_2022_Germany.mat
+data/raw/bathymetry_2022_France.mat
+data/raw/bathymetry_2022_Portugal.mat
+data/raw/bathymetry_2022_Norway.mat
+data/raw/bathymetry_2022_Norway1.mat
+data/raw/bathymetry_2022_Norway2.mat
 
 # Generated checkpoints and figures.
 results/checkpoints/
-/results/figures/
-/results/logs/
-results/*.log
-/figs/
+results/figures/areas.fig
 
 # Large map datasets kept locally.
 map/Europe/EEZ/eez_v12.*

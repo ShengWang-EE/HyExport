@@ -1,0 +1,44 @@
+function [LCOEcurve2030,LCOHcurve2030,LCOAcurve2030,LCOEcurve2030_accumulated,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated, ...
+    LCOEcurve2040,LCOHcurve2040,LCOAcurve2040,LCOEcurve2040_accumulated,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated, ...
+    LCOEcurve2050,LCOHcurve2050,LCOAcurve2050,LCOEcurve2050_accumulated,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated] = ...
+    owfCostReduction(LCOEcurve,LCOHcurve,LCOAcurve,reductionRate,nCountry)
+
+
+for ic = 1:nCountry
+    fixedIndex = waterDepthColumn{ic}<60; floatingIndex = waterDepthColumn{ic}>60;
+
+    % 2030
+    factor2030 = (1-reductionRate(2,1)) * fixedIndex + (1-reductionRate(2,2)) * floatingIndex;
+    LCOEcurve2030{ic}(:,1) = LCOEcurve{ic}(:,1);
+    LCOEcurve2030{ic}(:,2) = LCOEcurve{ic}(:,2) * factor2030;
+    LCOHcurve2030{ic}(:,1) = LCOHcurve{ic}(:,1);
+    LCOHcurve2030{ic}(:,2) = LCOHcurve{ic}(:,2) * factor2030;
+    LCOAcurve2030{ic}(:,1) = LCOAcurve{ic}(:,1);
+    LCOAcurve2030{ic}(:,2) = LCOAcurve{ic}(:,2) * factor2030;
+    LCOEcurve2030_accumulated{ic} = [LCOEcurve{ic}(1,:);[LCOEcurve{ic}(2:end,1),cumsum(diff(LCOEcurve{ic}(:,1)).*LCOEcurve{ic}(1:end-1,2))] ];
+    LCOHcurve2030_accumulated{ic} = [LCOHcurve{ic}(1,:);[LCOHcurve{ic}(2:end,1),cumsum(diff(LCOHcurve{ic}(:,1)).*LCOHcurve{ic}(1:end-1,2))] ];
+    LCOAcurve2030_accumulated{ic} = [LCOAcurve{ic}(1,:);[LCOAcurve{ic}(2:end,1),cumsum(diff(LCOAcurve{ic}(:,1)).*LCOAcurve{ic}(1:end-1,2))] ];
+    % 2040
+    factor2040 = (1-reductionRate(3,2)) / (1-reductionRate(1,2));
+    LCOEcurve2040{ic}(:,1) = LCOEcurve{ic}(:,1);
+    LCOEcurve2040{ic}(:,2) = LCOEcurve{ic}(:,2) * factor2040;
+    LCOHcurve2040{ic}(:,1) = LCOHcurve{ic}(:,1);
+    LCOHcurve2040{ic}(:,2) = LCOHcurve{ic}(:,2) * factor2040;
+    LCOAcurve2040{ic}(:,1) = LCOAcurve{ic}(:,1);
+    LCOAcurve2040{ic}(:,2) = LCOAcurve{ic}(:,2) * factor2040;
+    LCOEcurve2040_accumulated{ic} = [LCOEcurve{ic}(1,:);[LCOEcurve{ic}(2:end,1),cumsum(diff(LCOEcurve{ic}(:,1)).*LCOEcurve{ic}(1:end-1,2))] ];
+    LCOHcurve2040_accumulated{ic} = [LCOHcurve{ic}(1,:);[LCOHcurve{ic}(2:end,1),cumsum(diff(LCOHcurve{ic}(:,1)).*LCOHcurve{ic}(1:end-1,2))] ];
+    LCOAcurve2040_accumulated{ic} = [LCOAcurve{ic}(1,:);[LCOAcurve{ic}(2:end,1),cumsum(diff(LCOAcurve{ic}(:,1)).*LCOAcurve{ic}(1:end-1,2))] ];
+    % 2050
+    factor2050 = (1-reductionRate(4,2)) / (1-reductionRate(1,2));
+    LCOEcurve2050{ic}(:,1) = LCOEcurve{ic}(:,1);
+    LCOEcurve2050{ic}(:,2) = LCOEcurve{ic}(:,2) * factor2050;
+    LCOHcurve2050{ic}(:,1) = LCOHcurve{ic}(:,1);
+    LCOHcurve2050{ic}(:,2) = LCOHcurve{ic}(:,2) * factor2050;
+    LCOAcurve2050{ic}(:,1) = LCOAcurve{ic}(:,1);
+    LCOAcurve2050{ic}(:,2) = LCOAcurve{ic}(:,2) * factor2050;
+    LCOEcurve2050_accumulated{ic} = [LCOEcurve{ic}(1,:);[LCOEcurve{ic}(2:end,1),cumsum(diff(LCOEcurve{ic}(:,1)).*LCOEcurve{ic}(1:end-1,2))] ];
+    LCOHcurve2050_accumulated{ic} = [LCOHcurve{ic}(1,:);[LCOHcurve{ic}(2:end,1),cumsum(diff(LCOHcurve{ic}(:,1)).*LCOHcurve{ic}(1:end-1,2))] ];
+    LCOAcurve2050_accumulated{ic} = [LCOAcurve{ic}(1,:);[LCOAcurve{ic}(2:end,1),cumsum(diff(LCOAcurve{ic}(:,1)).*LCOAcurve{ic}(1:end-1,2))] ];
+end
+end

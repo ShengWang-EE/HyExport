@@ -1,0 +1,777 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{61}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Department of~the Environment and
+  Communications}{2024}]{FutureFrameworkfor}
+\begin{botherref}
+\oauthor{\bsnm{Environment}, \binits{C.}},
+\oauthor{\bsnm{Communications}}:
+Future Framework for Offshore Renewable Energy.
+\url{https://www.gov.ie/en/publication/0566b-future-framework-for-offshore-renewable-energy/}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{for Energy Security \&
+  Net~Zero}{2023}]{Offshorewindnetzero}
+\begin{botherref}
+\oauthor{\bsnm{Energy Security \& Net~Zero}, \binits{D.}}:
+Offshore wind net zero investment roadmap.
+\url{https://www.gov.uk/government/publications/offshore-wind-net-zero-investment-roadmap/offshore-wind-net-zero-investment-roadmap}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{EirGrid}{2024a}]{TenYearGenerationCapacity}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+Ten-Year Generation Capacity Statement 2023–2032.
+\url{https://cms.eirgrid.ie/sites/default/files/publications/19035-EirGrid-Generation-Capacity-Statement-Combined-2023-V5-Jan-2024.pdf}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{EirGrid}{2024b}]{FES}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+Future Energy Scenarios: ESO Pathways to Net Zero.
+\url{https://www.nationalgrideso.com/document/322316/download}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Agency}{2021}]{Comparisonoftheemissions}
+\begin{botherref}
+\oauthor{\bsnm{Agency}, \binits{I.E.}}:
+Comparison of the emissions intensity of different hydrogen production routes.
+\url{https://www.iea.org/data-and-statistics/charts/comparison-of-the-emissions-intensity-of-different-hydrogen-production-routes-2021}
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Government}{2020}]{TheNationalHydrogenStrategy}
+\begin{botherref}
+\oauthor{\bsnm{Government}, \binits{T.F.}}:
+The National Hydrogen Strategy.
+\url{https://www.bmbf.de/SharedDocs/Downloads/files/bmwi_nationale-wasserstoffstrategie_eng_s01.pdf?__blob=publicationFile&v=2}
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Wietschel}{2024}]{HydrogenWhichimport}
+\begin{botherref}
+\oauthor{\bsnm{Wietschel}, \binits{M.}}:
+Hydrogen: Which import strategy for Germany?
+\url{https://www.isi.fraunhofer.de/en/presse/2024/presseinfo-05-wasserstoff-importstrategie-deutschland.html}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Economie}{2022}]{BelgianfederalHydrogenStrategy}
+\begin{botherref}
+\oauthor{\bsnm{Economie}}:
+Belgian federal Hydrogen Strategy.
+\url{https://economie.fgov.be/sites/default/files/Files/Energy/View-strategy-hydrogen.pdf}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Agency}{2023}]{GlobalHydrogenReview2023}
+\begin{botherref}
+\oauthor{\bsnm{Agency}, \binits{I.E.}}:
+Global Hydrogen Review 2023.
+\url{https://www.iea.org/reports/global-hydrogen-review-2023#overview}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Economie}{2024}]{windenergyroadmap}
+\begin{botherref}
+\oauthor{\bsnm{Economie}}:
+wind energy roadmap.
+\url{https://www.seai.ie/publications/Wind_Energy_Roadmap_2011-2050.pdf}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Rogeau et~al.}{2023}]{rogeau2023techno}
+\begin{barticle}
+\bauthor{\bsnm{Rogeau}, \binits{A.}},
+\bauthor{\bsnm{Vieubled}, \binits{J.}},
+\bauthor{\bsnm{Coatpont}, \binits{M.}},
+\bauthor{\bsnm{Nobrega}, \binits{P.A.}},
+\bauthor{\bsnm{Erbs}, \binits{G.}},
+\bauthor{\bsnm{Girard}, \binits{R.}}:
+\batitle{Techno-economic evaluation and resource assessment of hydrogen
+  production through offshore wind farms: A european perspective}.
+\bjtitle{Renewable and Sustainable Energy Reviews}
+\bvolume{187},
+\bfpage{113699}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Giampieri et~al.}{2024}]{giampieri2024techno}
+\begin{barticle}
+\bauthor{\bsnm{Giampieri}, \binits{A.}},
+\bauthor{\bsnm{Ling-Chin}, \binits{J.}},
+\bauthor{\bsnm{Roskilly}, \binits{A.P.}}:
+\batitle{Techno-economic assessment of offshore wind-to-hydrogen scenarios: A
+  uk case study}.
+\bjtitle{international journal of hydrogen energy}
+\bvolume{52},
+\bfpage{589}--\blpage{617}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Komorowska
+  et~al.}{2023}]{komorowska2023evaluating}
+\begin{barticle}
+\bauthor{\bsnm{Komorowska}, \binits{A.}},
+\bauthor{\bsnm{Benalcazar}, \binits{P.}},
+\bauthor{\bsnm{Kami{\'n}ski}, \binits{J.}}:
+\batitle{Evaluating the competitiveness and uncertainty of offshore
+  wind-to-hydrogen production: A case study of poland}.
+\bjtitle{International Journal of Hydrogen Energy}
+\bvolume{48}(\bissue{39}),
+\bfpage{14577}--\blpage{14590}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Gonzalez-Arceo
+  et~al.}{2024}]{gonzalez2024techno}
+\begin{barticle}
+\bauthor{\bsnm{Gonzalez-Arceo}, \binits{A.}},
+\bauthor{\bsnm{Blanco-Aguilera}, \binits{R.}},
+\bauthor{\bsnm{Berasategi}, \binits{J.}},
+\bauthor{\bsnm{Martinez-Agirre}, \binits{M.}},
+\bauthor{\bsnm{Martinez}, \binits{A.}},
+\bauthor{\bsnm{Iglesias}, \binits{G.}},
+\bauthor{\bsnm{Penalba}, \binits{M.}}:
+\batitle{Techno-economic assessment of far-offshore hydrogen-carrying energy
+  vectors off the iberian peninsula}.
+\bjtitle{Energy Conversion and Management}
+\bvolume{300},
+\bfpage{117915}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Calado et~al.}{2024}]{calado2024assessment}
+\begin{barticle}
+\bauthor{\bsnm{Calado}, \binits{G.}},
+\bauthor{\bsnm{Castro}, \binits{R.}},
+\bauthor{\bsnm{Pires}, \binits{A.}},
+\bauthor{\bsnm{Marques}, \binits{M.J.}}:
+\batitle{Assessment of hydrogen-based solutions associated to offshore wind
+  farms: The case of the iberian peninsula}.
+\bjtitle{Renewable and Sustainable Energy Reviews}
+\bvolume{192},
+\bfpage{114268}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{UK}{2024}]{HydrogenImport}
+\begin{botherref}
+\oauthor{\bsnm{UK}, \binits{H.}}:
+Hydrogen Import and Export: Unlocking the UK’s hydrogen trade potential.
+\url{https://hydrogen-uk.org/wp-content/uploads/2024/05/Hydrogen-UK-Imports-and-Exports-Report-2024.pdf}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Hersbach et~al.}{2024}]{ERA5}
+\begin{botherref}
+\oauthor{\bsnm{Hersbach}, \binits{H.}},
+\oauthor{\bsnm{Bell}, \binits{B.}},
+\oauthor{\bsnm{Berrisford}, \binits{P.}},
+\oauthor{\bsnm{Biavati}, \binits{G.}},
+\oauthor{\bsnm{Horányi}, \binits{A.}},
+\oauthor{\bsnm{Muñoz~Sabater}, \binits{J.}},
+\oauthor{\bsnm{Nicolas}, \binits{J.}},
+\oauthor{\bsnm{Peubey}, \binits{C.}},
+\oauthor{\bsnm{Radu}, \binits{R.}},
+\oauthor{\bsnm{Rozum}, \binits{I.}},
+\oauthor{\bsnm{Schepers}, \binits{D.}},
+\oauthor{\bsnm{Simmons}, \binits{A.}},
+\oauthor{\bsnm{Soci}, \binits{C.}},
+\oauthor{\bsnm{Dee}, \binits{D.}},
+\oauthor{\bsnm{Thépaut}, \binits{J.-N.}}:
+ERA5 hourly data on single levels from 1940 to present.
+\url{https://cds.climate.copernicus.eu/cdsapp#!/dataset/10.24381/cds.adbb2d47?tab=overview}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Musial et~al.}{2019}]{musial2019oregon}
+\begin{botherref}
+\oauthor{\bsnm{Musial}, \binits{W.D.}},
+\oauthor{\bsnm{Beiter}, \binits{P.C.}},
+\oauthor{\bsnm{Nunemaker}, \binits{J.}},
+\oauthor{\bsnm{Heimiller}, \binits{D.M.}},
+\oauthor{\bsnm{Ahmann}, \binits{J.}},
+\oauthor{\bsnm{Busch}, \binits{J.}}:
+Oregon offshore wind site feasibility and cost study.
+Technical report,
+National Renewable Energy Lab.(NREL), Golden, CO (United States)
+(2019)
+\end{botherref}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{EMODnet}{2022}]{bathymetry_2022}
+\begin{botherref}
+\oauthor{\bsnm{EMODnet}}:
+bathymetry2022.
+\url{https://erddap.emodnet.eu/erddap/files/bathymetry_2022/}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Commission}{2024}]{EMODnet}
+\begin{botherref}
+\oauthor{\bsnm{Commission}, \binits{E.}}:
+EMODnet Map Viewer.
+\url{https://emodnet.ec.europa.eu/geoviewer/}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{IEA}{2024}]{Globalaveragelevelised}
+\begin{botherref}
+\oauthor{\bsnm{IEA}}:
+Global average levelised cost of hydrogen production by energy source and
+  technology, 2019 and 2050.
+\url{https://www.iea.org/data-and-statistics/charts/global-average-levelised-cost-of-hydrogen-production-by-energy-source-and-technology-2019-and-2050}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Wiser et~al.}{2021}]{wiser2021expert}
+\begin{barticle}
+\bauthor{\bsnm{Wiser}, \binits{R.}},
+\bauthor{\bsnm{Rand}, \binits{J.}},
+\bauthor{\bsnm{Seel}, \binits{J.}},
+\bauthor{\bsnm{Beiter}, \binits{P.}},
+\bauthor{\bsnm{Baker}, \binits{E.}},
+\bauthor{\bsnm{Lantz}, \binits{E.}},
+\bauthor{\bsnm{Gilman}, \binits{P.}}:
+\batitle{Expert elicitation survey predicts 37\% to 49\% declines in wind
+  energy costs by 2050}.
+\bjtitle{Nature Energy}
+\bvolume{6}(\bissue{5}),
+\bfpage{555}--\blpage{565}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{EirGrid}{2022}]{OperationalPolicy}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+Operational Policy Roadmap 2023-2030.
+\url{https://www.eirgrid.ie/site-files/library/EirGrid/Operational-Policy-Roadmap-2023-to-2030.pdf}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Association}{2021}]{BritainsHydrogenNetworkPlan}
+\begin{botherref}
+\oauthor{\bsnm{Association}, \binits{E.N.}}:
+Britain's Hydrogen Network Plan.
+\url{https://www.energynetworks.org/publications/britains-hydrogen-network-plan}
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{SEAI}{2024}]{COemissions}
+\begin{botherref}
+\oauthor{\bsnm{SEAI}}:
+CO$_2$ emissions.
+\url{https://www.seai.ie/data-and-insights/seai-statistics/co2}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Commission}{2026}]{EuropeanCommissionHydrogen2026}
+\begin{botherref}
+\oauthor{\bsnm{Commission}, \binits{E.}}:
+Hydrogen.
+\url{https://energy.ec.europa.eu/topics/eus-energy-system/hydrogen_en}
+  (accessed 17 June 2026)
+(2026)
+\end{botherref}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{{International Energy
+  Agency}}{2025a}]{IEAGlobalHydrogenReview2025}
+\begin{botherref}
+\oauthor{\bsnm{{International Energy Agency}}}:
+Global Hydrogen Review 2025.
+\url{https://www.iea.org/reports/global-hydrogen-review-2025}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{{International Energy
+  Agency}}{2025b}]{IEAGlobalHydrogenReviewTrade2025}
+\begin{botherref}
+\oauthor{\bsnm{{International Energy Agency}}}:
+Trade and infrastructure: Global Hydrogen Review 2025.
+\url{https://www.iea.org/reports/global-hydrogen-review-2025/trade-and-infrastructure}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{{International Renewable Energy
+  Agency}}{2022a}]{IRENAGlobalHydrogenTradeOutlook2022}
+\begin{botherref}
+\oauthor{\bsnm{{International Renewable Energy Agency}}}:
+Global Hydrogen Trade to Meet the 1.5 C Climate Goal: Trade Outlook for 2050
+  and Way Forward.
+\url{https://www.irena.org/Publications/2022/Jul/Global-Hydrogen-Trade-Outlook}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{{International Renewable Energy
+  Agency}}{2022b}]{IRENAGreenHydrogenCostPotential2022}
+\begin{botherref}
+\oauthor{\bsnm{{International Renewable Energy Agency}}}:
+Global Hydrogen Trade to Meet the 1.5 C Climate Goal: Green Hydrogen Cost and
+  Potential.
+\url{https://www.irena.org/publications/2022/May/Global-hydrogen-trade-Cost}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{{Marine Regions}}{2025}]{Marineregions}
+\begin{botherref}
+\oauthor{\bsnm{{Marine Regions}}}:
+Marine regions.
+\url{https://marineregions.org/downloads.php}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{Tao et~al.}{2019}]{tao2019optimal}
+\begin{barticle}
+\bauthor{\bsnm{Tao}, \binits{S.}},
+\bauthor{\bsnm{Kuenzel}, \binits{S.}},
+\bauthor{\bsnm{Xu}, \binits{Q.}},
+\bauthor{\bsnm{Chen}, \binits{Z.}}:
+\batitle{Optimal micro-siting of wind turbines in an offshore wind farm using
+  frandsen--gaussian wake model}.
+\bjtitle{IEEE Transactions on Power Systems}
+\bvolume{34}(\bissue{6}),
+\bfpage{4944}--\blpage{4954}
+(\byear{2019})
+\end{barticle}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Paul et~al.}{2019}]{paul2019multi}
+\begin{barticle}
+\bauthor{\bsnm{Paul}, \binits{S.}},
+\bauthor{\bsnm{Nath}, \binits{A.P.}},
+\bauthor{\bsnm{Rather}, \binits{Z.H.}}:
+\batitle{A multi-objective planning framework for coordinated generation from
+  offshore wind farm and battery energy storage system}.
+\bjtitle{IEEE Transactions on Sustainable Energy}
+\bvolume{11}(\bissue{4}),
+\bfpage{2087}--\blpage{2097}
+(\byear{2019})
+\end{barticle}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{Tao et~al.}{2020}]{tao2020joint}
+\begin{barticle}
+\bauthor{\bsnm{Tao}, \binits{S.}},
+\bauthor{\bsnm{Xu}, \binits{Q.}},
+\bauthor{\bsnm{Feij{\'o}o}, \binits{A.}},
+\bauthor{\bsnm{Zheng}, \binits{G.}}:
+\batitle{Joint optimization of wind turbine micrositing and cabling in an
+  offshore wind farm}.
+\bjtitle{IEEE Transactions on Smart Grid}
+\bvolume{12}(\bissue{1}),
+\bfpage{834}--\blpage{844}
+(\byear{2020})
+\end{barticle}
+\endbibitem
+
+%%% 35
+\bibitem[\protect\citeauthoryear{Figshare}{2024}]{Figshare}
+\begin{botherref}
+\oauthor{\bsnm{Figshare}}:
+Enhancing Offshore Wind Integration by Integrated Electricity and Gas Systems
+  With Hydrogen Blending: The Case of Ireland.
+\url{https://doi.org/10.6084/m9.figshare.25655427.v2}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{Catapult}{2020}]{OffshoreWindandHydrogen}
+\begin{botherref}
+\oauthor{\bsnm{Catapult}}:
+Offshore Wind and Hydrogen: Solving the Integration Challenge.
+\url{https://ore.catapult.org.uk/?orecatapultreports=offshore-wind-and-hydrogen-solving-the-integration-challenge}
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 37
+\bibitem[\protect\citeauthoryear{for Energy~Security and
+  Zero}{2021}]{HydrogenAnalyticalAnnex}
+\begin{botherref}
+\oauthor{\bsnm{Energy~Security}, \binits{D.}},
+\oauthor{\bsnm{Zero}, \binits{N.}}:
+Hydrogen Analytical Annex.
+\url{https://assets.publishing.service.gov.uk/media/611b34f9d3bf7f63a906871e/Hydrogen_Analytical_Annex.pdf}
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 38
+\bibitem[\protect\citeauthoryear{EMODnet}{2019}]{RouteDensityMap}
+\begin{botherref}
+\oauthor{\bsnm{EMODnet}}:
+EMODnet Human Activities, EMSA Route Density Map.
+\url{https://emodnet.ec.europa.eu/geonetwork/srv/eng/catalog.search#/metadata/74eef9c6-13fe-4630-b935-f26871c8b661}
+(2019)
+\end{botherref}
+\endbibitem
+
+%%% 39
+\bibitem[\protect\citeauthoryear{Guo et~al.}{2023}]{guo2023grid}
+\begin{barticle}
+\bauthor{\bsnm{Guo}, \binits{X.}},
+\bauthor{\bsnm{Chen}, \binits{X.}},
+\bauthor{\bsnm{Chen}, \binits{X.}},
+\bauthor{\bsnm{Sherman}, \binits{P.}},
+\bauthor{\bsnm{Wen}, \binits{J.}},
+\bauthor{\bsnm{McElroy}, \binits{M.}}:
+\batitle{Grid integration feasibility and investment planning of offshore wind
+  power under carbon-neutral transition in china}.
+\bjtitle{Nature Communications}
+\bvolume{14}(\bissue{1}),
+\bfpage{2447}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 40
+\bibitem[\protect\citeauthoryear{Backbone}{2025}]{EuropeanHydrogenBackbone}
+\begin{botherref}
+\oauthor{\bsnm{Backbone}, \binits{E.H.}}:
+The European Hydrogen Backbone (EHB) initiative.
+\url{https://www.ehb.eu/}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 41
+\bibitem[\protect\citeauthoryear{HyDeploy}{2025}]{HyDeploy}
+\begin{botherref}
+\oauthor{\bsnm{HyDeploy}}:
+HyDeploy.
+\url{https://hydeploy.co.uk/}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 42
+\bibitem[\protect\citeauthoryear{of~Energy}{2025}]{HyBlend}
+\begin{botherref}
+\oauthor{\bsnm{Energy}, \binits{U.S.D.}}:
+HyBlend: Opportunities for Hydrogen Blending in Natural Gas Pipelines.
+\url{https://hydeploy.co.uk/}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 43
+\bibitem[\protect\citeauthoryear{for Energy~Security and
+  Zero}{2023}]{HydrogenblendinginGB}
+\begin{botherref}
+\oauthor{\bsnm{Energy~Security}, \binits{D.}},
+\oauthor{\bsnm{Zero}, \binits{N.}}:
+Hydrogen blending in GB distribution networks: strategic decision.
+\url{https://www.gov.uk/government/publications/hydrogen-blending-in-gb-distribution-networks-strategic-decision}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 44
+\bibitem[\protect\citeauthoryear{Association}{2023}]{BritainsHydrogen}
+\begin{botherref}
+\oauthor{\bsnm{Association}, \binits{E.N.}}:
+Britain's Hydrogen Network Plan.
+\url{https://www.energynetworks.org/assets/images/FINAL%20Britain's%20Hydrogen%20Network%20Plan.pdf}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 45
+\bibitem[\protect\citeauthoryear{EirGrid and
+  Soni}{2022}]{OperationalPolicyRoadmap}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}},
+\oauthor{\bsnm{Soni}}:
+Operational Policy Roadmap 2023-2030.
+\url{https://cms.eirgrid.ie/sites/default/files/publications/Operational-Policy-Roadmap-2023-to-2030.pdf}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 46
+\bibitem[\protect\citeauthoryear{EirGrid}{2025}]{CelticInterconnector}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+Celtic Interconnector.
+\url{https://www.eirgrid.ie/celticinterconnector}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 47
+\bibitem[\protect\citeauthoryear{Legislation.gov.uk}{2023}]{TheGasSafety2023}
+\begin{botherref}
+\oauthor{\bsnm{Legislation.gov.uk}}:
+The Gas Safety (Management) (Amendment) Regulations 2023.
+\url{https://www.legislation.gov.uk/uksi/2023/284}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 48
+\bibitem[\protect\citeauthoryear{Wang et~al.}{2023}]{wang2023optimal}
+\begin{barticle}
+\bauthor{\bsnm{Wang}, \binits{S.}},
+\bauthor{\bsnm{Zhai}, \binits{J.}},
+\bauthor{\bsnm{Hui}, \binits{H.}}:
+\batitle{Optimal energy flow in integrated electricity and gas systems with
+  injection of alternative gas}.
+\bjtitle{IEEE Transactions on Sustainable Energy}
+\bvolume{14}(\bissue{3}),
+\bfpage{1540}--\blpage{1557}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 49
+\bibitem[\protect\citeauthoryear{Committee}{2020}]{SEMPLEXOS}
+\begin{botherref}
+\oauthor{\bsnm{Committee}, \binits{S.-E.-M.}}:
+SEM-20-003 SEM PLEXOS Forecast Model (2020-2025).
+\url{https://www.semcommittee.com/publications/sem-20-003-sem-plexos-forecast-model-2020-2025}
+(2020)
+\end{botherref}
+\endbibitem
+
+%%% 50
+\bibitem[\protect\citeauthoryear{EirGrid}{2025}]{SystemandRenewableDataReports}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+System and Renewable Data Reports.
+\url{https://www.eirgrid.ie/grid/system-and-renewable-data-reports}
+(2025)
+\end{botherref}
+\endbibitem
+
+%%% 51
+\bibitem[\protect\citeauthoryear{Ireland}{2022}]{GasForecastStatement2022}
+\begin{botherref}
+\oauthor{\bsnm{Ireland}, \binits{G.N.}}:
+Gas Forecast Statement 2022.
+\url{https://www.gasnetworks.ie/docs/corporate/gas-regulation/GNI-2022-Gas-Forecast-Statement.pdf}
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 52
+\bibitem[\protect\citeauthoryear{EirGrid and Soni}{2024}]{GenerationCapacity}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}},
+\oauthor{\bsnm{Soni}}:
+Ten-Year Generation Capacity Statement 2023–2032 T.
+\url{https://cms.eirgrid.ie/sites/default/files/publications/19035-EirGrid-Generation-Capacity-Statement-Combined-2023-V5-Jan-2024.pdf}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 53
+\bibitem[\protect\citeauthoryear{EirGrid}{2024}]{SmartGridDashboard}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+Smart Grid Dashboard.
+\url{https://www.smartgriddashboard.com/#all}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 54
+\bibitem[\protect\citeauthoryear{Ireland}{2024}]{GasconsumptionbyMarketSector}
+\begin{botherref}
+\oauthor{\bsnm{Ireland}, \binits{G.N.}}:
+Gas consumption by Market Sector.
+\url{https://www.gasnetworks.ie/corporate/gas-regulation/transparency-and-publicat/dashboard-reporting/exit-flows/gas-consumption-by-market-sector/}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 55
+\bibitem[\protect\citeauthoryear{EirGrid}{2023}]{AllIslandTenYear}
+\begin{botherref}
+\oauthor{\bsnm{EirGrid}}:
+All-Island Ten Year Transmission Forecast Statement.
+\url{https://cms.eirgrid.ie/all-island-ten-year-transmission-forecast-statement}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 56
+\bibitem[\protect\citeauthoryear{Ireland}{2024}]{NetworkDevelopmentPlan}
+\begin{botherref}
+\oauthor{\bsnm{Ireland}, \binits{G.N.}}:
+Network Development Plan.
+\url{https://www.gasnetworks.ie/corporate/company/our-network/network-development-plan/}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 57
+\bibitem[\protect\citeauthoryear{Ekhtiari et~al.}{2022}]{ekhtiari2022green}
+\begin{barticle}
+\bauthor{\bsnm{Ekhtiari}, \binits{A.}},
+\bauthor{\bsnm{Flynn}, \binits{D.}},
+\bauthor{\bsnm{Syron}, \binits{E.}}:
+\batitle{Green hydrogen blends with natural gas and its impact on the gas
+  network}.
+\bjtitle{Hydrogen}
+\bvolume{3}(\bissue{4}),
+\bfpage{402}--\blpage{417}
+(\byear{2022})
+\end{barticle}
+\endbibitem
+
+%%% 58
+\bibitem[\protect\citeauthoryear{Department of~the Environment and
+  Communications}{2024}]{FutureFrameworkforOffshore}
+\begin{botherref}
+\oauthor{\bsnm{Environment}, \binits{C.}},
+\oauthor{\bsnm{Communications}}:
+Future Framework for Offshore Renewable Energy.
+\url{https://www.gov.ie/en/publication/0566b-future-framework-for-offshore-renewable-energy/}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 59
+\bibitem[\protect\citeauthoryear{for Energy Security \&
+  Net~Zero}{2023}]{Offshorewindnet}
+\begin{botherref}
+\oauthor{\bsnm{Energy Security \& Net~Zero}, \binits{D.}}:
+Offshore wind net zero investment roadmap.
+\url{https://www.gov.uk/government/publications/offshore-wind-net-zero-investment-roadmap/offshore-wind-net-zero-investment-roadmap}
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 60
+\bibitem[\protect\citeauthoryear{Commission}{2024}]{Offshorerenewableenergy}
+\begin{botherref}
+\oauthor{\bsnm{Commission}, \binits{E.}}:
+Offshore renewable energy.
+\url{https://energy.ec.europa.eu/topics/renewable-energy/offshore-renewable-energy_en}
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 61
+\bibitem[\protect\citeauthoryear{Backbone}{2021}]{Analysingfuturedemand}
+\begin{botherref}
+\oauthor{\bsnm{Backbone}, \binits{E.H.}}:
+Analysing future demand, supply, and transport of hydrogen.
+\url{https://www.ehb.eu/files/downloads/EHB-Analysing-the-future-demand-supply-and-transport-of-hydrogen-June-2021-v3.pdf}
+(2021)
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}

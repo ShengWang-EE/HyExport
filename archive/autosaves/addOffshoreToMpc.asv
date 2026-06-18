@@ -1,0 +1,33 @@
+function newmpc = addOffshoreToMpc(mpc,OWFcapacity_shortTerm,LCOE,powerPerGridNew,lonGrid_mesh,latGrid_mesh)
+% know the geolocation of OWFs
+[LCOEinOrder, idx] = sort(LCOE(:));
+[row, col] = ind2sub(size(LCOE), idx);
+
+totalCapacity = 0;
+OWFinstallationInfo = [];
+for i = 1:size(row,1)
+    totalCapacity = totalCapacity + powerPerGridNew(row(i),col(i));
+    OWFcapacityIncrease = powerPerGridNew(row(i),col(i));
+    if totalCapacity > OWFcapacity_shortTerm
+        OWFcapacityIncrease = OWFcapacity_shortTerm - (totalCapacity - powerPerGridNew(row(i),col(i)));
+    end
+    OWFinstallationInfo = [OWFinstallationInfo;
+        row(i),col(i),OWFcapacityIncrease];
+    if totalCapacity > OWFcapacity_shortTerm
+        break
+    end
+end
+%% know the connecting bus of OWFs
+nb = size(mpc.busName,1);
+for i = 1:size(OWFinstallationInfo,1)
+    lon = lonGrid_mesh(row(i),col(i)); lat = latGrid_mesh(row(i),col(i));
+    EbusCoordinate = table2array(mpc.busName(:,3:4));
+    GbusCoordinate = table2array(mpc.GbusName(:,2:3));
+    [minDistanceToPowerGrid,EbusIndex(i)] = min(distance(repmat([lon,lat],[nb,1]),EbusCoordinate));
+    [minDistanceToGasNetwork,GbusIndex(i)] = min(distance(repmat([lon,lat],[nb,1]),GbusCoordinate));
+end
+%% add OWF to mpc
+for i = 1:size(OWFinstallationInfo,1)
+    addgen = []
+    addgencost = 
+    addgenType = 

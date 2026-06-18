@@ -1,0 +1,147 @@
+20240126
+要读取shp文件的全部信息，不能只放shp文件，要在同个目录下把shx，prj之类的文件都放过来
+
+wake effect不能只取实数部分，会造成断节
+
+cost.substructureInstallation_3MWmonopile = 86671670 - 3230771*waterDepth + 3918*distanceToPort + 112670*waterDepth^2 ...
+    + 2.23*1e-8*distanceToPort^2 + 225*waterDepth*distanceToPort - 760*waterDepth^3 + 6.43*1e-11 * waterDepth*distanceToPort^2 ...
+    + 22.9*waterDepth^2*distanceToPort;
+cost.substructureInstallation_3MWjacket = -22750257 + 20167344*waterDepth - 1061023*waterDepth^2 ...
+    + 24429*waterDepth^3 - 246*waterDepth^4 + 0.903*waterDepth^5 + 100790*distanceToPort;
+cost.substructureInstallation_3MWsemisubmersible =  18408000 + 7875*waterDepth + 24821*distanceToPort;
+
+一些坐标下LCOE会出现复数，检查一下
+
+当floating成本小于jacket时，得加个不同owftype的cost取最小值
+是不是
+整体成本有点偏低，英国最新数据£43.17/MWh
+
+更新后，主要几个问题：
+1. 成本略偏高
+2. floating成本太低了？或者jacket成本太高了
+3. 细分cost占比不对
+
+20240314
+降碳潜力那儿，算一个平均日作为结果，在抽一个典型周计算作为展示，算一年太多了费时间
+
+不可行，可能有孤岛？
+
+gpp不发电可能是价格原因？或者是天然气总负荷的原因？还待研究
+- 还是成本的问题，因为把成本降到0就会发电了
+
+负荷高的时候，天然气供应有点不够，因为把发电用的天然气重复算了
+
+还是得把solar加上去
+
+还是求着有点慢。或者把网架结构去掉？
+-不行，不然不同点的offshore wind的降碳潜力就没差别了
+
+unitcommitment求不出来
+
+unbounded
+
+把gas flow cons注释掉，mosek就能解出来了？否则一直报错（mosek自己算法问题，不是模型问题）
+而gurobi只要目标函数变复杂，求解时间就非常慢
+
+去掉ramp cons,mosek可以解了，但就是也变得和gurobi一样慢了（100s，比gurobi快点）
+
+再检查一下结果
+
+gurobi在目标函数引入二次项之后，求解就显示infeasible or unbounded，只有一次项的时候是好的
+反正二次项系数也很小，就不要了吧
+
+在留一点备用给不确定性？把风电利用率降低。看还能不能加啥限制一下
+
+bathmetry全欧洲的数据太大，无法一次性读取，可以分国家计算，最后缩减分辨率再汇总
+
+LCOE调试正常了
+
+检查其他国家的
+然后解决下为啥离岸近的成本反而高的问题:
+- 其实没错，因为内陆容量系数低，风小
+
+处理下挪威
+然后按比例固定排除不能建设的区域
+- 多边形太复杂，算得太慢，先跳过
+
+只筛选出在EEZ内部的点
+然后把high vessel/fishing density等的地方去掉
+的确合理，因为海资源都建海上风电，那就没地方捕鱼了
+
+看看挪威港口比较远造成的成本，能不能凸显一下
+
+还行，现在成本对爱尔兰比较有利
+
+然后加上transportation cost
+再研究一下power density到底是不是一个重要指标，我这取得太小了有没有啥影响
+- 是，得取大一点，但是这样爱尔兰就不占优势
+
+export模型跑通了，但是结果不大对，核对一下
+
+求得很慢
+debug：可能是约束的原因，因为
+
+还是先确保数学模型是对的比较好
+或者再把nPort调小
+
+假设运输不要钱，先看看边际成本是不是一样
+country7,8,9起步价就很高，为啥还要出力？
+-cost目标函数写错了，进行了调整
+
+ireland好像运输成本低的时候hysupply更多，可以在未来设定成本下降
+而且现在2040,2050年也能求了
+
+
+还有找个分辨率低点的EEZ，不然计算太费时间了
+下一步要设定各个国家的边界：多少OWF，多少hy capacity，其中本地消纳多少，还剩多少，各国的hy demand多少用onshore供应的
+这样能让出口型国家，比如爱尔兰，出口的多点
+
+对比了下比利时的vesseldensity比较高，为啥功率密度还高？
+
+为啥引入interconnector会导致不可行
+- 好像是传输线路容量不够
+那也不是，为啥Pic非得是0？
+好像不是0也可以，是成本驱动的。为啥免费的还不用？
+应该是符号弄反了
+
+加个用和不用hydrogen的offshorewind的消纳率的对比
+
+找找ireland LCOH贵的原因，好像没理由啊，和英国条件差不多，为啥价格就差那么多
+在LCOH这俩是差不多的，为啥到LCOHcurve就差这么多了
+怎么把英国成本变低了
+其实就是有个很低的
+但是这个孤立的很低的一个点，影响这么大吗？有没有被放大了
+
+同样的价格，英国每个格子的面积大点，所以整体成本就低了。是不是格子大小有影响？
+可以试试再细分格子，看差距会不会变小
+-差距变化不大，说明英国成本就是低。为啥？
+- 从概率分布来看，英国浅海更多点
+
+20240708
+spain 的hydrogen demand 有点太高了（虽然来自于hydrogen backbone），但是好像不太可信
+
+为啥德国能自给自足?
+-德国容量70GW太大了。我设计50%是hy，但是没乘以容量系数
+
+应该再算一下ireland的消纳率，然后拿到其他国家负荷预测数据，再算一遍
+
+20240722
+带上network cons，还能有点切风；要是不算，就一点切风都没有
+能用惯量约束切风
+
+为啥系统不用氢能
+-没加ptg
+
+todo:
+添加export 部分代码
+如果ptg容量足够大，那是可以把风电全部消纳export的
+除非再给风电配运行备用，让传统机组流出余量（不能再按照LSE的原则配备用了），按照误差10%配
+调节备用价格，让切风率比较合适
+
+能出口，能100%掺氢，最后的限制切风因素是ptg的容量，惯量，以及备用要求的共同结果
+
+得尽量合理假设边界条件：
+供应：offshore有多少剩下来能制氢的？能制出口的氢的？
+负荷：有多少氢负荷？其中多少已经被非offshore氢供应了（因为onshore制氢的规模肯定也在扩张）
+- 假设供应侧的用系数考虑，负荷侧的不考虑，假设优先用offshore绿氢
+- 假设offshore wind的一般系数由onshore wind承担
