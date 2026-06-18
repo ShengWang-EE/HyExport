@@ -9,7 +9,7 @@ Last updated: 2026-06-18
 - Main figures exist in `manuscript/figs/`.
 - SI figures exist in `manuscript/supplementary/J14___Supplementary_Information_v0_2/figs/`.
 - NC revision plan exists at `manuscript/notes/NC_revision_plan.md`.
-- Second-draft Fig. 4 and Fig. 6 candidates exist at `manuscript/figs/fig_nc_lcoh_counterfactual.pdf` and `manuscript/figs/fig_nc_outside_option_robustness.pdf`.
+- Diagnostic Fig. 7 and robustness Fig. 8 candidates exist at `manuscript/figs/fig_nc_lcoh_counterfactual.pdf` and `manuscript/figs/fig_nc_outside_option_robustness.pdf`.
 - Main manuscript now includes the counterfactual Results subsection, the outside-option threshold Results subsection, updated figure legends, and a revised abstract/Discussion opening aligned with the new story.
 
 ## Not Yet Ready

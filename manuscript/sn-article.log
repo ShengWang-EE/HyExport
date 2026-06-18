@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 18:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,7 +568,7 @@ Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 (/usr/local/texlive/2026/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-Package hyperref Info: Option `hypertexnames' set `false' on input line 64.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 65.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -577,24 +577,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./sn-article.aux)
 \openout1 = `sn-article.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 103.
-LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
 \footinsA=\insert252
 \c@footnoteA=\count352
 
@@ -655,91 +655,91 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 103.
+Package hyperref Info: Link coloring ON on input line 104.
 
 (./sn-article.out) (./sn-article.out)
 \@outlinefile=\write3
 \openout3 = `sn-article.out'.
 
 \c@lstlisting=\count359
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 165.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 166.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 165.
+(Font)              size <8> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <8.43146> not available
-(Font)              size <8> substituted on input line 165.
+(Font)              size <8> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 165.
+(Font)              size <8> substituted on input line 166.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 165
+LaTeX Font Info:    Trying to load font information for U+msa on input line 166
 .
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 165
+LaTeX Font Info:    Trying to load font information for U+msb on input line 166
 .
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16
-5.
+6.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 165.
+(Font)              size <8> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 165.
+(Font)              size <8> substituted on input line 166.
 
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 16
-5.
+6.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 165.
+(Font)              size <6> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.52061> not available
-(Font)              size <6> substituted on input line 165.
+(Font)              size <6> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 165.
+(Font)              size <6> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.52061> not available
-(Font)              size <6> substituted on input line 165.
+(Font)              size <6> substituted on input line 166.
 
-LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 165
+LaTeX Font Info:    Calculating math sizes for size <9.03374> on input line 166
 .
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.51686> not available
-(Font)              size <5> substituted on input line 165.
+(Font)              size <5> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.51686> not available
-(Font)              size <5> substituted on input line 165.
+(Font)              size <5> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.51686> not available
-(Font)              size <5> substituted on input line 165.
+(Font)              size <5> substituted on input line 166.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.51686> not available
-(Font)              size <5> substituted on input line 165.
+(Font)              size <5> substituted on input line 166.
 
 LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 16
-5.
+6.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -753,12 +753,12 @@ c}]
 <figs/fig_LCOH_map_manu.pdf, id=111, 641.39626pt x 383.39233pt>
 File: figs/fig_LCOH_map_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_map_manu.pdf>
-Package pdftex.def Info: figs/fig_LCOH_map_manu.pdf  used on input line 188.
+Package pdftex.def Info: figs/fig_LCOH_map_manu.pdf  used on input line 189.
 (pdftex.def)             Requested size: 368.28204pt x 220.14467pt.
 <figs/fig_LCOH_curves_manu.pdf, id=115, 412.54124pt x 276.03125pt>
 File: figs/fig_LCOH_curves_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_curves_manu.pdf>
-Package pdftex.def Info: figs/fig_LCOH_curves_manu.pdf  used on input line 199.
+Package pdftex.def Info: figs/fig_LCOH_curves_manu.pdf  used on input line 200.
 
 (pdftex.def)             Requested size: 368.28204pt x 246.42096pt.
 
@@ -768,7 +768,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <figs/fig_cost_table.pdf, id=130, 390.45876pt x 373.395pt>
 File: figs/fig_cost_table.pdf Graphic file (type pdf)
 <use figs/fig_cost_table.pdf>
-Package pdftex.def Info: figs/fig_cost_table.pdf  used on input line 257.
+Package pdftex.def Info: figs/fig_cost_table.pdf  used on input line 258.
 (pdftex.def)             Requested size: 297.60114pt x 284.60928pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -778,7 +778,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figs/fig_unit_commitment_main.pdf Graphic file (type pdf)
 <use figs/fig_unit_commitment_main.pdf>
 Package pdftex.def Info: figs/fig_unit_commitment_main.pdf  used on input line 
-274.
+275.
 (pdftex.def)             Requested size: 368.28204pt x 267.84914pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -788,7 +788,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figs/fig_wind_decomposition.pdf Graphic file (type pdf)
 <use figs/fig_wind_decomposition.pdf>
 Package pdftex.def Info: figs/fig_wind_decomposition.pdf  used on input line 28
-3.
+4.
 (pdftex.def)             Requested size: 368.28204pt x 368.87694pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -797,44 +797,45 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./figs/fig_unit_commitment_main.pdf>]
-<figs/fig_nc_lcoh_counterfactual.pdf, id=349, 823.075pt x 428.60126pt>
-File: figs/fig_nc_lcoh_counterfactual.pdf Graphic file (type pdf)
-<use figs/fig_nc_lcoh_counterfactual.pdf>
-Package pdftex.def Info: figs/fig_nc_lcoh_counterfactual.pdf  used on input lin
-e 296.
-(pdftex.def)             Requested size: 368.28204pt x 191.77661pt.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8 <./figs/fig_wind_decomposition.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9 <./figs/fig_nc_lcoh_counterfactual.pdf>]
-<figs/fig_hy_am_flow_sankey.pdf, id=511, 385.44pt x 574.145pt>
+<figs/fig_hy_am_flow_sankey.pdf, id=468, 385.44pt x 574.145pt>
 File: figs/fig_hy_am_flow_sankey.pdf Graphic file (type pdf)
 <use figs/fig_hy_am_flow_sankey.pdf>
-Package pdftex.def Info: figs/fig_hy_am_flow_sankey.pdf  used on input line 313
+Package pdftex.def Info: figs/fig_hy_am_flow_sankey.pdf  used on input line 301
 .
 (pdftex.def)             Requested size: 260.39886pt x 387.88158pt.
-<figs/fig_nc_outside_option_robustness.pdf, id=517, 758.835pt x 330.23375pt>
-File: figs/fig_nc_outside_option_robustness.pdf Graphic file (type pdf)
-<use figs/fig_nc_outside_option_robustness.pdf>
-Package pdftex.def Info: figs/fig_nc_outside_option_robustness.pdf  used on inp
-ut line 327.
-(pdftex.def)             Requested size: 353.39886pt x 153.79393pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
+ [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./figs/fig_hy_am_flow_sankey.pdf>]
+<figs/fig_nc_lcoh_counterfactual.pdf, id=534, 823.075pt x 428.60126pt>
+File: figs/fig_nc_lcoh_counterfactual.pdf Graphic file (type pdf)
+<use figs/fig_nc_lcoh_counterfactual.pdf>
+Package pdftex.def Info: figs/fig_nc_lcoh_counterfactual.pdf  used on input lin
+e 315.
+(pdftex.def)             Requested size: 368.28204pt x 191.77661pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
+ [12 <./figs/fig_nc_lcoh_counterfactual.pdf>]
+<figs/fig_nc_outside_option_robustness.pdf, id=589, 758.835pt x 330.23375pt>
+File: figs/fig_nc_outside_option_robustness.pdf Graphic file (type pdf)
+<use figs/fig_nc_outside_option_robustness.pdf>
+Package pdftex.def Info: figs/fig_nc_outside_option_robustness.pdf  used on inp
+ut line 328.
+(pdftex.def)             Requested size: 353.39886pt x 153.79393pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
+ [13 <./figs/fig_nc_outside_option_robustness.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
@@ -844,7 +845,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [16]
-Underfull \hbox (badness 2521) in paragraph at lines 426--427
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \hbox (badness 2521) in paragraph at lines 427--428
 \OT1/cmr/m/n/10 M.M.B. con-tributed to the energy-system inter-pre-ta-tion, pol
 -icy con-text and
  []
@@ -852,29 +862,24 @@ Underfull \hbox (badness 2521) in paragraph at lines 426--427
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
+ [20]
 (./sn-article.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21])
+ [21]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23 <./figs/fig_hy_am_flow_sankey.pdf>]
+ [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24 <./figs/fig_nc_outside_option_robustness.pdf>] (./sn-article.aux)
+ [24])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+(./sn-article.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -885,16 +890,16 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.48314pt have occurred.
 
 Package rerunfilecheck Info: File `sn-article.out' has not changed.
-(rerunfilecheck)             Checksum: 8031D9770FF36D3FE62430E84E0A0191;3295.
+(rerunfilecheck)             Checksum: CE3854F6A9BDA6F68604838CF691BD91;3295.
  ) 
 Here is how much of TeX's memory you used:
- 15010 strings out of 467525
- 231673 string characters out of 5418983
- 697282 words of memory out of 5000000
- 43541 multiletter control sequences out of 15000+600000
+ 15012 strings out of 467525
+ 231690 string characters out of 5418983
+ 693283 words of memory out of 5000000
+ 43542 multiletter control sequences out of 15000+600000
  648301 words of font info for 125 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,8n,93p,1583b,722s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,8n,93p,1627b,726s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 6.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
@@ -914,10 +919,10 @@ ive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/tex
 mf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on sn-article.pdf (24 pages, 1888261 bytes).
+Output written on sn-article.pdf (25 pages, 1888654 bytes).
 PDF statistics:
- 952 PDF objects out of 1000 (max. 8388607)
- 843 compressed objects within 9 object streams
- 120 named destinations out of 1000 (max. 500000)
+ 958 PDF objects out of 1000 (max. 8388607)
+ 848 compressed objects within 9 object streams
+ 121 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

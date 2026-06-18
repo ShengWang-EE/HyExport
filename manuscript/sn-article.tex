@@ -52,6 +52,7 @@
 \usepackage{manyfoot}%
 \usepackage{booktabs}%
 \usepackage{algorithm}%
+\usepackage{float}%
 \usepackage{algorithmicx}%
 \usepackage{algpseudocode}%
 \usepackage{listings}%
@@ -285,19 +286,6 @@ We then use the full-year Ireland results to estimate offshore wind utilisation 
     \label{fig wind decomposition}
 \end{figure}
 
-\subsection{Production cost alone misidentifies strategic hydrogen exporters}
-
-The cost and domestic-absorption results above show that low LCOH is only one part of the offshore hydrogen trade problem. To isolate what is missed by a production-cost view, we constructed a lowest-LCOH-only counterfactual that allocates hydrogen demand to the lowest-cost offshore supply first, and compared it with the integrated model that includes domestic absorption limits, shipping costs, national demand and residual external imports. This counterfactual is not intended as a market-design proposal; it is a diagnostic baseline for testing whether the strategic-exporter ranking can be inferred from LCOH alone.
-
-The two approaches give different exporter geographies (Fig. \ref{fig nc lcoh counterfactual}). In the cost-only baseline, the leading net exporters are Denmark in 2030, the Netherlands in 2040 and Denmark again in 2050, with net exports of 44, 147 and 171 TWh yr$^{-1}$, respectively. In the integrated model, the leading net exporter is the UK in all three model years, with 78, 122 and 162 TWh yr$^{-1}$, while Ireland nearly matches the UK in 2050 at 162 TWh yr$^{-1}$. The difference is particularly large in 2050: the cost-only baseline assigns 41 TWh yr$^{-1}$ of net exports to Ireland and a 44 TWh yr$^{-1}$ net import position to the UK, whereas the integrated model increases both countries to approximately 162 TWh yr$^{-1}$ of net exports. The integrated model also reveals residual external import requirements of approximately 116 and 62 TWh yr$^{-1}$ in 2040 and 2050, while the cost-only baseline hides this shortage by construction. These results show that the policy-relevant exporter ranking is determined by the system balance between cost, domestic absorption, shipping and demand, rather than by LCOH ranking alone.
-
-\begin{figure}
-    \centering
-    \includegraphics[width = 0.99\columnwidth]{figs/fig_nc_lcoh_counterfactual.pdf}
-    \caption{\textbf{Lowest-LCOH allocation misidentifies strategic offshore hydrogen exporters.} \textbf{a} Country net-export balance under a lowest-LCOH-only baseline and the integrated model in 2030, 2040 and 2050. Blue indicates net export and red indicates net import. Black boxes mark the leading net exporter in each model-year combination. \textbf{b} Leading net exporter and corresponding net export under the two model structures. \textbf{c} Residual outside imports identified by the integrated model. The cost-only baseline allocates demand within the modelled European offshore supply by construction and therefore does not expose the residual external import requirement.}
-    \label{fig nc lcoh counterfactual}
-\end{figure}
-
 \subsection{Integrated trade reallocates carbon-mitigation value across Europe}
 
 We next combine the cost-supply curves and export-potential estimates in an international green hydrogen trading model for 2030, 2040 and 2050. The cost-supply curves are interpolated as piecewise linear functions and combined with shipping costs, national hydrogen and ammonia demand, domestic export limits and external imports in a cost-minimising optimisation. The resulting flows and supplier contributions to carbon mitigation are shown in Fig. \ref{fig sankey}.
@@ -308,12 +296,25 @@ In 2050, external imports fall to approximately 62 TWh yr$^{-1}$ but remain part
 
 Hydrogen trade also reallocates carbon-mitigation value across Europe (Fig. \ref{fig sankey}b,d,f). In the modelled displacement accounting, the integrated supply mix mitigates approximately 43.5, 129.8 and 175.5 Mt CO$_2$ yr$^{-1}$ in 2030, 2040 and 2050, respectively, equivalent to 0.74, 2.20 and 2.98 times Ireland's current annual carbon emissions \cite{COemissions}. Of these totals, European offshore suppliers account for approximately 43.5, 103.2 and 158.3 Mt CO$_2$ yr$^{-1}$, with the remaining contributions in 2040 and 2050 associated with external imports. In 2030, the UK and the Netherlands are the main European offshore contributors to carbon mitigation. From 2040 to 2050, Ireland's importance increases with its export position. Ireland and the UK therefore mitigate emissions not only through domestic supply, but also through hydrogen delivered to demand centres elsewhere in Europe.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.7\columnwidth]{figs/fig_hy_am_flow_sankey.pdf}
     \caption{\textbf{Sankey diagram of hydrogen flows and contributions to carbon mitigation.}
     \textbf{a}, \textbf{c}, and \textbf{e}, are the Sankey diagrams of hydrogen flows among these countries and external hydrogen imports in 2030, 2040, and 2050, respectively. ITN represents external import. Only the hydrogen flows between countries are drawn; hydrogen supplied and consumed within the same country is not shown. \textbf{b}, \textbf{d}, and \textbf{f} show supplier-attributed carbon mitigation in the optimized supply mix, including domestic self-supply and exports. Different bars represent the reduction in carbon dioxide emissions, and different colours indicate different countries' contributions. ITN contributions are excluded when reporting European offshore supplier contributions.}
     \label{fig sankey}
+\end{figure}
+
+\subsection{Production cost alone misidentifies strategic hydrogen exporters}
+
+The cost, domestic-absorption and trade results above show that low LCOH is only one part of the offshore hydrogen trade problem. To isolate what is missed by a production-cost view, we constructed a lowest-LCOH-only counterfactual that allocates hydrogen demand to the lowest-cost offshore supply first, and compared it with the integrated model that includes domestic absorption limits, shipping costs, national demand and residual external imports. This counterfactual is not intended as a market-design proposal; it is a diagnostic baseline for testing whether the strategic-exporter ranking can be inferred from LCOH alone.
+
+The two approaches give different exporter geographies (Fig. \ref{fig nc lcoh counterfactual}). In the cost-only baseline, the leading net exporters are Denmark in 2030, the Netherlands in 2040 and Denmark again in 2050, with net exports of 44, 147 and 171 TWh yr$^{-1}$, respectively. In the integrated model, the leading net exporter is the UK in all three model years, with 78, 122 and 162 TWh yr$^{-1}$, while Ireland nearly matches the UK in 2050 at 162 TWh yr$^{-1}$. The difference is particularly large in 2050: the cost-only baseline assigns 41 TWh yr$^{-1}$ of net exports to Ireland and a 44 TWh yr$^{-1}$ net import position to the UK, whereas the integrated model increases both countries to approximately 162 TWh yr$^{-1}$ of net exports. The integrated model also reveals residual external import requirements of approximately 116 and 62 TWh yr$^{-1}$ in 2040 and 2050, while the cost-only baseline hides this shortage by construction. These results show that the policy-relevant exporter ranking is determined by the system balance between cost, domestic absorption, shipping and demand, rather than by LCOH ranking alone.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.99\columnwidth]{figs/fig_nc_lcoh_counterfactual.pdf}
+    \caption{\textbf{Lowest-LCOH allocation misidentifies strategic offshore hydrogen exporters.} \textbf{a} Country net-export balance under a lowest-LCOH-only baseline and the integrated model in 2030, 2040 and 2050. Blue indicates net export and red indicates net import. Black boxes mark the leading net exporter in each model-year combination. \textbf{b} Leading net exporter and corresponding net export under the two model structures. \textbf{c} Residual outside imports identified by the integrated model. The cost-only baseline allocates demand within the modelled European offshore supply by construction and therefore does not expose the residual external import requirement.}
+    \label{fig nc lcoh counterfactual}
 \end{figure}
 
 \subsection{External import prices define a threshold for European offshore supply}
@@ -322,7 +323,7 @@ The integrated trade result depends on how attractive non-European low-carbon hy
 
 The outside-option scan shows a threshold rather than unconditional robustness (Fig. \ref{fig nc outside option robustness}). In the 2050 case, an external option near 2 EUR kg$^{-1}$ H$_2$-equivalent displaces European offshore supply almost entirely, with 818 TWh yr$^{-1}$ supplied from outside the modelled European offshore system. At 3 EUR kg$^{-1}$, European offshore supply remains limited to 98 TWh yr$^{-1}$, outside imports remain at approximately 721 TWh yr$^{-1}$ and the UK remains a net importer. Around 4 EUR kg$^{-1}$, the solution changes regime: European offshore supply rises to about 767 TWh yr$^{-1}$, outside imports fall to about 63 TWh yr$^{-1}$, and the UK, Ireland and Denmark re-emerge as large net exporters, at approximately 162, 161 and 118 TWh yr$^{-1}$, respectively. The UK/Ireland export conclusion is therefore conditional on external imports not being available at ultra-low delivered prices, but it is restored once the outside option enters a more constrained delivered-cost range.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.95\columnwidth]{figs/fig_nc_outside_option_robustness.pdf}
     \caption{\textbf{External import prices define a threshold for European offshore hydrogen supply.} \textbf{a} 2050 supply mix between external low-carbon imports and European offshore hydrogen under delivered outside-option prices from 2 to 6 EUR kg$^{-1}$ H$_2$-equivalent. \textbf{b} Net-export response of Ireland, the United Kingdom and Denmark under the same price scan. Blue indicates net export and red indicates net import. The scan is designed to identify a price threshold, not to assign probabilities to future import prices.}
