@@ -19,55 +19,75 @@ nodeList = ["BE", "DK", "FR", "DE", "IE", "NL", "NO", "PT", "ES", "SE", "GB", "I
 countryList = ["BE", "DK", "FR", "DE", "IE", "NL", "NO", "PT", "ES", "SE", "GB"];
 yearList = ["2030", "2040", "2050"];
 colors = generateColorData('gem12');
+axisFontSize = 8;
+panelFontSize = 10;
 
 fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 600, 800], ...
     'Visible', 'off');
 set(fig, 'DefaultAxesColorOrder', colors);
 
 chordPositions = [
-    0.00 0.67 0.50 0.30
-    0.00 0.35 0.50 0.30
-    0.00 0.03 0.50 0.30
+    0.02 0.67 0.50 0.30
+    0.02 0.35 0.50 0.30
+    0.02 0.03 0.50 0.30
 ];
 barPositions = [
-    0.55 0.69 0.35 0.27
-    0.55 0.37 0.35 0.27
-    0.55 0.05 0.35 0.27
+    0.56 0.67 0.39 0.24
+    0.56 0.36 0.39 0.24
+    0.56 0.05 0.39 0.24
 ];
 panelLetters = ["a", "c", "e"; "b", "d", "f"];
 
 for iYear = 1:3
     axes('Position', chordPositions(iYear, :));
     flowMatrix = buildHydrogenFlowMatrix(data.solution{iYear}, numel(nodeList));
-    chart = biChordChart(flowMatrix, 'Arrow', 'on', 'Label', nodeList);
+    chart = biChordChart(flowMatrix, 'Arrow', 'on', 'Label', nodeList, 'Sep', 0.075);
     chart.CData = colors;
     chart = chart.draw();
     chart.tickState('on');
-    chart.setFont('FontName', 'Arial', 'FontSize', 8);
-    chart.setLabelRadius(1.32);
-    text(0.05, 0.07, panelLetters(1, iYear), 'Units', 'normalized', ...
-        'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', 'FontWeight', 'bold');
-    text(0.55, 0.55, yearList(iYear), 'Units', 'normalized', ...
-        'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', 'FontWeight', 'bold');
+    chart.setChordN(1:numel(nodeList), 'FaceAlpha', 0.38);
+    chart.setFont('FontName', 'Arial', 'FontSize', 8.5);
+    chart.setLabelRadius(1.27);
+    set(chart.RTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.7);
+    set(chart.thetaTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.5);
+    text(-0.02, 1.02, panelLetters(1, iYear), 'Units', 'normalized', ...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'top', ...
+        'FontWeight', 'bold', 'FontSize', panelFontSize, 'Clipping', 'off');
+    text(0.50, 0.50, yearList(iYear), 'Units', 'normalized', ...
+        'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', ...
+        'FontWeight', 'bold', 'FontSize', panelFontSize);
 
     ax = axes('Position', barPositions(iYear, :));
     ax.ColorOrder = colors;
-    bar(data.solution{iYear}.carbonReductionContributionMatrix', 'stacked', ...
+    bars = bar(data.solution{iYear}.carbonReductionContributionMatrix', 'stacked', ...
         'BarWidth', 0.5, 'FaceAlpha', 0.75);
+    set(bars, 'EdgeColor', [0.28 0.28 0.28], 'LineWidth', 0.25);
     ax.FontName = 'Arial';
-    ax.FontSize = 8;
-    ax.LineWidth = 0.8;
+    ax.FontSize = axisFontSize;
+    ax.LineWidth = 0.9;
+    ax.TickDir = 'out';
+    ax.YGrid = 'on';
+    ax.GridColor = [0.85 0.85 0.85];
+    ax.GridAlpha = 0.45;
+    ax.Layer = 'top';
+    box(ax, 'off');
     ax.XTick = 1:numel(countryList);
     ax.XTickLabel = countryList;
+    ax.YTick = 0:20:60;
+    ax.XLim = [0.4 numel(countryList) + 0.6];
     ylim([0, 60]);
-    ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})');
-    text(-0.15, 0.01, panelLetters(2, iYear), 'Units', 'normalized', ...
-        'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', 'FontWeight', 'bold');
+    xtickangle(ax, 35);
+    ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})', 'FontSize', axisFontSize);
+    text(-0.16, 1.02, panelLetters(2, iYear), 'Units', 'normalized', ...
+        'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', ...
+        'FontWeight', 'bold', 'FontSize', panelFontSize, 'Clipping', 'off');
     if iYear == 1
-        lgd = legend(nodeList, 'Location', 'north', 'NumColumns', 3);
+        lgd = legend(nodeList, 'NumColumns', 4);
         lgd.Box = 'off';
         lgd.FontName = 'Arial';
-        lgd.FontSize = 8;
+        lgd.FontSize = axisFontSize;
+        lgd.Units = 'normalized';
+        lgd.Position = [0.56, 0.915, 0.39, 0.07];
     end
 end
 
