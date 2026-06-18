@@ -14,6 +14,7 @@ baseMVA = 100;
 il = find(mpc.branch(:, RATE_A) ~= 0 & mpc.branch(:, RATE_A) < 1e10);
 %
 nb   = size(mpc.bus, 1);    %% number of buses
+refBus = find(mpc.bus(:,BUS_TYPE) == REF,1,'first');
 nGb  = size(mpc.Gbus,1); % number of gas bus
 nGl = size(mpc.Gline,1);
 ng = size(mpc.gen,1);
@@ -96,6 +97,7 @@ electricityCons = [
 %
 electricityBalanceCons = [...
     consfcn_electricPowerBalance_hge(Va,Pg,Pptg,mpc) == 0;
+    Va(refBus) == 0;
     ]:'electricityBalanceCons';
 
 % 

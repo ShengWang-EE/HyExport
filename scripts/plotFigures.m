@@ -281,7 +281,7 @@ colormap(nclCM(15,100));
 [vesselDensity.value,vesselDensity.info] = readgeoraster(resolveProjectFile('vesseldensity_all_2022.tif'));
 % [vesselDensity.value,vesselDensity.info] = readgeoraster('vesseldensity_all_2022.tif');
 vesselDensity.value(abs(vesselDensity.value)>500) = nan;
-[WGSlonLimits,WGSlatLimits] = deal(vesselDensity.info.LongitudeLimits, vesselDensity.info.LatitudeLimits);
+[WGSlonLimits,WGSlatLimits] = rasterWgsLimits(vesselDensity.info);
 [nLatRaster,nLonRaster] = size(vesselDensity.value);
 [rasterCenterLon, rasterCenterLat] = deal(linspace(WGSlonLimits(1),WGSlonLimits(2),nLonRaster),linspace(WGSlatLimits(1),WGSlatLimits(2),nLatRaster));
 vesselDensity.value = flip(vesselDensity.value,1); % 纬度又是倒过来的

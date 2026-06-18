@@ -16,6 +16,7 @@ baseMVA = 100;
 il = find(mpc.branch(:, RATE_A) ~= 0 & mpc.branch(:, RATE_A) < 1e10);
 %
 nb   = size(mpc.bus, 1);    %% number of buses
+refBus = find(mpc.bus(:,BUS_TYPE) == REF,1,'first');
 nGb  = size(mpc.Gbus,1); % number of gas bus
 nGl = size(mpc.Gline,1);
 ng = size(mpc.gen,1);
@@ -161,6 +162,7 @@ Cgs_Pic = sparse(mpc.interconnectorBus, (1:nIC)', 1, nb, nIC); % connection matr
 Pic_inbus = Cgs_Pic * Pic';
 electricityBalanceCons = [...
     consfcn_electricPowerBalance_hge_multiPeriod(Va,Pg,Pptg,mpc,electricityDemandCurve,interconnectorCapacity,Pic_inbus) == 0;
+    Va(:,refBus) == 0;
     I_status([2:end,1],:) - I_status == I_up - I_down;
     I_up + I_down <= 1; % 同一时间只能启动，或者关闭
     ]:'electricityBalanceCons';

@@ -30,7 +30,7 @@
  
 %%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
 %%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
-\documentclass[sn-mathphys,Numbered]{sn-jnl}% Math and Physical Sciences Reference Style
+\documentclass[pdflatex,sn-mathphys,Numbered]{sn-jnl}% Math and Physical Sciences Reference Style
 %%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
 %%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
 %%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
@@ -61,6 +61,7 @@
 \usepackage{url}
 % \usepackage{breakurl}
 \usepackage{xurl}
+\hypersetup{hypertexnames=false}
 
 
 %%%%
@@ -81,19 +82,20 @@
 %\jyear{2021}%
 
 %% as per the requirement new theorem styles can be included as shown below
-\theoremstyle{thmstyleone}%
-\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%% The theorem-like environments from the template are not used in this manuscript.
+%%\theoremstyle{thmstyleone}%
+%%\newtheorem{theorem}{Theorem}%  meant for continuous numbers
 %%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
 %% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
-\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}[theorem]{Proposition}%
 %%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
 
-\theoremstyle{thmstyletwo}%
-\newtheorem{example}{Example}%
-\newtheorem{remark}{Remark}%
+%%\theoremstyle{thmstyletwo}%
+%%\newtheorem{example}{Example}%
+%%\newtheorem{remark}{Remark}%
 
-\theoremstyle{thmstylethree}%
-\newtheorem{definition}{Definition}%
+%%\theoremstyle{thmstylethree}%
+%%\newtheorem{definition}{Definition}%
 
 \raggedbottom
 %%\unnumbered% uncomment this for unnumbered level heads
@@ -138,9 +140,7 @@
 %%==================================%%
 
 \abstract{
-European countries are ambitious in both the net-zero transition and offshore energy resource development. The Irish and UK governments announced their commitments to offshore wind capacities - 37 and 125 GW, respectively, in 2050, more than two times higher than their projected power demands. While other continental countries, such as Germany, are calling for cleaner fuel resources. Exporting surplus offshore green hydrogen and bridging supply and demand could be pivotal in carbon emission mitigation for Europe. Yet, the potentials of these Island countries, are usually underestimated.
-This paper developed a bottom-up method to investigate the role of offshore hydrogen from Ireland and the UK in the decarbonisation of the entire Europe. We evaluate the future hydrogen/ammonia trading and the contributions of each country in carbon emission mitigation, considering their relative cost-competitiveness in offshore hydrogen production, domestic hourly power and gas system operation, and international shipping costs.
-Results indicate that the offshore green hydrogen could reduce 175.16 Mt/year of carbon dioxide emissions in Europe. The UK will be the largest hydrogen supplier from 2030 to 2040, while surpassed by Ireland in 2050, with 161 TWh of hydrogen exports to France and Spain. The offshore green hydrogen can contribute to 175.16 Mt of annual carbon dioxide emission reductions in total. This general flow of hydrogen from the West to the East not only facilitates Europe's net-zero progress, but also reshapes the energy supply structure and helps to ensure energy security across the European continent. 
+Offshore wind-rich island systems are often assessed through production costs, but their hydrogen export value also depends on domestic absorption, shipping, demand geography and competing imports. Here we develop an integrated modelling framework linking offshore hydrogen cost-supply curves, hourly power-gas operation, cross-border hydrogen/ammonia shipping and European demand from 2030 to 2050. A lowest-LCOH-only allocation identifies Denmark or the Netherlands as leading exporters, whereas the integrated model identifies the UK as the leading net exporter in all three model years, with Ireland nearly matching it by 2050. In the integrated 2050 case, the UK and Ireland each reach approximately 162 TWh yr$^{-1}$ of net exports, and modelled offshore hydrogen contributes about 175.5 Mt CO$_2$ yr$^{-1}$ of emissions mitigation. The result is conditional on the external import option: delivered outside prices near 2--3 EUR kg$^{-1}$ H$_2$-equivalent displace most European offshore supply, whereas prices around and above 4 EUR kg$^{-1}$ restore the UK/Ireland export pattern. These findings show that strategic offshore hydrogen exporters cannot be inferred from LCOH alone.
 }
 
 %%================================%%
@@ -184,7 +184,6 @@ Secondly, using Ireland as an example, we proposed a new coordinated optimisatio
 Based on the cost-supply curves and exporting potential derived above, we then formulate an optimal international trading model to project the hydrogen flows among countries in 2030, 2040, and 2050. Then, the overall landscape of offshore hydrogen in Europe's net-zero transition, as well as the contributions from each country, becomes clear. These key findings can further strengthen confidence in the continuous investment in offshore facilities and help the governments with more bespoke offshore policy design.
 
 
-% 把那两篇NC的文章结合一下
 \section{Results}
 \subsection{Cost-competitiveness of green hydrogen production in coastal European countries}
 
@@ -279,11 +278,11 @@ Because the ambitious offshore wind capacities in Ireland and the UK are much hi
 Hourly unit commitment is conducted considering all available generations in the All-Ireland power system (including coal, waste, peat, natural gas, oil, onshore wind, solar, hydro, and offshore) and practical operating codes designed by EirGrid \cite{OperationalPolicy} for future operation scenarios (such as ramping, interconnectors, inertial constraints, must-run units, and SNSP), actual hourly power demand curves are accounted (see the supporting information for detailed methodologies). 
 
 The unit commitment results and wind curtail rate in different seasons, years, and with/without exporting options are compared in Fig.\ref{fig unit commitment}. Considering that the UK government has allowed 20\% hydrogen blending at the distribution level in specific areas, it is assumed the gas transmission network is ready for a maximum 20\% blending ratio in 2040. In 2050, pure hydrogen networks are constructed in line with the UK's hydrogen network roadmap \cite{BritainsHydrogenNetworkPlan}.
-As we can see from Fig.\ref{fig unit commitment} a to Fig.\ref{fig unit commitment} c, from 2030 to 2050 in summer, with the increase in offshore wind capacity, the average wind curtailment rate without export generally increases from 67.51\% to 71.29\%. The high wind curtailment is mainly caused by the large difference in high available wind generation and low demand.
-In the winter, owing to the fewer wind resources, the average wind curtailment rate decreases by 56.25\% from 2030 to 2050. This is because, in this scenario, the increase in hydrogen blending ratio plays a dominant role, which allows the gas system to absorb more wind. 
+As we can see from Fig.\ref{fig unit commitment} a to Fig.\ref{fig unit commitment} c, from 2030 to 2050 in summer, with the increase in offshore wind capacity, the average wind curtailment rate without export generally increases from 62.36\% to 69.80\%. The high wind curtailment is mainly caused by the large difference in high available wind generation and low demand.
+In the winter, owing to the fewer wind resources, the average wind curtailment rate falls from 32.05\% in 2030 to 13.47\% in 2050. This is because, in this scenario, the increase in hydrogen blending ratio plays a dominant role, which allows the gas system to absorb more wind.
 
 However, we can observe that even after replacing all natural gas with hydrogen and fully exploiting the flexibility of the energy system, a considerable proportion of offshore wind will still be curtailed mainly due to low domestic energy demand. This highlights the necessity of exporting hydrogen to other countries. 
-The hydrogen export access could significantly promote offshore wind utilization across all years and all seasons of scenarios, if we compare the upper six figures (Fig.\ref{fig unit commitment} a-f) with the lower six figures (Fig.\ref{fig unit commitment} g-l). For example, the average wind curtailment rate in the 2050 summer can be reduced to 11.53\%. The exporting potential for Ireland is huge (average 27 GW in Fig. \ref{fig unit commitment} i, even 1.68 times higher than total domestic energy demand).
+The hydrogen export access could significantly promote offshore wind utilization across all years and all seasons of scenarios, if we compare the upper six figures (Fig.\ref{fig unit commitment} a-f) with the lower six figures (Fig.\ref{fig unit commitment} g-l). For example, the average wind curtailment rate in the 2050 summer can be reduced to 10.46\%, and the whole-year decomposition below identifies approximately 170 TWh yr$^{-1}$ of Irish export potential.
 The uncertainty of offshore wind requires operating reserves to be scheduled ahead of real-time operation. High costs of operating reserves and policies on reserve capacity, inertia, and must-run units prevent energy systems from accommodating a certain portion of marginal offshore wind. However, this marginal value does not grow with the year and offshore capacity, so it is interesting to observe that with export options available, the wind curtailment rate even decreases with the increase of offshore wind capacity, which is opposite to the case without export options.
 
 
@@ -296,13 +295,12 @@ The uncertainty of offshore wind requires operating reserves to be scheduled ahe
 \end{figure}
 
 Using the whole year's results from Ireland, we estimated the offshore wind utilization status for other countries. We assume the offshore wind consumption is proportional to the electricity and gas demand.
-The annual offshore wind utilization is decomposed in Fig. \ref{fig wind decomposition}. Among these countries, the UK is leading in offshore wind capacities, and the domestic load is not very high, thus it has the highest exporting potential of 178 TWh in 2030. The Netherlands, Denmark, and Ireland are following after it, with 65, 30, and 16 TWh exporting potential, respectively. 
-In 2040, although the UK's offshore capacity growth is relatively slower than its energy demand, it and the Netherlands are still the top two exporting countries. On the other hand, because Ireland's offshore capacity has quadrupled to 20 GW while the energy demand increase is much slower, its exporting potential reaches 86 TWh, surpassing Denmark and becoming the third-largest hydrogen exporting country.  
-In 2050, with access to 100\% hydrogen in natural gas systems, the offshore wind consumption potential from domestic energy systems will increase, especially for countries relying on natural gas generation. Therefore, although the offshore capacities further increase, the exporting potential of the Netherlands even decreases by 13.87\%. 
+The annual offshore wind utilization is decomposed in Fig. \ref{fig wind decomposition}. Among these countries, the UK is leading in offshore wind capacities, and the domestic load is not very high, thus it has the highest exporting potential of 176 TWh in 2030. The Netherlands, Denmark, and Ireland are following after it, with 64, 30, and 16 TWh exporting potential, respectively.
+In 2040, although the UK's offshore capacity growth is relatively slower than its energy demand, it and the Netherlands are still the top two exporting countries, with 195 and 155 TWh yr$^{-1}$ of export potential, respectively. On the other hand, because Ireland's offshore capacity has quadrupled to 20 GW while the energy demand increase is much slower, its exporting potential reaches 87 TWh, surpassing Denmark and becoming the third-largest hydrogen exporting country.
+In 2050, with access to 100\% hydrogen in natural gas systems, the offshore wind consumption potential from domestic energy systems will increase, especially for countries relying on natural gas generation. Therefore, although the offshore capacities further increase, the exporting potential of the Netherlands even decreases by 13.6\%.
 For countries with relatively lower offshore potential and higher domestic energy demands like Germany and France, although their offshore wind capacities are also considerable, there is no green hydrogen left for export. 
-On the contrary, the hydrogen export potentials from the UK and Ireland continue to increase significantly by 32.59\% and 96.82\% respectively compared with 2040. The UK is leading first place with 232 TWh capacity. Notably, Ireland, with 167 TWh exporting availability, due to its large offshore capacity and low energy demands, exceeds Denmark and the Netherlands to become the second-largest hydrogen exporting country in Europe.
+On the contrary, the hydrogen export potentials from the UK and Ireland continue to increase significantly by 34.8\% and 95.0\% respectively compared with 2040. The UK is leading first place with 263 TWh yr$^{-1}$ of export potential. Notably, Ireland, with 170 TWh yr$^{-1}$ of exporting availability, due to its large offshore capacity and low energy demands, exceeds Denmark and the Netherlands to become the second-largest hydrogen exporting country in Europe.
 
-% 能不能也估计一下其他国家电力系统的运行情况，包括切风什么的，然后都画在圆环里。因为是从负荷计算来的，所以不会显得等比例
 \begin{figure}
     \centering
     \includegraphics[width = 0.99\columnwidth]{figs/fig_wind_decomposition.pdf}
@@ -311,63 +309,71 @@ On the contrary, the hydrogen export potentials from the UK and Ireland continue
     \label{fig wind decomposition}
 \end{figure}
 
-\subsection{Carbon emission mitigation potential in Europe}
+\subsection{Production cost alone misidentifies strategic hydrogen exporters}
+
+The cost and domestic-absorption results above show that low LCOH is only one part of the offshore hydrogen trade problem. To isolate what is missed by a production-cost view, we constructed a lowest-LCOH-only counterfactual that allocates hydrogen demand to the lowest-cost offshore supply first, and compared it with the integrated model that includes domestic absorption limits, shipping costs, national demand and residual external imports. This counterfactual is not intended as a market-design proposal; it is a diagnostic baseline for testing whether the strategic-exporter ranking can be inferred from LCOH alone.
+
+The two approaches give different exporter geographies (Fig. \ref{fig nc lcoh counterfactual}). In the cost-only baseline, the leading net exporters are Denmark in 2030, the Netherlands in 2040 and Denmark again in 2050, with net exports of 44, 147 and 171 TWh yr$^{-1}$, respectively. In the integrated model, the leading net exporter is the UK in all three model years, with 78, 122 and 162 TWh yr$^{-1}$, while Ireland nearly matches the UK in 2050 at 162 TWh yr$^{-1}$. The difference is particularly large in 2050: the cost-only baseline assigns 41 TWh yr$^{-1}$ of net exports to Ireland and a 44 TWh yr$^{-1}$ net import position to the UK, whereas the integrated model increases both countries to approximately 162 TWh yr$^{-1}$ of net exports. The integrated model also reveals residual external import requirements of approximately 116 and 62 TWh yr$^{-1}$ in 2040 and 2050, while the cost-only baseline hides this shortage by construction. These results show that the policy-relevant exporter ranking is determined by the system balance between cost, domestic absorption, shipping and demand, rather than by LCOH ranking alone.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.99\columnwidth]{figs/fig_nc_lcoh_counterfactual.pdf}
+    \caption{\textbf{Lowest-LCOH allocation misidentifies strategic offshore hydrogen exporters.} \textbf{a} Country net-export balance under a lowest-LCOH-only baseline and the integrated model in 2030, 2040 and 2050. Blue indicates net export and red indicates net import. Black boxes mark the leading net exporter in each model-year combination. \textbf{b} Leading net exporter and corresponding net export under the two model structures. \textbf{c} Residual outside imports identified by the integrated model. The cost-only baseline allocates demand within the modelled European offshore supply by construction and therefore does not expose the residual external import requirement.}
+    \label{fig nc lcoh counterfactual}
+\end{figure}
+
+\subsection{Integrated trade flows and carbon mitigation across Europe}
+
+By combining the cost-supply curves and exporting-potential analysis, we then developed an optimal international green hydrogen trading model to simulate hydrogen flows among countries in 2030, 2040 and 2050. The cost-supply curves are interpolated as piecewise linear functions and combined with shipping costs, national hydrogen demand and external imports in a cost-minimising optimisation. The resulting flows and supplier contributions to carbon mitigation are shown in Fig. \ref{fig sankey}.
+
+In 2030, the UK is the major hydrogen exporter, followed by the Netherlands, Denmark, and Ireland, with net exports of approximately 78, 39, 27 and 14 TWh yr$^{-1}$, respectively. Germany remains the major hydrogen receiver due to its high demand, so the lowest-cost and geographically close suppliers do not determine the whole trade pattern by themselves.
+When it comes to 2040, a major change in the hydrogen trading structure is that international hydrogen import becomes essential in fulfilling the hydrogen demand, due to the slow offshore capacity growth relative to the hydrogen demand growth. The integrated solution identifies approximately 116 TWh yr$^{-1}$ of external imports, while the UK, the Netherlands and Ireland remain large European net exporters with approximately 122, 85 and 83 TWh yr$^{-1}$, respectively.
+In 2050, as the electrification approaches the end phase and the increase in hydrogen demand slows down, the hydrogen import from the international market reduces to approximately 62 TWh yr$^{-1}$, but it still plays a role in the overall hydrogen supply structure. The UK and Ireland become the two largest European net exporters at approximately 162 TWh yr$^{-1}$ each, followed by Denmark at approximately 118 TWh yr$^{-1}$.
+
+The contributions of hydrogen export and import are also reflected in the reduction of carbon emission, as shown in Fig. \ref{fig sankey} b, d, and f. In general, offshore hydrogen production from these 11 countries can contribute approximately 43.5, 129.8 and 175.5 Mt annual carbon dioxide emission reductions in 2030, 2040 and 2050, respectively, equivalent to 0.74, 2.20 and 2.98 times Ireland's current carbon emission \cite{COemissions}. In 2030, the UK and the Netherlands are the main contributors to carbon reduction. From 2040 to 2050, similar to the hydrogen supply structure, the importance of Ireland increases gradually. Ireland and the UK not only account for all carbon mitigation in their own country, but also help decarbonise demand centres elsewhere in Europe.
 
 \begin{figure}
     \centering
     \includegraphics[width = 0.7\columnwidth]{figs/fig_hy_am_flow_sankey.pdf}
-    \caption{\textbf{Sankey diagram of hydrogen flows and contributions to decarbonization} 
+    \caption{\textbf{Sankey diagram of hydrogen flows and contributions to decarbonization.}
     \textbf{a}, \textbf{c}, and \textbf{e}, are the Sankey diagrams of hydrogen flows among these countries and international hydrogen imports in 2030, 2040, and 2050, respectively. ITN represents international hydrogen import. Please note that only the hydrogen flows between countries are drawn. The hydrogen supplied by and to itself is not indicated in these figures. \textbf{b}, \textbf{d}, and \textbf{f} show the contributions to the decarbonization of each country by international green hydrogen trading. Different bars represent the reduction in carbon dioxide emissions, and different colours indicate different countries' contributions.}
     \label{fig sankey}
 \end{figure}
-% 多设定一些对比条件，画对比图
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width = 0.99\columnwidth]{figs/fig hy flow manu.pdf}
-%     \caption{\textbf{Offshore green hydrogen flows in 2050} 
-%     The different colours filling the countries indicate the quantity of imported/exported hydrogen. Arrows show the hydrogen flow directions among countries, and the numbers indicate the quality of the hydrogen flow.}
-%     \label{fig hy flow}
-% \end{figure}
+\subsection{External import prices define a threshold for European offshore supply}
 
-By combining the cost-supply curves and exporting potential analysis in previous sections, here we developed an optimal international green hydrogen trading model to simulate the hydrogen flows among countries in future scenarios. The cost-supply curves are interpolated as piecewise linear functions. Together with shipping costs, they are modelled as objective functions and the optimisation model maximises the decarbonisation with minimal cost. The Sankey diagram of hydrogen flows, reduction of carbon emission, and future hydrogen trading landscape, are shown in Fig. \ref{fig sankey}.
+The integrated trade result depends on how attractive non-European low-carbon hydrogen or ammonia imports become relative to European offshore supply. This outside option is strategically important because European policy already anticipates substantial renewable hydrogen imports, while the future scale, timing and cost of global low-emission hydrogen trade remain uncertain \cite{EuropeanCommissionHydrogen2026,IEAGlobalHydrogenReview2025,IEAGlobalHydrogenReviewTrade2025}. We therefore replaced the previous high import penalty with a delivered hydrogen-equivalent outside-option price and solved the trade model over 2--6 EUR kg$^{-1}$ H$_2$-equivalent. This range should be read as a threshold scan rather than a price forecast: its low end is informed by optimistic global trade and cost estimates, while the upper range represents less favourable delivery, infrastructure, finance or policy conditions \cite{IRENAGlobalHydrogenTradeOutlook2022,IRENAGreenHydrogenCostPotential2022}.
 
-In 2030, the UK will be the major hydrogen exporter, followed by the Netherlands, Denmark, and Ireland. It contributes to 98.29\%, 98.38\%, 26.08\%, and 83.99\% of the hydrogen demands of Belgium, France, Germany, and Spain, respectively. 
-Germany is the major hydrogen receiver due to its high demand. Besides the UK, 25.72\% and 46.80\% of Germany's hydrogen demand vacancy is fulfilled by Denmark and the Netherlands, owing to the low hydrogen production cost, nearby locations and consequently lower shipping cost. 
-When it comes to 2040, a major change in the hydrogen trading structure is that the international hydrogen import becomes essential in fulfilling the hydrogen demand, due to the slow offshore capacity growth relative to the hydrogen demand growth. The share of the UK in the hydrogen supply market decreases dramatically. It is no longer able to supply Germany's hydrogen demands after meeting Belgium and France. As a result, Germany will have to import 102 TWh of hydrogen from international markets (such as Eastern Europe and South Africa). The hydrogen demands in Norway, Portugal, and Spain are partially covered by international imports as well. In contrast, we can witness the growth of Ireland's market share at this stage, which supplies 28 and 52 TWh of hydrogen to France and Spain, respectively.
-In 2050, as the electrification approaches the end phase and the increase in hydrogen demand slows down, the hydrogen import from the international market will reduce, but will still play an important role in the overall hydrogen supply structure, and will continue its contribution to Germany and Portugal. The reduced share of international hydrogen and the Netherlands is now covered by Ireland. 
-Though the hydrogen production capacity of Ireland is still lower than the UK, the hydrogen export flow increases to 161 TWh, for the first time exceeding the UK and becoming the largest hydrogen exporter in Europe. 
+The outside-option scan shows a threshold rather than unconditional robustness (Fig. \ref{fig nc outside option robustness}). In the 2050 case, an external option near 2 EUR kg$^{-1}$ H$_2$-equivalent displaces European offshore supply almost entirely, with 818 TWh yr$^{-1}$ supplied from outside the modelled European offshore system. At 3 EUR kg$^{-1}$, European offshore supply remains limited to 98 TWh yr$^{-1}$, outside imports remain at approximately 721 TWh yr$^{-1}$ and the UK remains a net importer. Around 4 EUR kg$^{-1}$, the solution changes regime: European offshore supply rises to about 767 TWh yr$^{-1}$, outside imports fall to about 63 TWh yr$^{-1}$, and the UK, Ireland and Denmark re-emerge as large net exporters, at approximately 162, 161 and 118 TWh yr$^{-1}$, respectively. The UK/Ireland export conclusion is therefore conditional on external imports not being available at ultra-low delivered prices, but it is restored once the outside option enters a more constrained delivered-cost range.
 
-The contributions of hydrogen export and import are also reflected in the reduction of carbon emission, as shown in Fig. \ref{fig sankey} b, d, and f. In general, the offshore hydrogen production from these 11 countries can contribute to 43.53, 129.32, and 175.16 Mt annual carbon dioxide emission reductions in 2030, 2040, and 2050, respectively, equivalent to 0.74, 2.20 and 2.98 times of Ireland's current carbon emission \cite{COemissions}. In 2030, the UK and the Netherlands will be the main contributors to carbon reduction. Then from 2040 and 2050, similar to the hydrogen supply structure, the importance of Ireland increases gradually. Ireland and the UK, not only account for all carbon mitigation in their own country (1.05 and 21.93 Mt, respectively), but also help the decarbonization of other countries in Europe (33.45 and 27.21 Mt in total).
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.95\columnwidth]{figs/fig_nc_outside_option_robustness.pdf}
+    \caption{\textbf{External import prices define a threshold for European offshore hydrogen supply.} \textbf{a} 2050 supply mix between external low-carbon imports and European offshore hydrogen under delivered outside-option prices from 2 to 6 EUR kg$^{-1}$ H$_2$-equivalent. \textbf{b} Net-export response of Ireland, the United Kingdom and Denmark under the same price scan. Blue indicates net export and red indicates net import. The scan is designed to identify a price threshold, not to assign probabilities to future import prices.}
+    \label{fig nc outside option robustness}
+\end{figure}
 
 \section{Discussions}
 
-The overall analysis conducted in this paper shows great potential for offshore green hydrogen on the entire Europe's net zero transitions, especially the export potential from two Western European Island countries, Ireland and the UK.
-Denmark has a considerable competitive strength in offshore hydrogen supply from now to 2050, while Ireland and the UK are in a middle position due to their rich wind resources and rich bathymetry endowment. 
-With the reduction of technology costs in the long term, the LCOH can be reduced to 43.15 €/MWh. Over 900 GW of offshore green hydrogen capacity will have the chance to compete with blue hydrogen, owing to the relatively steady fossil fuel price and CCS infrastructure cost. 
-The domestic offshore wind and hydrogen integration analysis shows that Ireland and the UK not only have strengths in cost, but also demonstrate considerable exporting potential. Ireland will surprisingly have the second-largest available hydrogen exporting capacity of 167 TWh in Europe in 2050, due to its ambitious offshore policies and low domestic energy demand. Other countries like Germany have higher offshore capacity, but the even higher domestic energy demand consumes all offshore renewable energy and consequently leaves no hydrogen exporting capacity. In return, hydrogen export capacity can also be considered a flexible resource, which can help to improve the wind utilization rate and mitigate the offshore wind connection burden for Ireland's domestic power and gas systems.
-Finally, our international hydrogen trading model linked the cost-competitiveness and export potential models to predict the future landscape for cross-border green hydrogen trading. Through hydrogen trading, the carbon dioxide emissions in Europe can be directly reduced by 175.16 Mt/year in 2050. 
-From 2030 to 2050, Ireland and the UK will grow into the two largest green hydrogen suppliers in Europe. They account for 399 TWh of annual green hydrogen supply capacity in 2050, contributing to 47.75\% carbon emission reduction for Europe's net zero transition.
- 
-Despite the Irish government having expressed a general favour for offshore hydrogen production and export, it remains cautious and unclear about the competitiveness against other European producers.
-In 2024, Ireland published the future framework for offshore renewable energy policy statement along with supporting documents from consulting companies \cite{OffshoreRenewablesSurplus}, and consider Ireland as broadly competitive globally but maintains no outright competitive advantage relative to other European production economies. Furthermore, the reports suggest that a considerable volume of surplus economic hydrogen would be available after domestic demand is met, which can be utilised for exports. Therefore, the Irish government is inclined to explore pipeline transportation options (e.g., building a pipeline to France from repurposed gas pipelines) to reduce the transportation cost and to be economically advantageous. However, if hydrogen export is limited to pipeline transportation, the capacity and flexibility will be constrained.
-However, we would like to highlight that our research indicates promising alternatives. 
-Ireland has no strong competing advantage in LCOH, and does not have the largest offshore hydrogen production capacity, but it will still become the largest contributor to the decarbonisation of the entire Europe through green hydrogen export. This is because of a combination of reasons, including fair competitiveness, large export potential, and general hydrogen insufficiencies in Europe. 
-This eye-refreshing conclusion can only be derived through our bottom-up optimisation approach, which has never been reported before in previous research or government policies. By combining the isolated cost-supply curves with other holistic energy systems and international trading optimization models, we have identified more opportunities for Ireland in the future hydrogen market.
+The overall analysis shows that offshore green hydrogen can contribute materially to Europe's net-zero transition, but its strategic geography is not determined by LCOH alone. Denmark remains the strongest cost-competitiveness benchmark across the cost-supply curves, whereas Ireland and the UK become strategically important only after domestic absorption, national demand, shipping and residual external imports are considered together. In the integrated 2050 case, the UK and Ireland become the two largest net exporters with approximately 162 TWh yr$^{-1}$ each, followed by Denmark with approximately 118 TWh yr$^{-1}$.
+
+This distinction matters for policy appraisal. A lowest-cost-only allocation would identify Denmark or the Netherlands as the leading exporters and would hide residual import dependence, whereas the integrated model identifies a west-to-east trade structure with persistent external import needs in 2040 and 2050. The result is therefore not that high-resource island systems automatically dominate offshore hydrogen trade. Rather, their strategic role emerges when large offshore build-out coincides with limited domestic absorption, nearby continental demand and a delivered external import option that is not ultra-low cost.
+
+These findings also clarify how Ireland should be interpreted in future hydrogen planning. Ireland has no decisive LCOH advantage and does not have the largest offshore hydrogen production capacity. Its strategic value arises from the combination of sufficient cost competitiveness, large exportable surplus and European demand centres that remain undersupplied by their domestic offshore resources. This conclusion supports considering multiple export corridors and carrier options rather than evaluating Irish exports only through a single pipeline route. It also implies that national offshore hydrogen strategies should be assessed within a regional trade and demand balance, not only through domestic cost-supply estimates.
 
 
-Finally, we would like to highlight that our results on the contributions of offshore hydrogen to the decarbonization of Europe are calculated on the basis of currently published offshore goals, with the assumption that these infrastructures will be delivered on schedule. 
+Finally, we would like to highlight that our results on the contributions of offshore hydrogen to the decarbonization of Europe are calculated on the basis of currently published offshore goals, with the assumption that these infrastructures will be delivered on schedule.
 Our analysis indicates that there is still a need for international hydrogen imports from other areas of the world (such as Eastern Europe, the Middle East and North Africa) with significantly higher costs or unstable supply conditions to fulfil the shortage of hydrogen demand in 2040 and 2050. This means, despite the very ambitious offshore goals we already have, there is always space to do more.
-First, more ambitious offshore hydrogen production goals can be set to cover the 162 TWh international hydrogen import in 2050, equivalent to about 37 GW of offshore electrolysers and corresponding offshore wind farms. Based on our analysis in Section 2.1, all these countries except Belgium still have the potential to further increase their offshore capacities. This is especially recommended for countries with lower marginal costs, such as Denmark and the Netherlands. 
-Second, we could accelerate to address the non-technical bottlenecks in offshore infrastructure construction, such as supporting domestic and international investments (from Denmark, US, or China) in industrial manufacturing capacity in offshore wind turbines, electrolysers, subsea cables, and hydrogen shipping vessels. The government will need to provide clear and stable policy frameworks to de-risk private investment, accelerate consenting processes for offshore wind farms, and establish dedicated hydrogen export corridors. Then, we can reduce the temporary reliance on international hydrogen imports in 2040, and guarantee a smoother expansion of the hydrogen market. 
+First, more ambitious offshore hydrogen production goals can be set to reduce the approximately 116 and 62 TWh yr$^{-1}$ international hydrogen imports identified in the integrated 2040 and 2050 cases. Based on our analysis in Section 2.1, all these countries except Belgium still have the potential to further increase their offshore capacities. This is especially recommended for countries with lower marginal costs, such as Denmark and the Netherlands.
+Second, we could accelerate to address the non-technical bottlenecks in offshore infrastructure construction, such as supporting domestic and international investments (from Denmark, US, or China) in industrial manufacturing capacity in offshore wind turbines, electrolysers, subsea cables, and hydrogen shipping vessels. The government will need to provide clear and stable policy frameworks to de-risk private investment, accelerate consenting processes for offshore wind farms, and establish dedicated hydrogen export corridors. Then, we can reduce the temporary reliance on international hydrogen imports in 2040, and guarantee a smoother expansion of the hydrogen market.
 
-These quantitative discoveries could help European governments revisit offshore goals when they constantly update their hydrogen national strategies. Our findings visualised a very promising hydrogen market potential and continuous shortages in offshore infrastructure investment, which could indicate attracting more investments. 
-This west-to-east offshore hydrogen exporting from will significantly reshape the energy flow pattern in Europe.  
+These quantitative discoveries could help European governments revisit offshore goals when they constantly update their hydrogen national strategies. Our findings visualised a very promising hydrogen market potential and continuous shortages in offshore infrastructure investment, which could indicate attracting more investments.
+This west-to-east offshore hydrogen exporting pattern will significantly reshape the energy flow pattern in Europe.
 It can not only make wider contributions to the net-zero transition, but also enhance the national energy security of European continental countries, which heavily rely on international gas imports (e.g., from Russia), and ultimately solve the energy trilemma. 
 
 
 
-\section{Methods}\label{sec11} %都用过去式时态
+\section{Methods}\label{sec11}
 
 \subsection{Tech-economic model of offshore hydrogen production}
 

@@ -1,8 +1,13 @@
 function [sol,solutionInfo] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve,LCOAcurve,LCOHcurve_accumulated,LCOAcurve_accumulated,...
-    EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new)
+    EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new,costOptions)
 % try analytical first
 %% parameters
+if nargin < 16
+    costOptions.importCostMode = "penalty";
+    costOptions.importPenalty_EURperMW = 1e9;
+end
+
 operationTime = 329 * 24; % all converted to hour
 loadUnloadTime = 48;
 shipSpeed = 15 * 1.852; % convert knot to km/hour
@@ -115,7 +120,7 @@ supplyCapacityCons = [
     Q_hyspl + Q_amspl >= 0;
     Q_hyspl + Q_amspl <= Q_hysplmax; % MW
     Q_amspl >= 0;
-    Q_amspl <= Q_amsupmax;   
+    Q_amspl <= Q_amsupmax;
     Q_hy_im >= 0;
     Q_am_im >= 0;
     ];
@@ -171,9 +176,12 @@ cons = [
     % testCons;
     ];
 %% 
-[objfcn,costComposition] = objfcn_exportCost(Q_hyspl,Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry);
+[objfcn,costComposition] = objfcn_exportCost(Q_hyspl,Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry,costOptions);
 options = sdpsettings('verbose',2,'solver','gurobi', 'debug',1,'showprogress',1);
 options.gurobi.MIPGap = 1e-2;
+if isfield(costOptions, 'gurobiMIPGap')
+    options.gurobi.MIPGap = costOptions.gurobiMIPGap;
+end
 options.gurobi.TuneTimeLimit = 0;
 solutionInfo = optimize(cons,objfcn,options);
 %% results
@@ -209,7 +217,11 @@ costComposition.hyTransportationCost = value(costComposition.hyTransportationCos
 costComposition.amTransportationCost = value(costComposition.amTransportationCost);
 costComposition.amProductionCost_up = value(costComposition.amProductionCost_up);
 costComposition.amProductionCost_down = value(costComposition.amProductionCost_down);
+costComposition.importCost = value(costComposition.importCost);
 totalCost = value(objfcn);
+sol.totalCost = totalCost;
+sol.costComposition = costComposition;
+sol.costOptions = costOptions;
 
 % marginal production cost
 marginalCostHy = zeros(nCountry,3); marginalCostAm = zeros(nCountry,3);

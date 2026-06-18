@@ -5,8 +5,7 @@ function [LCOEcurve,LCOHcurve,LCOAcurve,waterDepthColumn,vesselDensityGrid,power
 grid.lon.min = lonGrid_mesh - 0.02; grid.lon.max = lonGrid_mesh + 0.02;
 grid.lat.min = latGrid_mesh - 0.02; grid.lat.max = latGrid_mesh + 0.02;
 
-[WGSlonLimits,WGSlatLimits] = deal(vesselDensity.info.LongitudeLimits, vesselDensity.info.LatitudeLimits);
-% [WGSlatLimits,WGSlonLimits] = projinv(vesselDensity.info.ProjectedCRS,vesselDensity.info.XWorldLimits, vesselDensity.info.YWorldLimits);
+[WGSlonLimits,WGSlatLimits] = rasterWgsLimits(vesselDensity.info);
 
 [nLatRaster,nLonRaster] = size(vesselDensity.value);
 

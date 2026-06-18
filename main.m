@@ -4,6 +4,7 @@ clc
 projectRoot = setupHyExport();
 checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
 
+fprintf('Stage 1/5: load map and supply inputs\n');
 IrelandShp = loadIrelandShpData();
 [vesselDensity.value,vesselDensity.info] = readgeoraster(resolveProjectFile('vesseldensity_all_2022.tif'));
 % [vesselDensity.value,vesselDensity.info] = readgeoraster('vesseldensity_all_2022.tif');
@@ -19,6 +20,7 @@ windSpeedTest = 0:0.1:0.1;
 
 nGridWake = 500;
 resolution = 10000/nGridWake; % range should be at least 10000m
+fprintf('Stage 1/5: evaluate wake effect\n');
 [minDistanceWT,wakeEffectSingle] = evaluateWakeEffect(windTurbine,resolution,nGridWake);
 % or we can directly load calculated results
 % minDistanceWT = load('wakeEffect.mat');
@@ -27,6 +29,7 @@ resolution = 10000/nGridWake; % range should be at least 10000m
 EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Norway", "Portugal", "Spain", "Sweden", "United Kingdom"];
 nCountry = size(EUcountryList,2);
 % EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Portugal", "Spain", "Sweden", "United Kingdom"];
+fprintf('Stage 1/5: load EEZ, ports, and city data\n');
 EUshpEEZ = getEUEEZ(resolveProjectFile('eez_v12.shp'),EUcountryList);
 EUportShp = readshp(resolveProjectFile('EMODnet_HA_Main_Ports_20231106.shp'));
 worldCitiesTable = readtable(resolveProjectFile('worldcities.csv'));
@@ -46,6 +49,7 @@ for i = 1:size(EUcountryList,2)
 % for ii = 1:2
 %     i = list(ii);
     countryName = char(EUcountryList(i));
+    fprintf('Stage 1/5: supply curve %d/%d %s\n',i,nCountry,countryName);
     % countryName = 'Ireland';
     [LCOE{i},LCOH{i},LCOA{i},distanceToPort{i},waterDepth{i},capacityFactor{i},spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i}] = ...
         evaluateOffshoreProductionCost(countryName,nGrid,EUcitiesCoordinates,OWFcapacity,ratedPower,...
@@ -71,10 +75,12 @@ for i = 1:size(EUcountryList,2)
     LCOHall = [LCOHall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOH{i},[nGrid^2,1])] ];
     LCOAcurveAll(1:size(LCOAcurve{i},1),2*(i-1)+1:2*i) = [LCOAcurve{i}(:,1),LCOAcurve{i}(:,2);];
     LCOAall = [LCOAall; [reshape(lonGrid_mesh{i},[nGrid^2,1]),reshape(latGrid_mesh{i},[nGrid^2,1]),reshape(LCOA{i},[nGrid^2,1])] ];
+    fprintf('Stage 1/5: finished %s\n',countryName);
 end
 LCOEall(isnan(LCOEall(:,3)),:) = []; LCOHall(isnan(LCOHall(:,3)),:) = []; LCOAall(isnan(LCOAall(:,3)),:) = [];
 
 % cost reduction
+fprintf('Stage 1/5: cost reduction and LCOH ranking\n');
 reductionRate = table2array(readtable(projectFile('tables','offshore wind cost reduction.xlsx'),'Range','O11:P14'));
 [LCOEcurve2030,LCOHcurve2030,LCOAcurve2030,LCOEcurve2030_accumulated,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated, ...
     LCOEcurve2040,LCOHcurve2040,LCOAcurve2040,LCOEcurve2040_accumulated,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated, ...
@@ -114,12 +120,14 @@ for iYear = 1:3
     averageLCOHrank(averageLCOHindex(:,iYear),iYear) = 1:nCountry;
 end
 %
+fprintf('Stage 1/5: save stop1.mat\n');
 save(fullfile(checkpointDir,'stop1.mat'))
 %% simulation
 clear
 clc
 projectRoot = setupHyExport();
 checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
+fprintf('Stage 2/5: load stop1.mat and run unit commitment\n');
 load(fullfile(checkpointDir,'stop1.mat'))
 load(fullfile(checkpointDir,'mpcIreland.mat'))
 irelandPowerSystemOperation = readtable(projectFile('tables','System-Data-Qtr-Hourly-2023.xlsx'));
@@ -154,11 +162,13 @@ for iYear = 1:3
         options.year = yearSet{iYear}; options.season = seasonSet{iSeason}; options.hymax = hymaxSet{iYear};
         % year = '2040'; season = 'summer'; options.hymax = 0.2;
         options.export = 0;
+        fprintf('Running unit commitment: %s %s export=0\n',options.year,options.season);
         [solutionNoExport{iYear,iSeason}, solution_infoNoExport{iYear,iSeason},electricityGenerationNoExport{iYear,iSeason},windCurtailmentNoExport{iYear,iSeason},gasDemandNoExport{iYear,iSeason}, ...
             GPPgasConsumptionNoExport{iYear,iSeason},interconnectorPowerNoExport{iYear,iSeason},electricityDemandNoExport{iYear,iSeason}] ...
             = unitCommitmentIreland(mpc,options,genTypeSet, ...
             onshoreWindAvaliableCapacity,onshoreSolarAvaliableCapacity,hydroAvaliableCapacity,interconnectorAvaliableCapacity,offshoreWindAvaliableCapacityCoeff,lonColumnE{5},latColumnE{5},LCOEcurve{5});
         options.export = 1;
+        fprintf('Running unit commitment: %s %s export=1\n',options.year,options.season);
         [solutionExport{iYear,iSeason}, solution_infoExport{iYear,iSeason},electricityGenerationExport{iYear,iSeason},windCurtailmentExport{iYear,iSeason},gasDemandExport{iYear,iSeason}, ...
             GPPgasConsumptionExport{iYear,iSeason},interconnectorPowerExport{iYear,iSeason},electricityDemandExport{iYear,iSeason}] ...
             = unitCommitmentIreland(mpc,options,genTypeSet, ...
@@ -168,6 +178,7 @@ for iYear = 1:3
 end
 
 % data processing
+fprintf('Stage 2/5: process unit commitment outputs\n');
 nDay = size(windCurtailmentNoExport{1,1},1) / 24;
 [windPowerTotal,usedWindTotal,exportWindTotal,curtailedWindTotal,usedWindbyEtotal,usedWindbyGtotal, ...
     electricityDemandTotal,gasDemandTotal] = deal(zeros(3,1));
@@ -264,12 +275,16 @@ for iYear = 1:3
 end
 %
 
+fprintf('Stage 2/5: save stop2.mat\n');
+clear solutionNoExport solutionExport solution_infoNoExport solution_infoExport
+yalmip('clear')
 save(fullfile(checkpointDir,'stop2.mat'))
 %% shipping cost
 clc
 clear
 projectRoot = setupHyExport();
 checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
+fprintf('Stage 3/5: load stop2.mat and solve transportation\n');
 load(fullfile(checkpointDir,'stop2.mat'))
 yalmip('clear')
 
@@ -281,14 +296,17 @@ for ic = 1:nCountry
 end
 % solve optimal transportation problem
 year = '2030';
+fprintf('Stage 3/5: transportation %s\n',year);
 [solution{1},solutionInfo{1}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2030,LCOAcurve2030,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
 year = '2040';
+fprintf('Stage 3/5: transportation %s\n',year);
 [solution{2},solutionInfo{2}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2040,LCOAcurve2040,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
 year = '2050';
+fprintf('Stage 3/5: transportation %s\n',year);
 [solution{3},solutionInfo{3}] = optimalTransportation(EUhydrogenDemand,EUoffshoreCapacity,ferryPortShp_aggregated,...
     portIndexPerCountry,portInCountry,LCOHcurve2050,LCOAcurve2050,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated,...
     EUoffshoreDomesticConsumption,capacityFactor_mean,nPort,nCountry,year,EUwindConsump_new);
@@ -310,5 +328,32 @@ for iYear = 1:3
     end
 end
 
+fprintf('Stage 3/5: save stop3.mat\n');
 save(fullfile(checkpointDir,'stop3.mat'))
+
+%% NC story counterfactual
+% 统一入口：新增的论文分析从 main.m 进入，不单独手动运行 scripts/analysis 里的文件。
+% 这个函数用 stop3.mat 生成 LCOH-only baseline 和 integrated model 的对比表。
+fprintf('Stage 4/5: NC LCOH-only counterfactual\n');
+runLCOHOnlyCounterfactual(projectRoot);
+
+%% NC story figure
+% 用 counterfactual 表生成 Fig. 4 草图，后续正文改稿直接引用这张图。
+fprintf('Stage 4/5: NC story comparison figure\n');
+plotNCStoryComparison(projectRoot);
+
+%% NC outside-option threshold scan
+% 正式 robustness 候选：测试外部低碳氢/氨进口价格变化时，欧洲 offshore supply 是否仍有竞争力。
+fprintf('Stage 5/5: outside-option sensitivity\n');
+runOutsideOptionSensitivity(projectRoot);
+
+%% NC outside-option robustness figure
+% 用 outside-option sensitivity 表生成 Fig. 6 robustness 草图。
+fprintf('Stage 5/5: outside-option robustness figure\n');
+plotNCOutsideOptionRobustness(projectRoot);
+
+%% NC domestic absorption diagnostic
+% 默认运行，作为 SI robustness/diagnostic 输出。
+fprintf('Stage 5/5: domestic absorption sensitivity\n');
+runDomesticAbsorptionSensitivity(projectRoot);
 

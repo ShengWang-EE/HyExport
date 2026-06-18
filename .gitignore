@@ -9,6 +9,7 @@ data/raw/
 results/checkpoints/
 /results/figures/
 /results/logs/
+results/*.log
 /figs/
 
 # Large map datasets kept locally.

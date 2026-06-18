@@ -4,6 +4,7 @@ if nargin == 0
 end
 
 addpath(genpath(fullfile(root, 'src')));
+addpath(genpath(fullfile(root, 'scripts')));
 addpath(genpath(fullfile(root, 'map')));
 addpath(genpath(fullfile(root, 'matpower7.1')));
 addpath(genpath(fullfile(root, 'toolbox_user', 'YALMIP-master')));
