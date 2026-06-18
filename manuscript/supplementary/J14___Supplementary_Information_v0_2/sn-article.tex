@@ -102,7 +102,7 @@
 \centering
 Supplementary Information for
 \\
-Cross-border offshore hydrogen trade and carbon mitigation for Europe's net zero transition
+Energy-system interactions reshape offshore hydrogen trade and carbon mitigation in Europe
 }
 
 %%=============================================================%%
@@ -145,6 +145,26 @@ Section 2 introduces the wind resources in Ireland's marine areas, as well as ph
 Section 3 developed frameworks to evaluate the levelized production cost for multiple offshore resource utilisation schemes, including electricity, liquefied hydrogen, and ammonia.
 Using these data as inputs, Section 4 proposes a multi-energy systems (including power systems, and gas systems with hydrogen integration) optimisation framework to investigate the domestic integration potential of renewable electricity and green hydrogen from offshore wind. Three scenarios of offshore wind in 2030, 2040, and 2050, as outlined by the Irish government, are analysed. 
 Based on the remaining capacity of hydrogen from domestic integration and cost-supply curves, Section 5 develops an international trading model to project the cross-border hydrogen trading landscape. Carbon mitigation is also analysed to highlight Ireland's contribution to reshaping Europe's net-zero transitions.
+
+\section{Positioning of this study}
+
+The main manuscript claims a first integrated European-scale assessment because the modelling chain combines components that are usually treated separately in the offshore hydrogen literature. Representative prior studies have quantified offshore wind-to-hydrogen production costs for Europe or individual regions, including North Sea, UK, Polish and Iberian cases \cite{rogeau2023techno, giampieri2024techno, komorowska2023evaluating, gonzalez2024techno, calado2024assessment}. European hydrogen infrastructure and demand studies have also assessed future cross-border demand, infrastructure corridors, and global import prospects \cite{EuropeanHydrogenBackbone, Analysingfuturedemand, IEAGlobalHydrogenReview2025, IEAGlobalHydrogenReviewTrade2025, IRENAGlobalHydrogenTradeOutlook2022}. These studies provide important inputs and benchmarks, but they do not jointly resolve how geospatial production costs, hourly domestic power-gas absorption, shipping-based hydrogen and ammonia exchange, external import competition, and supplier-specific carbon mitigation interact in one optimisation workflow.
+
+\begin{table}[h]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\caption{Feature comparison between representative prior study types and the present integrated assessment. A check mark indicates that the feature is explicitly represented in the study type. A dash indicates that the feature is outside the main scope of that study type.}
+\label{tab:novelty-comparison}
+\begin{tabular}{p{2.8cm}p{1.4cm}p{1.45cm}p{1.45cm}p{1.25cm}p{1.3cm}p{1.35cm}}
+\hline
+Study type & Offshore cost-supply & Domestic absorption & Shipping exchange & External import & LCOH-only counterfactual & Carbon mitigation \\ \hline
+Offshore hydrogen techno-economic studies \cite{rogeau2023techno, giampieri2024techno, komorowska2023evaluating, gonzalez2024techno, calado2024assessment} & \checkmark & -- & partial & -- & -- & -- \\
+European hydrogen infrastructure and demand studies \cite{EuropeanHydrogenBackbone, Analysingfuturedemand} & -- & -- & partial & partial & -- & -- \\
+Global hydrogen trade outlooks \cite{IEAGlobalHydrogenReview2025, IEAGlobalHydrogenReviewTrade2025, IRENAGlobalHydrogenTradeOutlook2022} & partial & -- & partial & \checkmark & -- & partial \\
+Present study & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\ \hline
+\end{tabular}
+\end{table}
 
 \section{Physical model of offshore wind farm}
 \label{sec offshore wind farm model}
@@ -912,6 +932,33 @@ The offshore wind capacity of each country is listed in the Table.\ref{tab owf c
     Q_{ic}^{hy,ex,max} = 0.5 P_{ic}^{owf,max}  CF_{ic} \eta^{ptg}
 \end{align}
 where $P_{ic}^{owf,max}$ is the total offshore wind capacity for country $ic$, as can be obtained from Table. \ref{tab owf capacity}; $CF_{ic}$ is the average capacity factor for country $ic$.
+
+\subsection{Domestic absorption sensitivity}
+
+The main manuscript uses the hourly Ireland power-gas optimisation to estimate how much offshore production can be absorbed domestically, then scales the resulting domestic absorption by country-level electricity and gas demand before applying country export limits in the European trade model. To test whether this extrapolation drives the strategic-exporter conclusion, we multiply the domestic absorption estimate by 0.75 and 1.25 and resolve the integrated trade model. A lower factor means less domestic absorption and therefore more available export potential; a higher factor means more domestic absorption and therefore less available export potential.
+
+\begin{table}[h]
+\centering
+\tiny
+\setlength{\tabcolsep}{1pt}
+\caption{Sensitivity of integrated trade results to domestic absorption scaling. Export potential (Export pot.), European offshore supply (Offshore), external imports (Import), Ireland net exports (IE net) and UK net exports (UK net) are reported in TWh yr$^{-1}$.}
+\label{tab:domestic-absorption-sensitivity}
+\begin{tabular}{llrrrrrr}
+\hline
+Year & Case & Factor & Export pot. & Offshore & Import & IE net & UK net \\ \hline
+2030 & Low & 0.75 & 328 & 213 & 0 & 17 & 61 \\
+2030 & Base & 1.00 & 287 & 213 & 0 & 14 & 78 \\
+2030 & High & 1.25 & 248 & 214 & 0 & 12 & 98 \\
+2040 & Low & 0.75 & 610 & 610 & 4 & 86 & 178 \\
+2040 & Base & 1.00 & 495 & 495 & 116 & 83 & 122 \\
+2040 & High & 1.25 & 380 & 380 & 229 & 78 & 66 \\
+2050 & Low & 0.75 & 1003 & 830 & 0 & 142 & 227 \\
+2050 & Base & 1.00 & 767 & 767 & 62 & 162 & 162 \\
+2050 & High & 1.25 & 571 & 571 & 254 & 155 & 63 \\ \hline
+\end{tabular}
+\end{table}
+
+The sensitivity changes the amount of European offshore supply that can compete with external imports, but it does not restore the lowest-LCOH exporter geography. In 2050, lower domestic absorption strengthens the UK as the largest net exporter, while higher domestic absorption makes Ireland the largest net exporter. Under the base case the two countries are nearly tied, at about 162 TWh yr$^{-1}$ each. The exact UK/Ireland ordering is therefore sensitive to domestic absorption, but Ireland remains one of the leading exporters across the tested range, and the integrated model continues to differ from the LCOH-only baseline.
 
 \subsection{Optimal international trading model}
 
