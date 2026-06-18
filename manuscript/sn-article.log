@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.4)  18 JUN 2026 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -750,11 +750,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2{/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
 c}]
-<figs/fig_LCOH_map_manu.pdf, id=111, 641.39626pt x 383.4325pt>
+<figs/fig_LCOH_map_manu.pdf, id=111, 641.39626pt x 383.39233pt>
 File: figs/fig_LCOH_map_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_map_manu.pdf>
 Package pdftex.def Info: figs/fig_LCOH_map_manu.pdf  used on input line 188.
-(pdftex.def)             Requested size: 368.28204pt x 220.16774pt.
+(pdftex.def)             Requested size: 368.28204pt x 220.14467pt.
 <figs/fig_LCOH_curves_manu.pdf, id=114, 412.54124pt x 276.03125pt>
 File: figs/fig_LCOH_curves_manu.pdf Graphic file (type pdf)
 <use figs/fig_LCOH_curves_manu.pdf>
@@ -768,7 +768,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./figs/fig_LCOH_map_manu.pdf>]
-<figs/fig_unit_commitment_main.pdf, id=40080, 477.785pt x 244.915pt>
+<figs/fig_unit_commitment_main.pdf, id=140, 477.785pt x 244.915pt>
 File: figs/fig_unit_commitment_main.pdf Graphic file (type pdf)
 <use figs/fig_unit_commitment_main.pdf>
 Package pdftex.def Info: figs/fig_unit_commitment_main.pdf  used on input line 
@@ -778,7 +778,7 @@ Package pdftex.def Info: figs/fig_unit_commitment_main.pdf  used on input line
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./figs/fig_LCOH_curves_manu.pdf>]
-<figs/fig_wind_decomposition.pdf, id=40097, 480.79625pt x 350.30875pt>
+<figs/fig_wind_decomposition.pdf, id=157, 480.79625pt x 350.30875pt>
 File: figs/fig_wind_decomposition.pdf Graphic file (type pdf)
 <use figs/fig_wind_decomposition.pdf>
 Package pdftex.def Info: figs/fig_wind_decomposition.pdf  used on input line 27
@@ -788,7 +788,7 @@ Package pdftex.def Info: figs/fig_wind_decomposition.pdf  used on input line 27
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./figs/fig_unit_commitment_main.pdf>]
-<figs/fig_nc_lcoh_counterfactual.pdf, id=40125, 823.075pt x 428.60126pt>
+<figs/fig_nc_lcoh_counterfactual.pdf, id=186, 823.075pt x 428.60126pt>
 File: figs/fig_nc_lcoh_counterfactual.pdf Graphic file (type pdf)
 <use figs/fig_nc_lcoh_counterfactual.pdf>
 Package pdftex.def Info: figs/fig_nc_lcoh_counterfactual.pdf  used on input lin
@@ -801,13 +801,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8 <./figs/fig_nc_lcoh_counterfactual.pdf>]
-<figs/fig_hy_am_flow_sankey.pdf, id=40198, 385.44pt x 574.145pt>
+<figs/fig_hy_am_flow_sankey.pdf, id=258, 385.44pt x 574.145pt>
 File: figs/fig_hy_am_flow_sankey.pdf Graphic file (type pdf)
 <use figs/fig_hy_am_flow_sankey.pdf>
 Package pdftex.def Info: figs/fig_hy_am_flow_sankey.pdf  used on input line 305
 .
 (pdftex.def)             Requested size: 260.39886pt x 387.88158pt.
-<figs/fig_nc_outside_option_robustness.pdf, id=40204, 758.835pt x 330.23375pt>
+<figs/fig_nc_outside_option_robustness.pdf, id=264, 758.835pt x 330.23375pt>
 File: figs/fig_nc_outside_option_robustness.pdf Graphic file (type pdf)
 <use figs/fig_nc_outside_option_robustness.pdf>
 Package pdftex.def Info: figs/fig_nc_outside_option_robustness.pdf  used on inp
@@ -904,10 +904,10 @@ ve/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/t
 exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on sn-article.pdf (23 pages, 10077325 bytes).
+Output written on sn-article.pdf (23 pages, 1502412 bytes).
 PDF statistics:
- 40634 PDF objects out of 45951 (max. 8388607)
- 20470 compressed objects within 205 object streams
+ 694 PDF objects out of 1000 (max. 8388607)
+ 584 compressed objects within 6 object streams
  117 named destinations out of 1000 (max. 500000)
  132 words of extra memory for PDF output out of 10000 (max. 10000000)
 

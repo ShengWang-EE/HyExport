@@ -944,7 +944,7 @@ for ic = 1:nCountry
 end
 
 
-exportgraphics(gcf, 'figs/fig LCOH map manu.pdf', 'ContentType', 'vector');
+exportgraphics(gcf, 'figs/fig LCOH map manu.pdf', 'ContentType', 'image', 'Resolution', 600);
 %% LCOH supply curve
 colors = generateColorData('gem12');
 fig = figure;
