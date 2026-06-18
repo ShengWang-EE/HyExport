@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex sn-article"] 1781816462.62302 "sn-article.aux" "sn-article.bbl" "sn-article" 1781817645.50076 0
+["bibtex sn-article"] 1781818181.21833 "sn-article.aux" "sn-article.bbl" "sn-article" 1781818221.43338 0
   "./sn-bibliography.bib" 1781787746.99294 17573 ebb7ed36222201b8ca0bac107490f87a ""
   "./sn-mathphys.bst" 1781682860.4424 64141 2560fd4f8e8321a304f732d035eb1b51 ""
-  "sn-article.aux" 1781817645.042 19228 bcf55de1dce23d48e8d8eb5645b0cae0 "pdflatex"
+  "sn-article.aux" 1781818221.00016 19299 186b7771ce36a037220b1e3f874f45dc "pdflatex"
   (generated)
   "sn-article.bbl"
   "sn-article.blg"
   (rewritten before read)
-["pdflatex"] 1781817643.94186 "sn-article.tex" "sn-article.pdf" "sn-article" 1781817645.50106 0
+["pdflatex"] 1781818219.92734 "sn-article.tex" "sn-article.pdf" "sn-article" 1781818221.43373 0
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -163,10 +163,10 @@
   "figs/fig_nc_outside_option_robustness.pdf" 1781782809 24969 597dea6f8af31929a14c867c3c48c027 ""
   "figs/fig_unit_commitment_main.pdf" 1781803261 124973 400c3858547ea7b5ecedf5046e695ff7 ""
   "figs/fig_wind_decomposition.pdf" 1781803261 214596 dc9b3c1dc0223fba71268ef2257058d4 ""
-  "sn-article.aux" 1781817645.042 19228 bcf55de1dce23d48e8d8eb5645b0cae0 "pdflatex"
-  "sn-article.bbl" 1781816462.80275 24287 382970c95d9b2512353846e74c6c7497 "bibtex sn-article"
-  "sn-article.out" 1781817645.04369 3295 ce3854f6a9bda6f68604838cf691bd91 "pdflatex"
-  "sn-article.tex" 1781817637.07199 65783 de9c15a74db74dbc82178d1925ae7a1c ""
+  "sn-article.aux" 1781818221.00016 19299 186b7771ce36a037220b1e3f874f45dc "pdflatex"
+  "sn-article.bbl" 1781818181.42445 24287 382970c95d9b2512353846e74c6c7497 "bibtex sn-article"
+  "sn-article.out" 1781818221.00194 3557 37399ba674dea3eac6d2976c79ea8282 "pdflatex"
+  "sn-article.tex" 1781818214.3978 62124 de04e3e636a01208d2ec6b6637134ded ""
   "sn-jnl.cls" 1781682860.44179 55955 9ffe8c18852ce1a0831203326cf3ad0f ""
   (generated)
   "sn-article.aux"
