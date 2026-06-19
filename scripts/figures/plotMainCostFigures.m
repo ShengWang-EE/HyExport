@@ -6,8 +6,7 @@ else
 end
 
 checkpointFile = fullfile(projectRoot, 'results', 'checkpoints', 'stop3.mat');
-data = load(checkpointFile, 'LCOH', 'latGrid_mesh', 'lonGrid_mesh', ...
-    'LCOHcurve2030', 'LCOHcurve2040', 'LCOHcurve2050');
+data = load(checkpointFile, 'LCOH', 'latGrid_mesh', 'lonGrid_mesh');
 
 figureDir = fullfile(projectRoot, 'figs');
 manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'figs');
@@ -25,8 +24,8 @@ colors = generateColorData('gem12');
 
 fprintf('Stage 4/5: render Fig. 1 LCOH map\n');
 plotLCOHMap(data, countryNames, shortNames, colors, figureDir, manuscriptFigureDir);
-fprintf('Stage 4/5: render Fig. 2 LCOH supply curves\n');
-plotCostSupplyCurves(data, countryNames, shortNames, colors, figureDir, manuscriptFigureDir);
+fprintf('Stage 4/5: sync restored Fig. 2 LCOH supply curves\n');
+syncRestoredCostSupplyFigure(figureDir, manuscriptFigureDir);
 end
 
 function plotLCOHMap(data, countryNames, shortNames, colors, figureDir, manuscriptFigureDir)
@@ -173,94 +172,9 @@ windSpeed = windSpeed(1:sampleStride:end);
 [density, windGrid] = ksdensity(windSpeed);
 end
 
-function plotCostSupplyCurves(data, countryNames, shortNames, colors, figureDir, manuscriptFigureDir)
-fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 820, 390], ...
-    'Visible', 'off');
-
-curveSet = {data.LCOHcurve2030, data.LCOHcurve2040, data.LCOHcurve2050};
-yearNames = ["2030", "2040", "2050"];
-panelLetters = ["a", "b", "c"];
-panelPositions = [
-    0.075 0.19 0.275 0.61
-    0.390 0.19 0.275 0.61
-    0.705 0.19 0.275 0.61
-    ];
-highlightCountries = [2, 5, 6, 11];
-targetCountries = [5, 11];
-targetCapacities = [
-    5 55
-    20 80
-    37 125
-    ];
-
-legendHandles = gobjects(1, numel(countryNames) + 1);
-for iYear = 1:3
-    ax = axes(fig, 'Position', panelPositions(iYear, :));
-    hold(ax, 'on');
-    bandHandle = fill(ax, [0, 130, 130, 0], [40, 40, 68.92, 68.92], ...
-        [0.88, 0.88, 0.88], 'EdgeColor', 'none', 'FaceAlpha', 0.35, ...
-        'DisplayName', 'Blue H_2 benchmark');
-
-    countryHandles = gobjects(1, numel(countryNames));
-    for iCountry = 1:numel(countryNames)
-        lineWidth = 1.05;
-        if ismember(iCountry, highlightCountries)
-            lineWidth = 1.75;
-        end
-        countryHandles(iCountry) = plot(ax, curveSet{iYear}{iCountry}(:, 1) / 1e3, ...
-            curveSet{iYear}{iCountry}(:, 2), 'LineWidth', lineWidth, ...
-            'Color', colors(iCountry, :), 'DisplayName', char(shortNames(iCountry)));
-    end
-
-    for iTarget = 1:numel(targetCountries)
-        iCountry = targetCountries(iTarget);
-        capacityGW = targetCapacities(iYear, iTarget);
-        curveNow = curveSet{iYear}{iCountry};
-        [~, index] = min(abs(curveNow(:, 1) - capacityGW * 1e3));
-        xValue = curveNow(index, 1) / 1e3;
-        yValue = curveNow(index, 2);
-        plot(ax, [xValue, xValue], [40, yValue], '--', 'LineWidth', 0.55, ...
-            'Color', [0.45, 0.45, 0.45], 'HandleVisibility', 'off');
-        plot(ax, [0, xValue], [yValue, yValue], '--', 'LineWidth', 0.55, ...
-            'Color', [0.45, 0.45, 0.45], 'HandleVisibility', 'off');
-        plot(ax, xValue, yValue, 'o', 'MarkerSize', 4.2, ...
-            'MarkerEdgeColor', colors(iCountry, :), 'MarkerFaceColor', 'white', ...
-            'LineWidth', 1, 'HandleVisibility', 'off');
-    end
-
-    set(ax, 'FontName', 'Arial', 'FontSize', 8, 'LineWidth', 0.8, ...
-        'TickDir', 'out', 'YGrid', 'on', 'GridColor', [0.86, 0.86, 0.86], ...
-        'GridAlpha', 0.45, 'Layer', 'top');
-    box(ax, 'off');
-    xlim(ax, [0, 130]);
-    ylim(ax, [40, 140]);
-    title(ax, yearNames(iYear), 'FontWeight', 'normal', 'FontName', 'Arial', 'FontSize', 9);
-    text(ax, 0.02, 1.04, panelLetters(iYear), 'Units', 'normalized', ...
-        'HorizontalAlignment', 'left', 'VerticalAlignment', 'top', ...
-        'FontWeight', 'bold', 'FontName', 'Arial', 'FontSize', 10);
-    if iYear == 1
-        ylabel(ax, 'LCOH (€/MWh)');
-        legendHandles = [bandHandle, countryHandles];
-    else
-        ax.YTickLabel = [];
-    end
-    if iYear == 2
-        xlabel(ax, 'Hydrogen production capacity (GW)');
-    end
-    hold(ax, 'off');
-end
-
-lgd = legend(legendHandles, ['Blue H_2 benchmark', cellstr(shortNames)], ...
-    'NumColumns', 6, 'Box', 'off', 'FontName', 'Arial', 'FontSize', 7.2);
-lgd.Units = 'normalized';
-lgd.Position = [0.12, 0.845, 0.80, 0.075];
-
-outputPdf = fullfile(figureDir, 'fig LCOH curves manu.pdf');
+function syncRestoredCostSupplyFigure(figureDir, manuscriptFigureDir)
+sourcePdf = fullfile(figureDir, 'fig LCOH curves manu.pdf');
 manuscriptPdf = fullfile(manuscriptFigureDir, 'fig_LCOH_curves_manu.pdf');
-fprintf('Stage 4/5: export Fig. 2\n');
-exportgraphics(fig, outputPdf, 'ContentType', 'vector');
-copyfile(outputPdf, manuscriptPdf);
-fileattrib(outputPdf, '-x');
+copyfile(sourcePdf, manuscriptPdf);
 fileattrib(manuscriptPdf, '-x');
-close(fig);
 end
