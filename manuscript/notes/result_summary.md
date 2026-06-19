@@ -1,16 +1,17 @@
 # Result Summary
 
-Last updated: 2026-06-17
+Last updated: 2026-06-19
 
-This file tracks manuscript-facing results. Treat all headline numbers as requiring verification against code/checkpoints before final submission.
+This file tracks manuscript-facing results. Current headline values should be read together with `NC_headline_numbers.md` and `results/tables/NC_headline_numbers.csv`.
 
-## Current Headline Results To Verify
+## Current Headline Results
 
-- Offshore green hydrogen from the studied coastal European countries is reported to reduce up to 175.16 Mt CO2 per year by 2050.
-- The UK is reported as the largest hydrogen supplier from 2030 to 2040.
-- Ireland is reported to overtake the UK in optimised export flow by 2050, with 161 TWh of exports to France and Spain.
-- Ireland is reported to have 167 TWh of available hydrogen export potential in 2050.
-- Ireland and the UK are reported to provide 399 TWh of annual green hydrogen supply capacity in 2050.
+- The integrated 2050 supply mix mitigates about 175.5 Mt CO2 yr^-1, of which 158.3 Mt CO2 yr^-1 is attributed to European offshore suppliers.
+- The UK is the leading net exporter in the integrated model in 2030, 2040 and 2050, with 78, 122 and 162 TWh yr^-1.
+- Ireland nearly matches the UK by 2050, with 162 TWh yr^-1 of integrated net exports after rounding.
+- Ireland has about 170 TWh yr^-1 of available export potential in the 2050 domestic-absorption screen.
+- The lowest-LCOH-only baseline instead identifies Denmark, the Netherlands and Denmark as the leading net exporters in 2030, 2040 and 2050.
+- Delivered outside-option prices near 2-3 EUR kg^-1 H2-equivalent displace most European offshore supply; around 4 EUR kg^-1 restores the UK/Ireland export pattern.
 
 ## Terms That Must Be Kept Separate
 
@@ -24,9 +25,9 @@ This file tracks manuscript-facing results. Treat all headline numbers as requir
 ## Results Needing Stronger Support
 
 - Europe-wide domestic utilisation extrapolated from the Ireland power-gas operation model.
-- Robustness of trade-flow conclusions to shipping cost assumptions.
-- Robustness of the 2050 carbon mitigation total to offshore build-out delays and hydrogen demand assumptions.
-- Hydrogen-only versus hydrogen-plus-ammonia reporting.
+- Full source-data export for Fig. 2 LCOH curves after the matching original checkpoint is recovered.
+- Full hourly source-data export for Fig. 4 dispatch traces if required.
+- Full flow and carbon-contribution matrices for Fig. 6 source-data packaging.
 
 ## Current Checkpoint Sources
 
