@@ -193,7 +193,7 @@ targetCapacities = [
     37 125
     ];
 
-legendHandles = gobjects(1, numel(highlightCountries) + 1);
+legendHandles = gobjects(1, numel(countryNames) + 1);
 for iYear = 1:3
     ax = axes(fig, 'Position', panelPositions(iYear, :));
     hold(ax, 'on');
@@ -201,19 +201,14 @@ for iYear = 1:3
         [0.88, 0.88, 0.88], 'EdgeColor', 'none', 'FaceAlpha', 0.35, ...
         'DisplayName', 'Blue H_2 benchmark');
 
+    countryHandles = gobjects(1, numel(countryNames));
     for iCountry = 1:numel(countryNames)
-        if ~ismember(iCountry, highlightCountries)
-            plot(ax, curveSet{iYear}{iCountry}(:, 1) / 1e3, curveSet{iYear}{iCountry}(:, 2), ...
-                'LineWidth', 0.75, 'Color', [0.72, 0.72, 0.72], ...
-                'HandleVisibility', 'off');
+        lineWidth = 1.05;
+        if ismember(iCountry, highlightCountries)
+            lineWidth = 1.75;
         end
-    end
-
-    highlightHandles = gobjects(1, numel(highlightCountries));
-    for iHighlight = 1:numel(highlightCountries)
-        iCountry = highlightCountries(iHighlight);
-        highlightHandles(iHighlight) = plot(ax, curveSet{iYear}{iCountry}(:, 1) / 1e3, ...
-            curveSet{iYear}{iCountry}(:, 2), 'LineWidth', 1.7, ...
+        countryHandles(iCountry) = plot(ax, curveSet{iYear}{iCountry}(:, 1) / 1e3, ...
+            curveSet{iYear}{iCountry}(:, 2), 'LineWidth', lineWidth, ...
             'Color', colors(iCountry, :), 'DisplayName', char(shortNames(iCountry)));
     end
 
@@ -245,7 +240,7 @@ for iYear = 1:3
         'FontWeight', 'bold', 'FontName', 'Arial', 'FontSize', 10);
     if iYear == 1
         ylabel(ax, 'LCOH (€/MWh)');
-        legendHandles = [bandHandle, highlightHandles];
+        legendHandles = [bandHandle, countryHandles];
     else
         ax.YTickLabel = [];
     end
@@ -255,10 +250,10 @@ for iYear = 1:3
     hold(ax, 'off');
 end
 
-lgd = legend(legendHandles, ['Blue H_2 benchmark', cellstr(shortNames(highlightCountries))], ...
-    'NumColumns', 5, 'Box', 'off', 'FontName', 'Arial', 'FontSize', 8);
+lgd = legend(legendHandles, ['Blue H_2 benchmark', cellstr(shortNames)], ...
+    'NumColumns', 6, 'Box', 'off', 'FontName', 'Arial', 'FontSize', 7.2);
 lgd.Units = 'normalized';
-lgd.Position = [0.22, 0.855, 0.58, 0.055];
+lgd.Position = [0.12, 0.845, 0.80, 0.075];
 
 outputPdf = fullfile(figureDir, 'fig LCOH curves manu.pdf');
 manuscriptPdf = fullfile(manuscriptFigureDir, 'fig_LCOH_curves_manu.pdf');
