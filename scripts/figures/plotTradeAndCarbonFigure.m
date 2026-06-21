@@ -19,12 +19,18 @@ nodeList = ["BE", "DK", "FR", "DE", "IE", "NL", "NO", "PT", "ES", "SE", "GB", "I
 countryList = ["BE", "DK", "FR", "DE", "IE", "NL", "NO", "PT", "ES", "SE", "GB"];
 yearList = ["2030", "2040", "2050"];
 colors = generateColorData('gem12');
-axisFontSize = 8;
-panelFontSize = 10;
+axisFontSize = 8.5;
+panelFontSize = 11;
+flowLabelCounts = [4, 5, 5];
 
-fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 600, 800], ...
+fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 660, 820], ...
     'Visible', 'off');
 set(fig, 'DefaultAxesColorOrder', colors);
+annotation(fig, 'textbox', [0.05, 0.004, 0.44, 0.024], ...
+    'String', 'Flow labels: TWh yr^{-1}', 'FontName', 'Arial', ...
+    'FontSize', axisFontSize - 1, 'HorizontalAlignment', 'center', ...
+    'VerticalAlignment', 'middle', 'LineStyle', 'none', ...
+    'Color', [0.28 0.28 0.28]);
 
 chordPositions = [
     0.02 0.67 0.50 0.30
@@ -48,8 +54,11 @@ for iYear = 1:3
     chart.setChordN(1:numel(nodeList), 'FaceAlpha', 0.38);
     chart.setFont('FontName', 'Arial', 'FontSize', 8.5);
     chart.setLabelRadius(1.27);
+    chart.ax.XLim = [-1.44, 1.44];
+    chart.ax.YLim = [-1.44, 1.44];
     set(chart.RTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.7);
     set(chart.thetaTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.5);
+    labelKeyHydrogenFlows(chart, flowMatrix, flowLabelCounts(iYear));
     text(-0.02, 1.02, panelLetters(1, iYear), 'Units', 'normalized', ...
         'HorizontalAlignment', 'left', 'VerticalAlignment', 'top', ...
         'FontWeight', 'bold', 'FontSize', panelFontSize, 'Clipping', 'off');
@@ -60,7 +69,7 @@ for iYear = 1:3
     ax = axes('Position', barPositions(iYear, :));
     ax.ColorOrder = colors;
     bars = bar(data.solution{iYear}.carbonReductionContributionMatrix', 'stacked', ...
-        'BarWidth', 0.5, 'FaceAlpha', 0.75);
+        'BarWidth', 0.54, 'FaceAlpha', 0.86);
     set(bars, 'EdgeColor', [0.28 0.28 0.28], 'LineWidth', 0.25);
     ax.FontName = 'Arial';
     ax.FontSize = axisFontSize;
@@ -78,6 +87,19 @@ for iYear = 1:3
     ylim([0, 60]);
     xtickangle(ax, 35);
     ylabel('CO_2 mitigation (Mt CO_2 yr^{-1})', 'FontSize', axisFontSize);
+    if iYear == 3
+        xlabel('Destination / demand country', 'FontSize', axisFontSize);
+    end
+    totalMitigation = sum(data.solution{iYear}.carbonReductionContributionMatrix(:));
+    text(0.97, 0.93, yearList(iYear), 'Units', 'normalized', ...
+        'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', ...
+        'FontName', 'Arial', 'FontWeight', 'bold', 'FontSize', panelFontSize - 1, ...
+        'Clipping', 'off');
+    text(0.97, 0.82, sprintf('Total = %.1f Mt CO_2 yr^{-1}', totalMitigation), ...
+        'Units', 'normalized', 'HorizontalAlignment', 'right', ...
+        'VerticalAlignment', 'top', 'FontName', 'Arial', ...
+        'FontSize', axisFontSize - 1, 'Color', [0.28 0.28 0.28], ...
+        'Clipping', 'off');
     text(-0.16, 1.02, panelLetters(2, iYear), 'Units', 'normalized', ...
         'HorizontalAlignment', 'right', 'VerticalAlignment', 'top', ...
         'FontWeight', 'bold', 'FontSize', panelFontSize, 'Clipping', 'off');
@@ -98,6 +120,26 @@ copyfile(outputPdf, manuscriptPdf);
 fileattrib(outputPdf, '-x');
 fileattrib(manuscriptPdf, '-x');
 close(fig);
+end
+
+function labelKeyHydrogenFlows(chart, flowMatrix, nLabels)
+[flowValues, flowOrder] = sort(flowMatrix(:), 'descend');
+labelCount = 0;
+for iFlow = 1:numel(flowOrder)
+    if flowValues(iFlow) <= 0 || labelCount == nLabels
+        break
+    end
+    [fromNode, toNode] = ind2sub(size(flowMatrix), flowOrder(iFlow));
+    sourceTheta = mean(chart.thetaFullSet(fromNode, [toNode, toNode + 1]));
+    labelRadius = 0.62;
+    labelPoint = labelRadius .* [cos(sourceTheta), sin(sourceTheta)];
+    labelColor = chart.CData(fromNode, :) .* 0.55;
+    text(labelPoint(1), labelPoint(2), sprintf('%.0f', flowValues(iFlow)), ...
+        'FontName', 'Arial', 'FontSize', 6.2, 'FontWeight', 'bold', ...
+        'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', ...
+        'Color', labelColor, 'Clipping', 'off');
+    labelCount = labelCount + 1;
+end
 end
 
 function flowMatrix = buildHydrogenFlowMatrix(solution, nNode)

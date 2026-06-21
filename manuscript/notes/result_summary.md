@@ -11,7 +11,7 @@ This file tracks manuscript-facing results. Current headline values should be re
 - Ireland nearly matches the UK by 2050, with 162 TWh yr^-1 of integrated net exports after rounding.
 - Ireland has about 170 TWh yr^-1 of available export potential in the 2050 domestic-absorption screen.
 - The lowest-LCOH-only baseline instead identifies Denmark, the Netherlands and Denmark as the leading net exporters in 2030, 2040 and 2050.
-- Delivered outside-option prices near 2-3 EUR kg^-1 H2-equivalent displace most European offshore supply; around 4 EUR kg^-1 restores the UK/Ireland export pattern.
+- Delivered outside-option prices near 3 EUR kg^-1 H2-equivalent still suppress European offshore supply; around 3.3-3.5 EUR kg^-1 restores the UK/Ireland export pattern.
 
 ## Terms That Must Be Kept Separate
 

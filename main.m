@@ -333,10 +333,12 @@ save(fullfile(checkpointDir,'stop3.mat'))
 
 %% LCOH map and cost-supply curve figures
 fprintf('Stage 4/5: LCOH map and cost-supply curves\n');
+buildHighResolutionLCOHMapData(projectRoot, 300);
 plotMainCostFigures(projectRoot);
+plotCostRankingFigure(projectRoot);
 
 %% Domestic absorption and export-potential figures
-% 同步恢复的原始 Fig. 4/5 到 manuscript/figs，避免摘要诊断图覆盖主文图。
+% Sync the restored detailed domestic-operation and export-potential main figures.
 fprintf('Stage 4/5: domestic absorption and export-potential figures\n');
 plotDomesticAbsorptionAndExportPotential(projectRoot);
 

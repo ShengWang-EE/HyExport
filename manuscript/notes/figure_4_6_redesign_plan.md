@@ -62,7 +62,7 @@ Legend logic:
 
 - Define outside-option price as delivered hydrogen-equivalent import price.
 - State source basis: low end informed by optimistic IRENA global trade/cost assumptions; wider range reflects delivery, infrastructure, finance and policy uncertainty.
-- State threshold result: 2-3 EUR/kg-H2 displaces most European offshore supply; around and above 4 EUR/kg-H2 restores the integrated trade pattern.
+- State threshold result: 3 EUR/kg-H2 still suppresses much European offshore supply; around 3.3-3.5 EUR/kg-H2 restores the integrated trade pattern.
 
 ## Visual Style
 

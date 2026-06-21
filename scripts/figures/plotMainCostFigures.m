@@ -6,7 +6,12 @@ else
 end
 
 checkpointFile = fullfile(projectRoot, 'results', 'checkpoints', 'stop3.mat');
+mapFile = fullfile(projectRoot, 'results', 'checkpoints', 'fig1_lcoh_map_highres.mat');
 data = load(checkpointFile, 'LCOH', 'latGrid_mesh', 'lonGrid_mesh');
+mapData = load(mapFile, 'LCOH_map', 'latGrid_mesh_map', 'lonGrid_mesh_map');
+data.LCOH = mapData.LCOH_map;
+data.latGrid_mesh = mapData.latGrid_mesh_map;
+data.lonGrid_mesh = mapData.lonGrid_mesh_map;
 
 figureDir = fullfile(projectRoot, 'figs');
 manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'figs');
@@ -37,12 +42,14 @@ fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 1040, 760],
 
 axMap = axes(fig, 'Position', [0.075, 0.30, 0.79, 0.64]);
 hold(axMap, 'on');
-colormap(axMap, parula(100));
+colormap(axMap, nclCM(15, 100));
 for iCountry = 1:numel(countryNames)
     fprintf('Stage 4/5: draw LCOH surface %s\n', shortNames(iCountry));
     geoshow(axMap, data.latGrid_mesh{iCountry}, data.lonGrid_mesh{iCountry}, ...
         data.LCOH{iCountry}, 'DisplayType', 'surface');
 end
+plotEEZBoundaries(axMap, EUshpEEZ);
+plotCountryOutlines(axMap);
 hold(axMap, 'off');
 
 set(axMap, 'FontName', 'Arial', 'FontSize', 8, 'LineWidth', 0.8, ...
@@ -137,39 +144,68 @@ close(fig);
 end
 
 function [density, windGrid] = countryWindSpeedDensity(countryEEZ)
-fileName = resolveProjectFile("EUclimate.nc");
-lon = ncread(fileName, 'longitude');
-latRaw = ncread(fileName, 'latitude');
-lat = flip(latRaw);
-
-minLon = min([countryEEZ.minLon]);
-maxLon = max([countryEEZ.maxLon]);
-minLat = min([countryEEZ.minLat]);
-maxLat = max([countryEEZ.maxLat]);
-minLonIndex = find(minLon >= lon, 1, 'last');
-maxLonIndex = find(maxLon <= lon, 1, 'first');
-minLatIndex = find(minLat >= lat, 1, 'last');
-maxLatIndex = find(maxLat <= lat, 1, 'first');
-
-nLon = maxLonIndex - minLonIndex + 1;
-nLat = maxLatIndex - minLatIndex + 1;
-rawLatStart = numel(latRaw) - maxLatIndex + 1;
-spatialStride = 3;
-timeStride = 24;
-info = ncinfo(fileName, 'u100');
-nLonSample = floor((nLon - 1) / spatialStride) + 1;
-nLatSample = floor((nLat - 1) / spatialStride) + 1;
-nTimeSample = floor((info.Size(3) - 1) / timeStride) + 1;
-
-u100 = double(ncread(fileName, 'u100', [minLonIndex, rawLatStart, 1], ...
-    [nLonSample, nLatSample, nTimeSample], [spatialStride, spatialStride, timeStride]));
-v100 = double(ncread(fileName, 'v100', [minLonIndex, rawLatStart, 1], ...
-    [nLonSample, nLatSample, nTimeSample], [spatialStride, spatialStride, timeStride]));
-windSpeed = reshape(sqrt(flip(u100, 2).^2 + flip(v100, 2).^2), [], 1);
+climate = loadCountryClimate(countryEEZ, 100);
+windSpeed = reshape(climate.windSpeed, [], 1);
 windSpeed(isnan(windSpeed)) = [];
-sampleStride = max(1, ceil(numel(windSpeed) / 50000));
-windSpeed = windSpeed(1:sampleStride:end);
 [density, windGrid] = ksdensity(windSpeed);
+end
+
+function plotCountryOutlines(axMap)
+lonLim = xlim(axMap);
+latLim = ylim(axMap);
+landAreas = shaperead('landareas.shp', 'UseGeoCoords', true);
+bounds = cat(3, landAreas.BoundingBox);
+inView = squeeze(bounds(1, 1, :) <= lonLim(2) & bounds(2, 1, :) >= lonLim(1) & ...
+    bounds(1, 2, :) <= latLim(2) & bounds(2, 2, :) >= latLim(1));
+geoshow(axMap, landAreas(inView), 'DisplayType', 'polygon', 'FaceColor', 'none', ...
+    'EdgeColor', [0.22, 0.22, 0.22], 'LineWidth', 0.45);
+xlim(axMap, lonLim);
+ylim(axMap, latLim);
+end
+
+function plotEEZBoundaries(axMap, EUshpEEZ)
+lonLim = xlim(axMap);
+latLim = ylim(axMap);
+for iCountry = 1:numel(EUshpEEZ)
+    plot(axMap, EUshpEEZ(iCountry).X, EUshpEEZ(iCountry).Y, '-', ...
+        'Color', [1, 1, 1], 'LineWidth', 0.8);
+end
+xlim(axMap, lonLim);
+ylim(axMap, latLim);
+end
+
+function [latFine, lonFine, lcohFine] = interpolateLCOHMap(latGrid, lonGrid, lcohGrid, scaleFactor)
+[nRow, nCol] = size(lcohGrid);
+[colGrid, rowGrid] = meshgrid(1:nCol, 1:nRow);
+[colFine, rowFine] = meshgrid(linspace(1, nCol, (nCol - 1) * scaleFactor + 1), ...
+    linspace(1, nRow, (nRow - 1) * scaleFactor + 1));
+
+latFine = interp2(colGrid, rowGrid, latGrid, colFine, rowFine, 'linear');
+lonFine = interp2(colGrid, rowGrid, lonGrid, colFine, rowFine, 'linear');
+valid = ~isnan(lcohGrid);
+computedFine = interp2(colGrid, rowGrid, double(valid), colFine, rowFine, 'nearest') > 0;
+lcohFine = interp2(colGrid, rowGrid, lcohGrid, colFine, rowFine, 'nearest');
+
+neighbourCount = conv2(double(valid), ones(3), 'same');
+fillableBlank = ~valid & neighbourCount >= 5;
+fillableFine = interp2(colGrid, rowGrid, double(fillableBlank), colFine, rowFine, 'nearest') > 0;
+fillableFine = fillableFine & ~computedFine;
+
+if any(fillableFine(:))
+    fillInterpolant = scatteredInterpolant(colGrid(valid), rowGrid(valid), lcohGrid(valid), ...
+        'natural', 'none');
+    colFill = colFine(fillableFine);
+    rowFill = rowFine(fillableFine);
+    fillValues = fillInterpolant(colFill, rowFill);
+    missingFill = isnan(fillValues);
+    if any(missingFill)
+        nearestInterpolant = scatteredInterpolant(colGrid(valid), rowGrid(valid), lcohGrid(valid), ...
+        'nearest', 'nearest');
+        fillValues(missingFill) = nearestInterpolant(colFill(missingFill), rowFill(missingFill));
+    end
+    lcohFine(fillableFine) = fillValues;
+end
+lcohFine(~(computedFine | fillableFine)) = nan;
 end
 
 function syncRestoredCostSupplyFigure(figureDir, manuscriptFigureDir)

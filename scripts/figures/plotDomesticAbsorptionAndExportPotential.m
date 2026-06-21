@@ -14,12 +14,134 @@ end
 
 syncMainFigure(figureDir, manuscriptFigureDir, ...
     'fig unit commitment main.pdf', 'fig_unit_commitment_main.pdf');
-syncMainFigure(figureDir, manuscriptFigureDir, ...
-    'fig wind decomposition.pdf', 'fig_wind_decomposition.pdf');
+plotExportPotentialMatrix(projectRoot, figureDir, manuscriptFigureDir);
 end
 
 function syncMainFigure(figureDir, manuscriptFigureDir, sourceName, targetName)
 copyfile(fullfile(figureDir, sourceName), fullfile(manuscriptFigureDir, targetName));
+end
+
+function plotExportPotentialMatrix(projectRoot, figureDir, manuscriptFigureDir)
+sourceTable = readtable(fullfile(projectRoot, 'results', 'tables', 'NC_domestic_export_potential.csv'));
+years = [2030, 2040, 2050];
+componentVariables = {'PowerSystemUse_TWh', 'GasSystemUse_TWh', ...
+    'AvailableExport_TWh', 'ResidualCurtailment_TWh'};
+componentLabels = {'Power system', 'Gas system', 'Available export', 'Residual curtailment'};
+componentColors = [
+    0.47 0.69 0.82
+    0.88 0.59 0.47
+    0.93 0.78 0.49
+    0.66 0.49 0.69
+];
+
+countryNames = string(sourceTable.Country(sourceTable.Year == 2050));
+data2050 = extractYearData(sourceTable, 2050, countryNames, componentVariables);
+[~, order] = sort(sum(data2050, 2), 'descend');
+countryNames = countryNames(order);
+nCountries = numel(countryNames);
+
+maxTotal = 700;
+fig = figure('Color', 'w', 'Units', 'centimeters', 'Position', [2, 2, 18.6, 9.2]);
+axisPositions = [
+    0.075 0.18 0.275 0.67
+    0.385 0.18 0.275 0.67
+    0.695 0.18 0.275 0.67
+];
+
+for iYear = 1:numel(years)
+    ax = axes('Parent', fig, 'Position', axisPositions(iYear, :));
+    yearData = extractYearData(sourceTable, years(iYear), countryNames, componentVariables);
+    barHandles = barh(ax, 1:nCountries, yearData, 0.72, 'stacked', ...
+        'LineWidth', 0.35, 'EdgeColor', [0.24 0.24 0.24]);
+    for iComponent = 1:numel(barHandles)
+        barHandles(iComponent).FaceColor = componentColors(iComponent, :);
+    end
+    hold(ax, 'on');
+    totalWind = sum(yearData, 2);
+    scatter(ax, totalWind, 1:nCountries, 18, 'o', ...
+        'MarkerFaceColor', 'w', 'MarkerEdgeColor', [0.2 0.2 0.2], ...
+        'LineWidth', 0.8);
+    labelLargeExportSegments(ax, yearData);
+    if years(iYear) == 2050
+        gbRow = find(countryNames == "GB");
+        text(ax, maxTotal - 105, gbRow - 0.43, sprintf('total %.0f', totalWind(gbRow)), ...
+            'FontName', 'Arial', 'FontSize', 7, 'FontWeight', 'bold', ...
+            'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle', ...
+            'Color', [0.18 0.18 0.18]);
+    end
+    hold(ax, 'off');
+
+    ax.Box = 'off';
+    ax.FontName = 'Arial';
+    ax.FontSize = 7.5;
+    ax.LineWidth = 0.75;
+    ax.XLim = [0, maxTotal];
+    ax.XTick = [0, 200, 400, 600, 700];
+    ax.YLim = [0.35, nCountries + 0.65];
+    ax.YDir = 'reverse';
+    ax.YTick = 1:nCountries;
+    ax.XGrid = 'on';
+    ax.YGrid = 'off';
+    ax.GridColor = [0.82 0.82 0.82];
+    ax.GridAlpha = 0.45;
+    title(ax, string(years(iYear)), 'FontName', 'Arial', 'FontSize', 9, ...
+        'FontWeight', 'bold');
+    if iYear == 1
+        ax.YTickLabel = countryNames;
+    else
+        ax.YTickLabel = [];
+    end
+    text(ax, -0.13, 1.03, char('a' + iYear - 1), 'Units', 'normalized', ...
+        'FontName', 'Arial', 'FontSize', 9, 'FontWeight', 'bold');
+end
+
+drawAllocationLegend(fig, componentColors, componentLabels);
+annotation(fig, 'textbox', [0.37 0.055 0.32 0.035], ...
+    'String', 'Annual offshore wind allocation (TWh yr^{-1})', ...
+    'FontName', 'Arial', 'FontSize', 8, 'HorizontalAlignment', 'center', ...
+    'VerticalAlignment', 'middle', 'LineStyle', 'none');
+
+outputPdf = fullfile(figureDir, 'fig wind decomposition.pdf');
+exportgraphics(fig, outputPdf, 'ContentType', 'vector');
+copyfile(outputPdf, fullfile(manuscriptFigureDir, 'fig_wind_decomposition.pdf'));
+close(fig);
+end
+
+function yearData = extractYearData(sourceTable, year, countryNames, componentVariables)
+yearData = zeros(numel(countryNames), numel(componentVariables));
+for iCountry = 1:numel(countryNames)
+    row = sourceTable(sourceTable.Year == year & string(sourceTable.Country) == countryNames(iCountry), :);
+    for iComponent = 1:numel(componentVariables)
+        yearData(iCountry, iComponent) = row.(componentVariables{iComponent});
+    end
+end
+end
+
+function labelLargeExportSegments(ax, yearData)
+exportPotential = yearData(:, 3);
+exportStart = yearData(:, 1) + yearData(:, 2);
+for iCountry = 1:size(yearData, 1)
+    if exportPotential(iCountry) >= 80
+        text(ax, exportStart(iCountry) + exportPotential(iCountry) / 2, iCountry, ...
+            sprintf('%.0f', exportPotential(iCountry)), ...
+            'FontName', 'Arial', 'FontSize', 6.5, 'FontWeight', 'bold', ...
+            'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', ...
+            'Color', [0.18 0.18 0.18]);
+    end
+end
+end
+
+function drawAllocationLegend(fig, componentColors, componentLabels)
+legendX = [0.10, 0.315, 0.525, 0.745];
+for iComponent = 1:numel(componentLabels)
+    annotation(fig, 'rectangle', [legendX(iComponent), 0.925, 0.025, 0.018], ...
+        'FaceColor', componentColors(iComponent, :), ...
+        'EdgeColor', [0.24 0.24 0.24], 'LineWidth', 0.35);
+    annotation(fig, 'textbox', [legendX(iComponent) + 0.032, 0.914, 0.17, 0.04], ...
+        'String', componentLabels{iComponent}, 'FontName', 'Arial', ...
+        'FontSize', 7.5, 'LineStyle', 'none', ...
+        'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle');
+end
 end
 
 function plotCurtailmentSummary(data, figureDir, manuscriptFigureDir)

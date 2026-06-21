@@ -6,7 +6,7 @@ Purpose: document the evidence base for the outside-option import-price scan use
 
 ## Current Modelling Choice
 
-The current scan uses an external low-carbon hydrogen/ammonia outside-option price grid of:
+The current scan uses an external low-carbon hydrogen/ammonia outside-option price grid of 2.0-6.0 EUR/kg-H2 in 0.1 EUR/kg-H2 increments. The corresponding EUR/MWh values are computed directly in `scripts/analysis/runOutsideOptionSensitivity.m` using the LHV conversion below. The integer points are:
 
 | Model price | Approximate hydrogen-equivalent price |
 |---:|---:|
@@ -38,7 +38,7 @@ This should be described as a threshold scan, not as a probability-weighted fore
 
 The current model result should be framed as:
 
-> European offshore hydrogen exports become strategically important when the external low-carbon import option is not available at ultra-low delivered prices. In the current threshold scan, external prices near 2-3 EUR/kg-H2 displace much of the European offshore supply, whereas prices near and above 4 EUR/kg-H2 restore the integrated trade pattern in which Ireland and the UK become major net exporters by 2050.
+> European offshore hydrogen exports become strategically important when the external low-carbon import option is not available at ultra-low delivered prices. In the current threshold scan, external prices near 3 EUR/kg-H2 still displace much of the European offshore supply, whereas prices around 3.3-3.5 EUR/kg-H2 restore the integrated trade pattern in which Ireland and the UK become major net exporters by 2050.
 
 This is stronger and more defensible than claiming that the Ireland/UK export conclusion is robust under all import-price assumptions.
 
@@ -51,4 +51,4 @@ This is stronger and more defensible than claiming that the Ireland/UK export co
 
 ## Current Recommendation
 
-Keep the 2-6 EUR/kg-H2 grid for now because it spans the useful threshold. Do not narrow it until the figure is redesigned. The most important result is not the exact price point, but the break point around which European offshore supply re-enters the solution.
+Keep the 2.0-6.0 EUR/kg-H2 grid for now because it spans the useful threshold. The current 0.1 EUR/kg-H2 spacing is fine enough for the main-text boundary claim. The most important result is not the exact price point, but the break point around which European offshore supply re-enters the solution.

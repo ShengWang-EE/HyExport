@@ -48,7 +48,7 @@ The following manuscript-facing numbers were checked against lightweight source 
 | Country export-potential screen | UK 176/195/263 TWh yr^-1; Ireland 16/87/170 TWh yr^-1; Netherlands 64/155 TWh yr^-1; Denmark 30 TWh yr^-1 in 2030 | `NC_domestic_export_potential.csv` |
 | Integrated trade ranks and net exports | UK 78/122/162 TWh yr^-1; Ireland 14/83/162 TWh yr^-1; Denmark 118 TWh yr^-1 in 2050 | `NC_story_comparison_country.csv` |
 | LCOH-only counterfactual | top net exporters DK 44, NL 147 and DK 171 TWh yr^-1 | `NC_story_comparison.csv` |
-| Outside-option threshold | 2050 imports 818, 721 and 63 TWh yr^-1 at 2, 3 and 4 EUR kg^-1 H2-equivalent | `NC_outside_option_sensitivity.csv` |
+| Outside-option threshold | 2050 offshore supply rises from 98 to 600 and 709 TWh yr^-1 at 3.0, 3.3 and 3.5 EUR kg^-1 H2-equivalent; outside imports fall from 721 to 226 and 119 TWh yr^-1 | `NC_outside_option_sensitivity.csv` |
 
 No headline value in the current main manuscript failed this pass. The wording distinction that still matters most is `available export potential` versus optimised `net export`.
 

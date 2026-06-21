@@ -25,6 +25,6 @@ Last updated: 2026-06-18
 
 Align the Supplementary Information with the revised main-text claims and decide which dense old figures move to SI.
 
-The lowest-LCOH-only counterfactual, second-draft Fig. 4, outside-option threshold scan, and second-draft Fig. 6 now exist and are cited in `manuscript/sn-article.tex`. `stop3.mat` and `NC_story_comparison.csv` have been refreshed with the current `optimalTransportation` code. `manuscript/notes/outside_option_price_sources.md` records the source basis for treating the 2-6 EUR/kg-H2 range as a threshold scan. Domestic absorption sensitivity also exists, but should be treated as SI/internal diagnostic material.
+The lowest-LCOH-only counterfactual, second-draft Fig. 4, outside-option threshold scan, and second-draft Fig. 6 now exist and are cited in `manuscript/sn-article.tex`. `stop3.mat` and `NC_story_comparison.csv` have been refreshed with the current `optimalTransportation` code. `manuscript/notes/outside_option_price_sources.md` records the source basis for treating the 2.0-6.0 EUR/kg-H2 range as a threshold scan. Domestic absorption sensitivity also exists, but should be treated as SI/internal diagnostic material.
 
-Important interpretation: the outside-option result is conditional, not unconditionally robust. External prices near 2-3 EUR/kg-H2 displace much of the European offshore supply, while prices near and above 4 EUR/kg-H2 restore the Ireland/UK strategic-export result.
+Important interpretation: the outside-option result is conditional, not unconditionally robust. External prices near 3 EUR/kg-H2 still displace much of the European offshore supply, while prices around 3.3-3.5 EUR/kg-H2 restore the Ireland/UK strategic-export result.

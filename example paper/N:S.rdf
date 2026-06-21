@@ -1,0 +1,1438 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dcterms="http://purl.org/dc/terms/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/">
+    <bib:Article rdf:about="#item_752">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2041-1723%20(Electronic)%202041-1723%20(Linking)"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Song</foaf:surname>
+                        <foaf:givenName>S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lin</foaf:surname>
+                        <foaf:givenName>H.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sherman</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yang</foaf:surname>
+                        <foaf:givenName>X.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nielsen</foaf:surname>
+                        <foaf:givenName>C. P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenName>X.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>McElroy</foaf:surname>
+                        <foaf:givenName>M. B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_753"/>
+        <dcterms:isReferencedBy rdf:resource="#item_754"/>
+        <link:link rdf:resource="#item_755"/>
+        <link:link rdf:resource="#item_800"/>
+        <link:link rdf:resource="#item_756"/>
+        <dc:title>Production of hydrogen from offshore wind in China and cost-competitive supply to Japan</dc:title>
+        <dcterms:abstract>The Japanese government has announced a commitment to net-zero greenhouse gas emissions by 2050. It envisages an important role for hydrogen in the nation's future energy economy. This paper explores the possibility that a significant source for this hydrogen could be produced by electrolysis fueled by power generated from offshore wind in China. Hydrogen could be delivered to Japan either as liquid, or bound to a chemical carrier such as toluene, or as a component of ammonia. The paper presents an analysis of factors determining the ultimate cost for this hydrogen, including expenses for production, storage, conversion, transport, and treatment at the destination. It concludes that the Chinese source could be delivered at a volume and cost consistent with Japan's idealized future projections.</dcterms:abstract>
+        <dc:date>Nov 29 2021</dc:date>
+        <bib:pages>6953</bib:pages>
+        <z:PMCID>PMC8630012</z:PMCID>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2041-1723%20(Electronic)%202041-1723%20(Linking)">
+        <dc:identifier>DOI 10.1038/s41467-021-27214-7</dc:identifier>
+        <prism:volume>12</prism:volume>
+        <dc:title>Nat Commun</dc:title>
+        <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+        <prism:number>1</prism:number>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_753">
+        <rdf:value>&lt;p&gt;Song, Shaojie&lt;br/&gt;Lin, Haiyang&lt;br/&gt;Sherman, Peter&lt;br/&gt;Yang, Xi&lt;br/&gt;Nielsen, Chris P&lt;br/&gt;Chen, Xinyu&lt;br/&gt;McElroy, Michael B&lt;br/&gt;eng&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2021 Nov 29;12(1):6953. doi: 10.1038/s41467-021-27214-7.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_754">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, 02138, USA. John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, 02138, USA. haiyanglin@seas.harvard.edu. Institute of Thermal Science and Technology, Shandong University, Jinan, 250061, China. haiyanglin@seas.harvard.edu. Department of Earth and Planetary Sciences, Harvard University, Cambridge, MA, 02138, USA. School of Economics and Management, China University of Petroleum Beijing, Beijing, 102249, China. State Key Laboratory of Advanced Electromagnetic Engineering and Technology, School of Electrical and Electronic Engineering, Huazhong University of Science and Technology, Wuhan, 430074, China. John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, 02138, USA. mbm@seas.harvard.edu. Department of Earth and Planetary Sciences, Harvard University, Cambridge, MA, 02138, USA. mbm@seas.harvard.edu.&lt;br/&gt;edition: 2021/12/01&lt;br/&gt;accession-num: 34845233</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_755">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>34845233</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/34845233</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_800">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/800/Song et al. - 2021 - Production of hydrogen from offshore wind in China and cost-competitive supply to Japan.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-021-27214-7.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:41</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_756">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>s41467-021-27214-7</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-021-27214-7.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_757">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Part>
+                <dc:title>555</dc:title>
+                <dcterms:isPartOf rdf:resource="urn:issn:2058-7546"/>
+            </bib:Part>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wiser</foaf:surname>
+                        <foaf:givenName>Ryan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rand</foaf:surname>
+                        <foaf:givenName>Joseph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Seel</foaf:surname>
+                        <foaf:givenName>Joachim</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Beiter</foaf:surname>
+                        <foaf:givenName>Philipp</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Baker</foaf:surname>
+                        <foaf:givenName>Erin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lantz</foaf:surname>
+                        <foaf:givenName>Eric</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gilman</foaf:surname>
+                        <foaf:givenName>Patrick</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_792"/>
+        <dc:title>Expert elicitation survey predicts 37% to 49% declines in wind energy costs by 2050</dc:title>
+        <dc:date>2021</dc:date>
+        <bib:pages>555-565</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2058-7546">
+        <dc:identifier>DOI 10.1038/s41560-021-00810-z</dc:identifier>
+        <prism:volume>6</prism:volume>
+        <dc:title>Nature Energy</dc:title>
+        <dc:identifier>ISSN 2058-7546</dc:identifier>
+        <prism:number>5</prism:number>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_792">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/792/Wiser et al. - 2021 - Expert elicitation survey predicts 37% to 49% declines in wind energy costs by 2050.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-021-00810-z.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:27</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_758">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Part>
+                <dc:title>955</dc:title>
+                <dcterms:isPartOf>
+                    <bib:Journal>
+                        <dc:identifier>DOI 10.1038/s41560-022-01114-6</dc:identifier>
+                        <prism:volume>7</prism:volume>
+                        <dc:title>Nature Energy</dc:title>
+                        <dc:identifier>ISSN 2058-7546</dc:identifier>
+                        <prism:number>10</prism:number>
+                    </bib:Journal>
+                </dcterms:isPartOf>
+            </bib:Part>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yang</foaf:surname>
+                        <foaf:givenName>Xi</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Nielsen</foaf:surname>
+                        <foaf:givenName>Chris P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Song</foaf:surname>
+                        <foaf:givenName>Shaojie</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>McElroy</foaf:surname>
+                        <foaf:givenName>Michael B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_798"/>
+        <dc:title>Breaking the hard-to-abate bottleneck in China’s path to carbon neutrality with clean hydrogen</dc:title>
+        <dc:date>2022</dc:date>
+        <bib:pages>955-965</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_798">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/798/Yang et al. - 2022 - Breaking the hard-to-abate bottleneck in China’s path to carbon neutrality with clean hydrogen.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-022-01114-6.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:39</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_759">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Part>
+                <dc:title>1240</dc:title>
+                <dcterms:isPartOf>
+                    <bib:Journal>
+                        <dc:identifier>DOI 10.1038/s41560-023-01364-y</dc:identifier>
+                        <prism:volume>8</prism:volume>
+                        <dc:title>Nature Energy</dc:title>
+                        <dc:identifier>ISSN 2058-7546</dc:identifier>
+                        <prism:number>11</prism:number>
+                    </bib:Journal>
+                </dcterms:isPartOf>
+            </bib:Part>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Beiter</foaf:surname>
+                        <foaf:givenName>Philipp</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mai</foaf:surname>
+                        <foaf:givenName>Trieu</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Mowers</foaf:surname>
+                        <foaf:givenName>Matthew</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bistline</foaf:surname>
+                        <foaf:givenName>John</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_807"/>
+        <link:link rdf:resource="#item_760"/>
+        <dc:title>Expanded modelling scenarios to understand the role of offshore wind in decarbonizing the United States</dc:title>
+        <dc:date>2023</dc:date>
+        <bib:pages>1240-1249</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_807">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/807/Beiter et al. - 2023 - Expanded modelling scenarios to understand the role of offshore wind in decarbonizing the United Sta.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-023-01364-y.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:53</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_760">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>s41560-023-01364-y</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-023-01364-y</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_761">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41467-023-37536-3</dc:identifier>
+                <prism:volume>14</prism:volume>
+                <dc:title>Nat Commun</dc:title>
+                <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+                <prism:number>1</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Guo</foaf:surname>
+                        <foaf:givenName>X.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenName>X.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenName>X.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sherman</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wen</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>McElroy</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_762"/>
+        <dcterms:isReferencedBy rdf:resource="#item_763"/>
+        <link:link rdf:resource="#item_764"/>
+        <link:link rdf:resource="#item_804"/>
+        <dc:title>Grid integration feasibility and investment planning of offshore wind power under carbon-neutral transition in China</dc:title>
+        <dcterms:abstract>Offshore wind power, with accelerated declining levelized costs, is emerging as a critical building-block to fully decarbonize the world's largest CO(2) emitter, China. However, system integration barriers as well as system balancing costs have not been quantified yet. Here we develop a bottom-up model to test the grid accommodation capabilities and design the optimal investment plans for offshore wind power considering resource distributions, hourly power system simulations, and transmission/storage/hydrogen investments. Results indicate that grid integration barriers exist currently at the provincial level. For 2030, optimized offshore wind investment levels should be doubled compared with current government plans, and provincial allocations should be significantly improved considering both resource quality and grid conditions. For 2050, offshore wind capacity in China could reach as high as 1500 GW, prompting a paradigm shift in national transmission structure, favoring long-term storage in the energy portfolio, enabling green hydrogen production in coastal demand centers, resulting in the world's largest wind power market.</dcterms:abstract>
+        <dc:date>Apr 28 2023</dc:date>
+        <bib:pages>2447</bib:pages>
+        <z:PMCID>PMC10141809</z:PMCID>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_762">
+        <rdf:value>&lt;p&gt;Guo, Xinyang&lt;br/&gt;Chen, Xinyu&lt;br/&gt;Chen, Xia&lt;br/&gt;Sherman, Peter&lt;br/&gt;Wen, Jinyu&lt;br/&gt;McElroy, Michael&lt;br/&gt;eng&lt;br/&gt;51907066/National Natural Science Foundation of China (National Science Foundation of China)/&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2023 Apr 28;14(1):2447. doi: 10.1038/s41467-023-37536-3.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_763">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: State Key Laboratory of Advanced Electromagnetic Engineering and Technology, School of Electrical and Electronic Engineering, Huazhong University of Science and Technology, Wuhan, China. Harvard John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, USA. State Key Laboratory of Advanced Electromagnetic Engineering and Technology, School of Electrical and Electronic Engineering, Huazhong University of Science and Technology, Wuhan, China. xchen@seas.harvard.edu. Harvard John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, USA. xchen@seas.harvard.edu. Department of Earth and Planetary Sciences, Harvard University, Cambridge, MA, USA. State Key Laboratory of Advanced Electromagnetic Engineering and Technology, School of Electrical and Electronic Engineering, Huazhong University of Science and Technology, Wuhan, China. jinyu.wen@hust.edu.cn. Harvard John A. Paulson School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, USA. mbm@seas.harvard.edu. Department of Earth and Planetary Sciences, Harvard University, Cambridge, MA, USA. mbm@seas.harvard.edu.&lt;br/&gt;edition: 2023/04/29&lt;br/&gt;accession-num: 37117183</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_764">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37117183</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37117183</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_804">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/804/Guo et al. - 2023 - Grid integration feasibility and investment planning of offshore wind power under carbon-neutral tra.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-023-37536-3.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:50</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_765">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2045-2322%20(Electronic)%202045-2322%20(Linking)"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hjelmeland</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Noland</foaf:surname>
+                        <foaf:givenName>J. K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_766"/>
+        <dcterms:isReferencedBy rdf:resource="#item_767"/>
+        <link:link rdf:resource="#item_768"/>
+        <link:link rdf:resource="#item_803"/>
+        <dc:title>Correlation challenges for North Sea offshore wind power: a Norwegian case study</dc:title>
+        <dcterms:abstract>Offshore wind power projects are currently booming around the North Sea. However, there are inherent correlation challenges between wind farms in this area, which has implications for the optimal composition of locations and the scale-up of installed capacities. This paper is aimed at addressing the correlation problem by minimizing the variance of total wind power accumulated around the North Sea. We show that this nonlinear convex optimization problem can be solved by applying the Augmented Lagrangian Algorithm (ALA). The premise of the study is that more interconnections between the EU countries will be prioritized in order to optimize and smooth out the wind power production patterns. A publicly available dataset with historical hour-by-hour data spanning over 20 years was used for the analysis. We explore two distinct scenarios for Norwegian offshore wind development. In the first scenario, we consider the ongoing activities on the European continental side of the North Sea and their implications for Norway. Here, we illustrate the advantages of focusing on expanding wind power capacity in the northern regions of Norway to enhance the overall value of the generated wind power. In contrast, the second reference scenario neglects these interconnections, resulting in a significantly greater concentration of offshore wind development in the southern parts of Norway, particularly in Sorlige Nordsjo II. Additionally, our work estimates the wind power correlation coefficient in the North Sea as a function of distance. Furthermore, we analyze deviations and intermittencies in North Sea wind power over various time intervals, emphasizing that the perceived integration challenges are highly dependent on the chosen time resolution in the analysis.</dcterms:abstract>
+        <dc:date>Oct 31 2023</dc:date>
+        <bib:pages>18670</bib:pages>
+        <z:PMCID>PMC10618294</z:PMCID>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2045-2322%20(Electronic)%202045-2322%20(Linking)">
+        <dc:identifier>DOI 10.1038/s41598-023-45829-2</dc:identifier>
+        <prism:volume>13</prism:volume>
+        <dc:title>Sci Rep</dc:title>
+        <dc:identifier>ISSN 2045-2322 (Electronic) 2045-2322 (Linking)</dc:identifier>
+        <prism:number>1</prism:number>
+    </bib:Journal>
+    <bib:Memo rdf:about="#item_766">
+        <rdf:value>&lt;p&gt;Hjelmeland, Martin&lt;br/&gt;Noland, Jonas Kristiansen&lt;br/&gt;eng&lt;br/&gt;England&lt;br/&gt;Sci Rep. 2023 Oct 31;13(1):18670. doi: 10.1038/s41598-023-45829-2.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_767">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: Unaffiliated, Kastanjevegen 14, 4051, Sola, Norway. Department of Electric Energy, Norwegian University of Science and Technology (NTNU), O. S. Bragstads plass 2E, 7034, Trondheim, Norway. jonas.k.noland@ntnu.no.&lt;br/&gt;edition: 2023/11/01&lt;br/&gt;accession-num: 37907549</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_768">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37907549</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37907549</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_803">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/803/Hjelmeland and Noland - 2023 - Correlation challenges for North Sea offshore wind power a Norwegian case study.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41598-023-45829-2.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:49</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_769">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Part>
+                <dc:title>604</dc:title>
+                <dcterms:isPartOf rdf:resource="urn:issn:2731-0582"/>
+            </bib:Part>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Salmon</foaf:surname>
+                        <foaf:givenName>Nicholas</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bañares-Alcántara</foaf:surname>
+                        <foaf:givenName>René</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dc:title>Offshore green ammonia synthesis</dc:title>
+        <dc:date>2023</dc:date>
+        <bib:pages>604-611</bib:pages>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2731-0582">
+        <dc:identifier>DOI 10.1038/s44160-023-00309-3</dc:identifier>
+        <prism:volume>2</prism:volume>
+        <dc:title>Nature Synthesis</dc:title>
+        <dc:identifier>ISSN 2731-0582</dc:identifier>
+        <prism:number>7</prism:number>
+    </bib:Journal>
+    <bib:Article rdf:about="#item_770">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41467-023-41527-9</dc:identifier>
+                <prism:volume>14</prism:volume>
+                <dc:title>Nat Commun</dc:title>
+                <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+                <prism:number>1</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Shirizadeh</foaf:surname>
+                        <foaf:givenName>B.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Villavicencio</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Douguet</foaf:surname>
+                        <foaf:givenName>S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Truby</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bou Issa</foaf:surname>
+                        <foaf:givenName>C.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Seck</foaf:surname>
+                        <foaf:givenName>G. S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>D'Herbemont</foaf:surname>
+                        <foaf:givenName>V.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hache</foaf:surname>
+                        <foaf:givenName>E.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Malbec</foaf:surname>
+                        <foaf:givenName>L. M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sabathier</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Venugopal</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lagrange</foaf:surname>
+                        <foaf:givenName>F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Saunier</foaf:surname>
+                        <foaf:givenName>S.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Straus</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reigstad</foaf:surname>
+                        <foaf:givenName>G. A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_771"/>
+        <dcterms:isReferencedBy rdf:resource="#item_772"/>
+        <link:link rdf:resource="#item_773"/>
+        <link:link rdf:resource="#item_801"/>
+        <dc:title>The impact of methane leakage on the role of natural gas in the European energy transition</dc:title>
+        <dcterms:abstract>Decarbonising energy systems is a prevalent topic in the current literature on climate change mitigation, but the additional climate burden caused by methane emissions along the natural gas value chain is rarely discussed at the system level. Considering a two-basket greenhouse gas neutrality objective (both CO(2) and methane), we model cost-optimal European energy transition pathways towards 2050. Our analysis shows that adoption of best available methane abatement technologies can entail an 80% reduction in methane leakage, limiting the additional environmental burden to 8% of direct CO(2) emissions (vs. 35% today). We show that, while renewable energy sources are key drivers of climate neutrality, the role of natural gas strongly depends on actions to abate both associated CO(2) and methane emissions. Moreover, clean hydrogen (produced mainly from renewables) can replace natural gas in a substantial proportion of its end-uses, satisfying nearly a quarter of final energy demand in a climate-neutral Europe.</dcterms:abstract>
+        <dc:date>Sep 16 2023</dc:date>
+        <bib:pages>5756</bib:pages>
+        <z:PMCID>PMC10505150</z:PMCID>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_771">
+        <rdf:value>&lt;p&gt;Shirizadeh, Behrang&lt;br/&gt;Villavicencio, Manuel&lt;br/&gt;Douguet, Sebastien&lt;br/&gt;Truby, Johannes&lt;br/&gt;Bou Issa, Charbel&lt;br/&gt;Seck, Gondia Sokhna&lt;br/&gt;D'herbemont, Vincent&lt;br/&gt;Hache, Emmanuel&lt;br/&gt;Malbec, Louis-Marie&lt;br/&gt;Sabathier, Jerome&lt;br/&gt;Venugopal, Malavika&lt;br/&gt;Lagrange, Fanny&lt;br/&gt;Saunier, Stephanie&lt;br/&gt;Straus, Julian&lt;br/&gt;Reigstad, Gunhild A&lt;br/&gt;eng&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2023 Sep 16;14(1):5756. doi: 10.1038/s41467-023-41527-9.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_772">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: Deloitte Economic Advisory, 6 Place de La Pyramide Tour Majunga Deloitte, 92800, Puteaux, France. bshirizadeh@deloitte.fr. CIRED, 45 bis avenue de La Belle Gabrielle, 94736, Nogent sur Marne Cedex, France. bshirizadeh@deloitte.fr. Deloitte Economic Advisory, 6 Place de La Pyramide Tour Majunga Deloitte, 92800, Puteaux, France. IFP Energies Nouvelles, 1-4 Avenue Bois Preau, 92852, Rueil-Malmaison, France. Carbon Limits, C. J. Hambros plass 2, 0164, Oslo, Norway. SINTEF Energy Research, Sem Saelands Vei 11, 7034, Trondheim, Norway.&lt;br/&gt;edition: 2023/09/17&lt;br/&gt;accession-num: 37717065</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_773">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37717065</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37717065</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_801">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/801/Shirizadeh et al. - 2023 - The impact of methane leakage on the role of natural gas in the European energy transition.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-023-41527-9.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:43</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_774">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41467-023-41107-x</dc:identifier>
+                <prism:volume>14</prism:volume>
+                <dc:title>Nat Commun</dc:title>
+                <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+                <prism:number>1</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tonelli</foaf:surname>
+                        <foaf:givenName>D.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Rosa</foaf:surname>
+                        <foaf:givenName>L.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gabrielli</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Caldeira</foaf:surname>
+                        <foaf:givenName>K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Parente</foaf:surname>
+                        <foaf:givenName>A.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Contino</foaf:surname>
+                        <foaf:givenName>F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_776"/>
+        <dcterms:isReferencedBy rdf:resource="#item_775"/>
+        <link:link rdf:resource="#item_777"/>
+        <link:link rdf:resource="#item_799"/>
+        <dc:title>Global land and water limits to electrolytic hydrogen production using wind and solar resources</dc:title>
+        <dcterms:abstract>Proposals for achieving net-zero emissions by 2050 include scaling-up electrolytic hydrogen production, however, this poses technical, economic, and environmental challenges. One such challenge is for policymakers to ensure a sustainable future for the environment including freshwater and land resources while facilitating low-carbon hydrogen production using renewable wind and solar energy. We establish a country-by-country reference scenario for hydrogen demand in 2050 and compare it with land and water availability. Our analysis highlights countries that will be constrained by domestic natural resources to achieve electrolytic hydrogen self-sufficiency in a net-zero target. Depending on land allocation for the installation of solar panels or wind turbines, less than 50% of hydrogen demand in 2050 could be met through a local production without land or water scarcity. Our findings identify potential importers and exporters of hydrogen or, conversely, exporters or importers of industries that would rely on electrolytic hydrogen. The abundance of land and water resources in Southern and Central-East Africa, West Africa, South America, Canada, and Australia make these countries potential leaders in hydrogen export.</dcterms:abstract>
+        <dc:date>Sep 8 2023</dc:date>
+        <bib:pages>5532</bib:pages>
+        <z:PMCID>PMC10491841</z:PMCID>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_776">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: Institute of Mechanics, Materials and Civil Engineering, UCLouvain, 1348, Ottignies-Louvain-la-Neuve, Belgium. davide.tonelli@uclouvain.be. Aero-Thermo-Mechanics Department, ULB, 1050, Brussels, Belgium. davide.tonelli@uclouvain.be. Department of Global Ecology, Carnegie Institution for Science, Stanford, CA, 94305, USA. davide.tonelli@uclouvain.be. Department of Global Ecology, Carnegie Institution for Science, Stanford, CA, 94305, USA. lrosa@carnegiescience.edu. Department of Global Ecology, Carnegie Institution for Science, Stanford, CA, 94305, USA. Institute of Energy and Process Engineering, ETH Zurich, 8092, Zurich, Switzerland. Breakthrough Energy, Kirkland, WA, 98033, USA. Aero-Thermo-Mechanics Department, ULB, 1050, Brussels, Belgium. Institute of Mechanics, Materials and Civil Engineering, UCLouvain, 1348, Ottignies-Louvain-la-Neuve, Belgium.&lt;br/&gt;edition: 2023/09/09&lt;br/&gt;accession-num: 37684237</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_775">
+        <rdf:value>&lt;p&gt;Tonelli, Davide&lt;br/&gt;Rosa, Lorenzo&lt;br/&gt;Gabrielli, Paolo&lt;br/&gt;Caldeira, Ken&lt;br/&gt;Parente, Alessandro&lt;br/&gt;Contino, Francesco&lt;br/&gt;eng&lt;br/&gt;214037/Schweizerischer Nationalfonds zur Forderung der Wissenschaftlichen Forschung (Swiss National Science Foundation)/&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2023 Sep 8;14(1):5532. doi: 10.1038/s41467-023-41107-x.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_777">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37684237</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37684237</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_799">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/799/Tonelli et al. - 2023 - Global land and water limits to electrolytic hydrogen production using wind and solar resources.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-023-41107-x.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:40</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_778">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <dc:identifier>DOI 10.21203/rs.3.rs-3505316/v1</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xu</foaf:surname>
+                        <foaf:givenName>Zhao</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ruan</foaf:surname>
+                        <foaf:givenName>Jiaqi</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Meng</foaf:surname>
+                        <foaf:givenName>Xiangrui</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhu</foaf:surname>
+                        <foaf:givenName>Yifan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Liang</foaf:surname>
+                        <foaf:givenName>Gaoqi</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sun</foaf:surname>
+                        <foaf:givenName>Xianzhuo</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wu</foaf:surname>
+                        <foaf:givenName>Huayi</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Xiao</foaf:surname>
+                        <foaf:givenName>Huijuan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lu</foaf:surname>
+                        <foaf:givenName>Mengqian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gao</foaf:surname>
+                        <foaf:givenName>Pin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Li</foaf:surname>
+                        <foaf:givenName>Jiapeng</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wong</foaf:surname>
+                        <foaf:givenName>Wai-Kin</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhao</foaf:surname>
+                        <foaf:givenName>Junhua</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_793"/>
+        <dc:title>Adapting to climate change: Long-term impact of wind resource changes on China’s power system resilience</dc:title>
+        <dc:date>2023</dc:date>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_793">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/793/Xu et al. - 2023 - Adapting to climate change Long-term impact of wind resource changes on China’s power system resili.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.researchsquare.com/article/rs-3505316/v1.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:33</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_779">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41467-023-39397-2</dc:identifier>
+                <prism:volume>14</prism:volume>
+                <dc:title>Nat Commun</dc:title>
+                <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+                <prism:number>1</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zeyen</foaf:surname>
+                        <foaf:givenName>E.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Victoria</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brown</foaf:surname>
+                        <foaf:givenName>T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_781"/>
+        <dcterms:isReferencedBy rdf:resource="#item_780"/>
+        <link:link rdf:resource="#item_782"/>
+        <link:link rdf:resource="#item_797"/>
+        <dc:subject>*Electrolysis</dc:subject>
+        <dc:subject>*Hydrogen</dc:subject>
+        <dc:subject>Climate</dc:subject>
+        <dc:subject>Europe</dc:subject>
+        <dc:title>Endogenous learning for green hydrogen in a sector-coupled energy model for Europe</dc:title>
+        <dcterms:abstract>Many studies have shown that hydrogen could play a large role in the energy transition for hard-to-electrify sectors, but previous modelling has not included the necessary features to assess its role. They have either left out important sectors of hydrogen demand, ignored the temporal variability in the system or neglected the dynamics of learning effects. We address these limitations and consider learning-by-doing for the full green hydrogen production chain with different climate targets in a detailed European sector-coupled model. Here, we show that in the next 10 years a faster scale-up of electrolysis and renewable capacities than envisaged by the EU in the REPowerEU Plan can be cost-optimal to reach the strictest +1.5(o)C target. This reduces the costs for hydrogen production to 1.26 euro/kg by 2050. Hydrogen production switches from grey to green hydrogen, omitting the option of blue hydrogen. If electrolysis costs are modelled without dynamic learning-by-doing, then the electrolysis scale-up is significantly delayed, while total system costs are overestimated by up to 13% and the levelised cost of hydrogen is overestimated by 67%.</dcterms:abstract>
+        <dc:date>Jun 23 2023</dc:date>
+        <bib:pages>3743</bib:pages>
+        <z:PMCID>PMC10290158</z:PMCID>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_781">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: Department of Digital Transformation in Energy Systems, Faculty of Process Engineering, TU Berlin, Einsteinufer 25 (TA 8), Berlin, 10587, Berlin, Germany. e.zeyen@tu-berlin.de. Institute for Automation and Applied Informatics (IAI), Karlsruhe Institute of Technology (KIT), Forschungszentrum 449, Eggenstein-Leopoldshafen, 76344, Baden-Wurttemberg, Germany. e.zeyen@tu-berlin.de. Department of Mechanical and Production Engineering, Aarhus University, Inge Lehmanns Gade 10, Aarhus, 8000, Denmark. Novo Nordisk Foundation CO2 Research Center, Gustav Wieds Vej 10, Aarhus, 8000, Denmark. Department of Digital Transformation in Energy Systems, Faculty of Process Engineering, TU Berlin, Einsteinufer 25 (TA 8), Berlin, 10587, Berlin, Germany. Institute for Automation and Applied Informatics (IAI), Karlsruhe Institute of Technology (KIT), Forschungszentrum 449, Eggenstein-Leopoldshafen, 76344, Baden-Wurttemberg, Germany.&lt;br/&gt;edition: 2023/06/24&lt;br/&gt;accession-num: 37353489</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_780">
+        <rdf:value>&lt;p&gt;Zeyen, Elisabeth&lt;br/&gt;Victoria, Marta&lt;br/&gt;Brown, Tom&lt;br/&gt;eng&lt;br/&gt;VH-NG-1352/Helmholtz Association/&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2023 Jun 23;14(1):3743. doi: 10.1038/s41467-023-39397-2.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_782">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37353489</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37353489</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_797">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/797/Zeyen et al. - 2023 - Endogenous learning for green hydrogen in a sector-coupled energy model for Europe.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-023-39397-2.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_783">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41467-023-38079-3</dc:identifier>
+                <prism:volume>14</prism:volume>
+                <dc:title>Nat Commun</dc:title>
+                <dc:identifier>ISSN 2041-1723 (Electronic) 2041-1723 (Linking)</dc:identifier>
+                <prism:number>1</prism:number>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>Z.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Chen</foaf:surname>
+                        <foaf:givenName>M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhong</foaf:surname>
+                        <foaf:givenName>T.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhu</foaf:surname>
+                        <foaf:givenName>R.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Qian</foaf:surname>
+                        <foaf:givenName>Z.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>F.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yang</foaf:surname>
+                        <foaf:givenName>Y.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zhang</foaf:surname>
+                        <foaf:givenName>K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Santi</foaf:surname>
+                        <foaf:givenName>P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wang</foaf:surname>
+                        <foaf:givenName>K.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Pu</foaf:surname>
+                        <foaf:givenName>Y.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Tian</foaf:surname>
+                        <foaf:givenName>L.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Lu</foaf:surname>
+                        <foaf:givenName>G.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Yan</foaf:surname>
+                        <foaf:givenName>J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <dcterms:isReferencedBy rdf:resource="#item_785"/>
+        <dcterms:isReferencedBy rdf:resource="#item_784"/>
+        <link:link rdf:resource="#item_786"/>
+        <link:link rdf:resource="#item_796"/>
+        <dc:title>Carbon mitigation potential afforded by rooftop photovoltaic in China</dc:title>
+        <dcterms:abstract>Rooftop photovoltaics (RPVs) are crucial in achieving energy transition and climate goals, especially in cities with high building density and substantial energy consumption. Estimating RPV carbon mitigation potential at the city level of an entire large country is challenging given difficulties in assessing rooftop area. Here, using multi-source heterogeneous geospatial data and machine learning regression, we identify a total of 65,962 km(2) rooftop area in 2020 for 354 Chinese cities, which represents 4 billion tons of carbon mitigation under ideal assumptions. Considering urban land expansion and power mix transformation, the potential remains at 3-4 billion tons in 2030, when China plans to reach its carbon peak. However, most cities have exploited less than 1% of their potential. We provide analysis of geographical endowment to better support future practice. Our study provides critical insights for targeted RPV development in China and can serve as a foundation for similar work in other countries.</dcterms:abstract>
+        <dc:date>Apr 24 2023</dc:date>
+        <bib:pages>2347</bib:pages>
+        <z:PMCID>PMC10126133</z:PMCID>
+    </bib:Article>
+    <bib:Memo rdf:about="#item_785">
+        <rdf:value>The following values have no corresponding Zotero field:&lt;br/&gt;auth-address: Key Laboratory of Virtual Geographic Environment (Ministry of Education of PRC), Nanjing Normal University, Nanjing, 210023, China. School of Geography and Ocean Science, Nanjing University, Nanjing, 210023, China. School of Geography, Nanjing Normal University, Nanjing, 210023, China. Key Laboratory of Virtual Geographic Environment (Ministry of Education of PRC), Nanjing Normal University, Nanjing, 210023, China. chenmin0902@njnu.edu.cn. International Research Center of Big Data for Sustainable Development Goals, Beijing, 100094, China. chenmin0902@njnu.edu.cn. Jiangsu Center for Collaborative Innovation in Geographical Information Resource Development and Application, Nanjing, 210023, China. chenmin0902@njnu.edu.cn. Jiangsu Provincial Key Laboratory for NSLSCS, School of Mathematical Science, Nanjing Normal University, Nanjing, 210023, China. chenmin0902@njnu.edu.cn. Jiangsu Center for Collaborative Innovation in Geographical Information Resource Development and Application, Nanjing, 210023, China. Institute of High Performance Computing (IHPC), Agency for Science, Technology and Research (A*STAR), 1 Fusionopolis Way, Singapore, 138632, Republic of Singapore. Department of Civil and Environmental Engineering, The Hong Kong University of Science and Technology, Hong Kong, China. Senseable City Laboratory, Department of Urban Studies and Planning, Massachusetts Institute of Technology, Cambridge, MA, 02139, USA. Sino-French Institute for Earth System Science, College of Urban and Environmental Sciences, Peking University, Beijing, 100871, China. Jiangsu Provincial Key Laboratory of Geographic Information Science and Technology, Nanjing, 210023, China. Research Institute of Carbon Neutralization Development, School of Mathematical Sciences, Jiangsu University, Zhenjiang, 212013, China. Key Laboratory for NSLSCS, Ministry of Education, School of Mathematical Sciences, Nanjing Normal University, Nanjing, 210023, China. Key Laboratory of Virtual Geographic Environment (Ministry of Education of PRC), Nanjing Normal University, Nanjing, 210023, China. gnlu@njnu.edu.cn. School of Geography, Nanjing Normal University, Nanjing, 210023, China. gnlu@njnu.edu.cn. Jiangsu Center for Collaborative Innovation in Geographical Information Resource Development and Application, Nanjing, 210023, China. gnlu@njnu.edu.cn. Department of Building Environment and Energy Engineering, The Hong Kong Polytechnic University, Kowloon, Hong Kong, China. jjyan@polyu.edu.hk. Future Energy Center, Malardalen University, Vasteras, 72123, Sweden. jjyan@polyu.edu.hk.&lt;br/&gt;edition: 2023/04/25&lt;br/&gt;accession-num: 37095101</rdf:value>
+        <dc:subject>_EndnoteXML import</dc:subject>
+    </bib:Memo>
+    <bib:Memo rdf:about="#item_784">
+        <rdf:value>&lt;p&gt;Zhang, Zhixin&lt;br/&gt;Chen, Min&lt;br/&gt;Zhong, Teng&lt;br/&gt;Zhu, Rui&lt;br/&gt;Qian, Zhen&lt;br/&gt;Zhang, Fan&lt;br/&gt;Yang, Yue&lt;br/&gt;Zhang, Kai&lt;br/&gt;Santi, Paolo&lt;br/&gt;Wang, Kaicun&lt;br/&gt;Pu, Yingxia&lt;br/&gt;Tian, Lixin&lt;br/&gt;Lu, Guonian&lt;br/&gt;Yan, Jinyue&lt;br/&gt;eng&lt;br/&gt;England&lt;br/&gt;Nat Commun. 2023 Apr 24;14(1):2347. doi: 10.1038/s41467-023-38079-3.&lt;/p&gt;</rdf:value>
+    </bib:Memo>
+    <z:Attachment rdf:about="#item_786">
+        <z:itemType>attachment</z:itemType>
+        <dc:title>37095101</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://www.ncbi.nlm.nih.gov/pubmed/37095101</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:23:53</dcterms:dateSubmitted>
+        <z:linkMode>3</z:linkMode>
+        <link:type>text/html</link:type>
+    </z:Attachment>
+    <z:Attachment rdf:about="#item_796">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/796/Zhang et al. - 2023 - Carbon mitigation potential afforded by rooftop photovoltaic in China.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-023-38079-3.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_787">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Part>
+                <dc:title>703</dc:title>
+                <dcterms:isPartOf>
+                    <bib:Journal>
+                        <dc:identifier>DOI 10.1038/s41560-024-01511-z</dc:identifier>
+                        <prism:volume>9</prism:volume>
+                        <dc:title>Nature Energy</dc:title>
+                        <dc:identifier>ISSN 2058-7546</dc:identifier>
+                        <prism:number>6</prism:number>
+                    </bib:Journal>
+                </dcterms:isPartOf>
+            </bib:Part>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Brandt</foaf:surname>
+                        <foaf:givenName>Jonathan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Iversen</foaf:surname>
+                        <foaf:givenName>Thore</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Eckert</foaf:surname>
+                        <foaf:givenName>Christoph</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Peterssen</foaf:surname>
+                        <foaf:givenName>Florian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bensmann</foaf:surname>
+                        <foaf:givenName>Boris</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bensmann</foaf:surname>
+                        <foaf:givenName>Astrid</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Beer</foaf:surname>
+                        <foaf:givenName>Michael</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Weyer</foaf:surname>
+                        <foaf:givenName>Hartmut</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hanke-Rauschenbach</foaf:surname>
+                        <foaf:givenName>Richard</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_806"/>
+        <dc:title>Cost and competitiveness of green hydrogen and the effects of the European Union regulatory framework</dc:title>
+        <dc:date>2024</dc:date>
+        <bib:pages>703-713</bib:pages>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_806">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/806/Brandt et al. - 2024 - Cost and competitiveness of green hydrogen and the effects of the European Union regulatory framewor.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-024-01511-z.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:52</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_788">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41560-024-01563-1</dc:identifier>
+                <dc:title>Nature Energy</dc:title>
+                <dc:identifier>ISSN 2058-7546</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>de Kleijne</foaf:surname>
+                        <foaf:givenName>Kiane</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Huijbregts</foaf:surname>
+                        <foaf:givenName>Mark A. J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Knobloch</foaf:surname>
+                        <foaf:givenName>Florian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>van Zelm</foaf:surname>
+                        <foaf:givenName>Rosalie</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hilbers</foaf:surname>
+                        <foaf:givenName>Jelle P.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>de Coninck</foaf:surname>
+                        <foaf:givenName>Heleen</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Hanssen</foaf:surname>
+                        <foaf:givenName>Steef V.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_805"/>
+        <dc:title>Worldwide greenhouse gas emissions of green hydrogen production and transport</dc:title>
+        <dc:date>2024</dc:date>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_805">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/805/de Kleijne et al. - 2024 - Worldwide greenhouse gas emissions of green hydrogen production and transport.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-024-01563-1.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:51</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_789">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf rdf:resource="urn:issn:2041-1723"/>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Kountouris</foaf:surname>
+                        <foaf:givenName>Ioannis</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Bramstoft</foaf:surname>
+                        <foaf:givenName>Rasmus</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Madsen</foaf:surname>
+                        <foaf:givenName>Theis</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Gea-Bermúdez</foaf:surname>
+                        <foaf:givenName>Juan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Münster</foaf:surname>
+                        <foaf:givenName>Marie</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Keles</foaf:surname>
+                        <foaf:givenName>Dogan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_802"/>
+        <dc:title>A unified European hydrogen infrastructure planning to support the rapid scale-up of hydrogen production</dc:title>
+        <dc:date>2024</dc:date>
+    </bib:Article>
+    <bib:Journal rdf:about="urn:issn:2041-1723">
+        <dc:identifier>DOI 10.1038/s41467-024-49867-w</dc:identifier>
+        <prism:volume>15</prism:volume>
+        <dc:title>Nature Communications</dc:title>
+        <dc:identifier>ISSN 2041-1723</dc:identifier>
+        <prism:number>1</prism:number>
+    </bib:Journal>
+    <z:Attachment rdf:about="#item_802">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/802/Kountouris et al. - 2024 - A unified European hydrogen infrastructure planning to support the rapid scale-up of hydrogen produc.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41467-024-49867-w.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:48</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_790">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41560-024-01561-3</dc:identifier>
+                <dc:title>Nature Energy</dc:title>
+                <dc:identifier>ISSN 2058-7546</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wadud</foaf:surname>
+                        <foaf:givenName>Zia</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Adeel</foaf:surname>
+                        <foaf:givenName>Muhammad</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Anable</foaf:surname>
+                        <foaf:givenName>Jillian</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_795"/>
+        <dc:title>Understanding the large role of long-distance travel in carbon emissions from passenger travel</dc:title>
+        <dc:date>2024</dc:date>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_795">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/795/Wadud et al. - 2024 - Understanding the large role of long-distance travel in carbon emissions from passenger travel.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-024-01561-3.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:35</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="#item_791">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+                <dc:identifier>DOI 10.1038/s41560-024-01578-8</dc:identifier>
+                <dc:title>Nature Energy</dc:title>
+                <dc:identifier>ISSN 2058-7546</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Wang</foaf:surname>
+                        <foaf:givenName>Rui</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Ma</foaf:surname>
+                        <foaf:givenName>Jiaze</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Sheng</foaf:surname>
+                        <foaf:givenName>Hongyuan</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Zavala</foaf:surname>
+                        <foaf:givenName>Victor M.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Jin</foaf:surname>
+                        <foaf:givenName>Song</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_794"/>
+        <dc:title>Exploiting different electricity markets via highly rate-mismatched modular electrochemical synthesis</dc:title>
+        <dc:date>2024</dc:date>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_794">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/794/Wang et al. - 2024 - Exploiting different electricity markets via highly rate-mismatched modular electrochemical synthesi.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://www.nature.com/articles/s41560-024-01578-8.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-19 08:24:34</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+</rdf:RDF>
