@@ -75,7 +75,7 @@ for iYear = 1:numel(yearList)
     ax.Layer = 'top';
     ax.Box = 'on';
     ax.XTick = 1:3;
-    ax.XTickLabel = {'Avg. rank', 'Marg. rank', '< blue H_2 cap.'};
+    ax.XTickLabel = {'Avg. rank', 'Marg. rank', '< blue hydrogen cap.'};
     ax.XTickLabelRotation = 24;
     ax.YTick = 1:numel(countryList);
     ax.YDir = 'reverse';
@@ -97,7 +97,7 @@ colormap(colorbarAx, costMap);
 clim(colorbarAx, [45, 95]);
 c = colorbar(colorbarAx);
 c.Position = [0.895 0.24 0.018 0.58];
-c.Label.String = 'Underlying LCOH (EUR MWh^{-1})';
+c.Label.String = 'Underlying LCOH (€ MWh^{-1})';
 c.Label.FontName = 'Arial';
 c.FontName = 'Arial';
 c.FontSize = 8.5;
@@ -114,7 +114,7 @@ for iLegend = 1:numel(legendValues)
 end
 text(legendAx, legendX, [0.10 0.10 0.10], {'0', '50', '>100'}, ...
     'HorizontalAlignment', 'center', 'FontName', 'Arial', 'FontSize', 8);
-text(legendAx, 0.45, 0.90, 'Capacity < blue H_2 (GW)', ...
+text(legendAx, 0.45, 0.90, 'Capacity < blue hydrogen (GW)', ...
     'HorizontalAlignment', 'center', 'FontName', 'Arial', 'FontSize', 8);
 legendAx.XLim = [0 1];
 legendAx.YLim = [0 1];

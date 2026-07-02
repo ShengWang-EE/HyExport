@@ -40,14 +40,14 @@ countryCode = ["BE"; "DK"; "FR"; "DE"; "IE"; "NL"; "NO"; "PT"; "ES"; "SE"; "GB"]
 nodeCode = [countryCode; "ITN"];
 yearList = ["2030", "2040", "2050"];
 
-% 工作价格网格：2-6 EUR/kg-H2，0.1 EUR/kg 步长。
+% 工作价格网格：30-105 EUR/MWh，1 EUR/MWh 步长。
 % 这个范围不是预测情景，而是 threshold scan：
 % 低端覆盖 IRENA 乐观 global trade/cost outlook，较高端覆盖交付、基础设施、融资和政策不确定性。
 % 具体来源整理在 manuscript/notes/outside_option_price_sources.md。
 hydrogenLHV_MWhPerKg = 33.333e-3;
-importCost_EURperKgH2 = (2.0:0.1:6.0)';
-importCost_EURperMWh = importCost_EURperKgH2 / hydrogenLHV_MWhPerKg;
-scenarioName = "Outside option " + string(round(importCost_EURperKgH2, 1)) + " EUR/kg-H2";
+importCost_EURperMWh = (30:1:105)';
+importCost_EURperKgH2 = importCost_EURperMWh * hydrogenLHV_MWhPerKg;
+scenarioName = "Outside option " + string(importCost_EURperMWh) + " EUR/MWh";
 
 lcohCurves = {data.LCOHcurve2030, data.LCOHcurve2040, data.LCOHcurve2050};
 lcoaCurves = {data.LCOAcurve2030, data.LCOAcurve2040, data.LCOAcurve2050};

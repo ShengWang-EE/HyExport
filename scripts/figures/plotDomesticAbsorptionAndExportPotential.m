@@ -62,13 +62,6 @@ for iYear = 1:numel(years)
         'MarkerFaceColor', 'w', 'MarkerEdgeColor', [0.2 0.2 0.2], ...
         'LineWidth', 0.8);
     labelLargeExportSegments(ax, yearData);
-    if years(iYear) == 2050
-        gbRow = find(countryNames == "GB");
-        text(ax, maxTotal - 105, gbRow - 0.43, sprintf('total %.0f', totalWind(gbRow)), ...
-            'FontName', 'Arial', 'FontSize', 7, 'FontWeight', 'bold', ...
-            'HorizontalAlignment', 'left', 'VerticalAlignment', 'middle', ...
-            'Color', [0.18 0.18 0.18]);
-    end
     hold(ax, 'off');
 
     ax.Box = 'off';

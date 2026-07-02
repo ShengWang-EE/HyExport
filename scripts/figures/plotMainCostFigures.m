@@ -60,7 +60,7 @@ xlabel(axMap, 'Longitude');
 ylabel(axMap, 'Latitude');
 clim(axMap, [90 200]);
 c = colorbar(axMap);
-c.Label.String = 'LCOH (€/MWh)';
+c.Label.String = 'LCOH (€ MWh^{-1})';
 c.Label.FontName = 'Arial';
 c.FontName = 'Arial';
 c.FontSize = 8;

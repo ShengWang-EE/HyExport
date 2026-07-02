@@ -352,20 +352,15 @@ plotTradeAndCarbonFigure(projectRoot);
 fprintf('Stage 4/5: NC LCOH-only counterfactual\n');
 runLCOHOnlyCounterfactual(projectRoot);
 
-%% NC story figure
-% 用 counterfactual 表生成 Fig. 7 诊断图。
-fprintf('Stage 4/5: NC story comparison figure\n');
-plotNCStoryComparison(projectRoot);
-
 %% NC outside-option threshold scan
 % 正式 robustness 候选：测试外部低碳氢/氨进口价格变化时，欧洲 offshore supply 是否仍有竞争力。
 fprintf('Stage 5/5: outside-option sensitivity\n');
 runOutsideOptionSensitivity(projectRoot);
 
-%% NC outside-option robustness figure
-% 用 outside-option sensitivity 表生成 Fig. 8 robustness 图。
-fprintf('Stage 5/5: outside-option robustness figure\n');
-plotNCOutsideOptionRobustness(projectRoot);
+%% NC story figure
+% 用 counterfactual 和 outside-option sensitivity 表生成合并后的 Fig. 7。
+fprintf('Stage 5/5: NC story comparison and sensitivity figure\n');
+plotNCStoryComparison(projectRoot);
 
 %% NC domestic absorption diagnostic
 % 默认运行，作为 SI robustness/diagnostic 输出。
