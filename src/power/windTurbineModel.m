@@ -28,5 +28,6 @@ elseif modelType == 8 %https://en.wind-turbine-models.com/turbines/318-vestas-v1
     windTurbine.hubHeight = 112; windTurbine.rotorRadius = 82; windTurbine.roughness = 0.0002;
     windTurbine.C_T = 0.5; windTurbine.airDensity = 1.25;
 end
+electricityGeneration(inputWindSpeed > windTurbine.cutoutSpeed) = 0;
 end
 

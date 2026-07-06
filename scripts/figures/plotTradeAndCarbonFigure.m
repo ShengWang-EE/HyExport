@@ -47,6 +47,12 @@ panelLetters = ["a", "c", "e"; "b", "d", "f"];
 for iYear = 1:3
     axes('Position', chordPositions(iYear, :));
     flowMatrix = buildHydrogenFlowMatrix(data.solution{iYear}, numel(nodeList));
+    labelMatrix = flowMatrix;
+    if iYear == 1
+        labelMatrix(6, 4) = sum(abs(data.solution{iYear}.tradingArray( ...
+            data.solution{iYear}.tradingArray(:, 1) == 4 & ...
+            data.solution{iYear}.tradingArray(:, 2) == 6, 4:5)));
+    end
     chart = biChordChart(flowMatrix, 'Arrow', 'on', 'Label', nodeList, 'Sep', 0.075);
     chart.CData = colors;
     chart = chart.draw();
@@ -58,7 +64,7 @@ for iYear = 1:3
     chart.ax.YLim = [-1.44, 1.44];
     set(chart.RTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.7);
     set(chart.thetaTickHdl, 'Color', [0.25 0.25 0.25], 'LineWidth', 0.5);
-    labelKeyHydrogenFlows(chart, flowMatrix, flowLabelCounts(iYear));
+    labelKeyHydrogenFlows(chart, flowMatrix, labelMatrix, flowLabelCounts(iYear));
     text(-0.02, 1.02, panelLetters(1, iYear), 'Units', 'normalized', ...
         'HorizontalAlignment', 'left', 'VerticalAlignment', 'top', ...
         'FontWeight', 'bold', 'FontSize', panelFontSize, 'Clipping', 'off');
@@ -122,7 +128,7 @@ fileattrib(manuscriptPdf, '-x');
 close(fig);
 end
 
-function labelKeyHydrogenFlows(chart, flowMatrix, nLabels)
+function labelKeyHydrogenFlows(chart, flowMatrix, labelMatrix, nLabels)
 [flowValues, flowOrder] = sort(flowMatrix(:), 'descend');
 labelCount = 0;
 for iFlow = 1:numel(flowOrder)
@@ -134,7 +140,7 @@ for iFlow = 1:numel(flowOrder)
     labelRadius = 0.62;
     labelPoint = labelRadius .* [cos(sourceTheta), sin(sourceTheta)];
     labelColor = chart.CData(fromNode, :) .* 0.55;
-    text(labelPoint(1), labelPoint(2), sprintf('%.0f', flowValues(iFlow)), ...
+    text(labelPoint(1), labelPoint(2), sprintf('%.0f', labelMatrix(fromNode, toNode)), ...
         'FontName', 'Arial', 'FontSize', 6.2, 'FontWeight', 'bold', ...
         'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', ...
         'Color', labelColor, 'Clipping', 'off');

@@ -1,11 +1,11 @@
 # Paper Handoff
 
-Last updated: 2026-06-18
+Last updated: 2026-07-06
 
 ## Ready Inputs
 
-- Main manuscript draft exists at `manuscript/sn-article.tex`.
-- SI draft exists at `manuscript/supplementary/J14___Supplementary_Information_v0_2/sn-article.tex`.
+- Main manuscript draft exists at `manuscript/hyexport-main.tex`.
+- SI draft exists at `manuscript/supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`.
 - Main figures exist in `manuscript/figs/`.
 - SI figures exist in `manuscript/supplementary/J14___Supplementary_Information_v0_2/figs/`.
 - NC revision plan exists at `manuscript/notes/NC_revision_plan.md`.

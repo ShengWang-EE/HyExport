@@ -4,6 +4,8 @@ projectRoot = setupHyExport(projectRoot);
 checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
 [colors] = generateColorData('gem12');
 colormap(nclCM(15,100));
+plotSupplementaryWindResourceFigure(projectRoot);
+if false
 %% wind speed map
 countryEEZ = EUshpEEZ(strcmp(string({EUshpEEZ.TERRITORY1}), "Ireland"));
 [climate,spatiResolution,lonGrid_mesh, latGrid_mesh] = loadCountryClimate(countryEEZ,500);
@@ -84,6 +86,7 @@ for i = 1:4
         fileName  = ['fig windroseOfPoint',char(string(i))];
         exportgraphics(gcf, ['figs/',fileName,'.emf'], 'ContentType', 'vector');
 end
+end
 
 %% wind turbine generation curve
 windSpeedTest = 0:0.1:40;
@@ -91,11 +94,11 @@ windSpeedTest = 0:0.1:40;
 colororder(colors);
 fig = figure;
 set(fig,'Position',[0,0,600,200]);
-plot(windSpeedTest,electricityGenerationCurvePlot,'LineWidth',2,'DisplayName','Power generation');
+plot(windSpeedTest,electricityGenerationCurvePlot,'LineWidth',2,'DisplayName','Power output');
 grid on;
 legend('Location', 'southeast');
-xlabel('Wind speed (m/s)');
-ylabel('Power generation (MW)');
+xlabel('Wind speed (m s^{-1})');
+ylabel('Power output (MW)');
 exportgraphics(gcf, 'figs/fig power curve of wind turbine.pdf', 'ContentType', 'vector');
 %% wake effect
 % draw line
@@ -203,7 +206,7 @@ xlabel('Longtitute'); ylabel('Latitude');
 c = colorbar;
 c.Label.String = 'Distance to port (km)'; 
 exportgraphics(gcf, 'figs/fig distance to port.pdf', 'ContentType', 'vector');
-%% or change the type of fig 
+%% or change the type of fig
 colormap(nclCM(15,100));
 nGrid = 100;
 EUshpEEZ = getEUEEZ(resolveProjectFile('eez_v12.shp'),EUcountryList);
@@ -216,14 +219,14 @@ subplot1 = axes('Position', [0.1, 0.1, 0.6, 0.6]); % [left, bottom, width, heigh
 for ic = 1:nCountry
     % waterDepth_here = reshape(waterDepth{ic},[nGrid^2,1]);
     % distanceToPort_here = reshape(distanceToPort{ic},[nGrid^2,1]);
-    % 
+    %
     % sizes_here = (reshape(capacityFactor{ic},[nGrid^2,1])-0.0).^(0.3)*1;
     % sizes_here(isnan(sizes_here)) = nan;
     scatter(log(waterDepth{ic}),log(distanceToPort{ic}),2,colors(ic,:),'MarkerFaceAlpha',0.2,'MarkerFaceColor',colors(ic,:),'MarkerEdgeColor','none','LineWidth',0.01);
-    hold on;  
+    hold on;
 end
 xlim([0,10]);
-xlabel('log(Water depth) (m)'); 
+xlabel('log(Water depth) (m)');
 ylabel('log(Distance to port) (m)');
 
 
@@ -584,45 +587,7 @@ ylabel('Year');
 exportgraphics(gcf, 'figs/fig EU offshore resource supply.pdf', 'ContentType', 'vector');
 
 %% shipping cost heatmap
-% colors = colororder('gem12');
-countryShortNameList = {'BE','DK','FR','DE','IE','NL','NO','PT','ES','SE','GB'};
-
-fig = figure;
-colormap(nclCM(15,100));
-% fig 1
-% subfig1 = axes('Position', [0.1, 0.7, 0.7, 0.25]); % [left, bottom, width, height]
-subplot(3,1,1);
-heatmap1 = heatmap(solution{1}.shipHyFuelCostMatrix);
-heatmap1.XLabel = 'To Country'; heatmap1.YLabel = 'From Country'; 
-heatmap1.XDisplayLabels = countryShortNameList; heatmap1.YDisplayLabels = countryShortNameList;
-clim([0,1.2]);
-annotation('textbox', [0.00, 0.69, 0.2, 0.0], 'String', 'a', ...
-           'HorizontalAlignment', 'center', 'EdgeColor', 'none', ...
-           'FontSize', 10, 'FontWeight', 'bold');
-heatmap1.Title = "Fuel cost (€/MWh)";
-% fig 2
-% subfig2 = axes('Position', [0.1, 0.4, 0.7, 0.25]); % [left, bottom, width, height]
-subplot(3,1,2);
-heatmap2 = heatmap(solution{2}.shipHyFuelCostMatrix);
-heatmap2.XLabel = 'To Country'; heatmap2.YLabel = 'From Country'; 
-heatmap2.XDisplayLabels = countryShortNameList; heatmap2.YDisplayLabels = countryShortNameList;
-clim([0,1.2]);
-annotation('textbox', [0.00, 0.39, 0.2, 0.0], 'String', 'b', ...
-           'HorizontalAlignment', 'center', 'EdgeColor', 'none', ...
-           'FontSize', 10, 'FontWeight', 'bold');
-% fig 3
-% subfig3 = axes('Position', [0.1, 0.1, 0.7, 0.25]); % [left, bottom, width, height]
-subplot(3,1,3);
-heatmap3 = heatmap(solution{3}.shipHyFuelCostMatrix);
-heatmap3.XLabel = 'To Country'; heatmap3.YLabel = 'From Country'; 
-heatmap3.XDisplayLabels = countryShortNameList; heatmap3.YDisplayLabels = countryShortNameList;
-clim([0,1.2]);
-annotation('textbox', [0.00, 0.09, 0.2, 0.0], 'String', 'c', ...
-           'HorizontalAlignment', 'center', 'EdgeColor', 'none', ...
-           'FontSize', 10, 'FontWeight', 'bold');
-
-set(fig, 'Position', [100, 100, 400, 600]);  % 同样的参数
-exportgraphics(gcf, 'figs/fig shipping fuel cost.pdf', 'ContentType', 'vector'); 
+plotSupplementaryShippingFuelCostFigure(projectRoot);
 
 %% hydrogen and ammonia flow between countries (Sankey with ammonia)
 nodeList = ["BE","DK","FR","DE","IE","NL","NO","PT","ES","SE","GB"];

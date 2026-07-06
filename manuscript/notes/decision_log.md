@@ -9,6 +9,10 @@
 - LaTeX build artifacts moved into `manuscript/build/latex/` and ignored by `manuscript/.gitignore`.
 - Current revision should prioritize evidence structure, sensitivity analysis, SI alignment, and figure redesign before sentence-level polishing.
 
+## 2026-07-06
+
+- Active manuscript files were renamed for clarity: main text is `manuscript/hyexport-main.tex` and SI is `manuscript/supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`.
+
 ## 2026-06-18
 
 - Current NC manuscript framework is locked in `manuscript/notes/NC_locked_framework_and_submission_tasks.md`.

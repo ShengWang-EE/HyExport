@@ -4,17 +4,17 @@ Target journal: Nature Communications
 
 ## Active Sources
 
-- Main manuscript: `sn-article.tex`
+- Main manuscript: `hyexport-main.tex`
 - Main bibliography: `sn-bibliography.bib`
-- Current compiled main PDF: `sn-article.pdf`
+- Current compiled main PDF: `hyexport-main.pdf`
 - Main manuscript figures: `figs/`
 
 Keep these files at the manuscript root for now so the existing LaTeX paths continue to work.
 
 ## Supplementary Information
 
-- SI draft source: `supplementary/J14___Supplementary_Information_v0_2/sn-article.tex`
-- SI draft PDF: `supplementary/J14___Supplementary_Information_v0_2/sn-article.pdf`
+- SI draft source: `supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`
+- SI draft PDF: `supplementary/J14___Supplementary_Information_v0_2/hyexport-si.pdf`
 - SI draft figures: `supplementary/J14___Supplementary_Information_v0_2/figs/`
 
 This is the imported SI draft. Treat it as source material for the NC revision, not as final submission-ready SI yet.
@@ -39,4 +39,4 @@ The `build/` folder is ignored by Git.
 
 ## Current Organization Rule
 
-The active main manuscript remains `sn-article.tex`. Do not create competing active manuscript drafts without recording the source of truth in this README and the revision plan.
+The active main manuscript remains `hyexport-main.tex`. Do not create competing active manuscript drafts without recording the source of truth in this README and the revision plan.

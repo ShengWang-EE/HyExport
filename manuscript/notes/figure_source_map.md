@@ -6,11 +6,11 @@ Purpose: map each current main-manuscript figure to the result it supports, the 
 
 ## Active Sources
 
-- Main manuscript: `manuscript/sn-article.tex`
+- Main manuscript: `manuscript/hyexport-main.tex`
 - Main figure folder used by LaTeX: `manuscript/figs/`
 - Figure-generation scripts: dedicated reproducible entries under `scripts/figures/`, with legacy exploratory panels retained in `scripts/plotFigures.m`
 - Main checkpoints: `results/checkpoints/stop1.mat`, `results/checkpoints/stop2.mat`, `results/checkpoints/stop3.mat`
-- Current detailed SI draft: `manuscript/supplementary/J14___Supplementary_Information_v0_2/sn-article.tex`
+- Current detailed SI draft: `manuscript/supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`
 
 Naming note: several root-level exports under `figs/` still use spaces in the names, while the manuscript uses copied files under `manuscript/figs/` with underscores. Keep both paths explicit until the final figure build is standardized.
 
