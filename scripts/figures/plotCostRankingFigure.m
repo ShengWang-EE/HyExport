@@ -9,7 +9,7 @@ sourceTable = readtable(fullfile(projectRoot, 'results', 'tables', ...
     'NC_lcoh_rank_table.csv'), 'TextType', 'string');
 
 figureDir = fullfile(projectRoot, 'figs');
-manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'figs');
+manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'main', 'figs');
 if exist(figureDir, 'dir') ~= 7
     mkdir(figureDir);
 end
@@ -20,13 +20,13 @@ end
 countryList = ["BE", "DK", "FR", "DE", "IE", "NL", "NO", "PT", "ES", "SE", "GB"];
 yearList = [2030, 2040, 2050];
 
-fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 920, 560], ...
+fig = figure('Color', 'w', 'Units', 'pixels', 'Position', [100, 100, 920, 610], ...
     'Visible', 'off');
 
 panelPositions = [
-    0.08 0.20 0.23 0.68
-    0.36 0.20 0.23 0.68
-    0.64 0.20 0.23 0.68
+    0.08 0.28 0.23 0.62
+    0.36 0.28 0.23 0.62
+    0.64 0.28 0.23 0.62
     ];
 axisColor = [0.18 0.18 0.18];
 costMap = makeCostMap(256);
@@ -92,11 +92,11 @@ for iYear = 1:numel(yearList)
         'FontName', 'Arial', 'FontSize', 10, 'FontWeight', 'bold');
 end
 
-colorbarAx = axes(fig, 'Position', [0.895 0.24 0.018 0.58], 'Visible', 'off');
+colorbarAx = axes(fig, 'Position', [0.895 0.32 0.018 0.53], 'Visible', 'off');
 colormap(colorbarAx, costMap);
 clim(colorbarAx, [45, 95]);
 c = colorbar(colorbarAx);
-c.Position = [0.895 0.24 0.018 0.58];
+c.Position = [0.895 0.32 0.018 0.53];
 c.Label.String = 'Underlying LCOH (€ MWh^{-1})';
 c.Label.FontName = 'Arial';
 c.FontName = 'Arial';

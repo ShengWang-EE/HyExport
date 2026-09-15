@@ -15,7 +15,7 @@ Current compiled PDF:
 - `manuscript/sn-article.pdf`
 
 Current figure folder:
-- `manuscript/figs/`
+- `manuscript/main/figs/`
 
 Current code and output sources:
 - `main.m`
@@ -32,9 +32,9 @@ Available manuscript notes:
 - `manuscript/notes/log.tex`
 
 Supplementary information draft:
-- `manuscript/supplementary/J14___Supplementary_Information_v0_2/sn-article.tex`
-- `manuscript/supplementary/J14___Supplementary_Information_v0_2/sn-article.pdf`
-- `manuscript/supplementary/J14___Supplementary_Information_v0_2/figs/`
+- `manuscript/supplementary/sn-article.tex`
+- `manuscript/supplementary/sn-article.pdf`
+- `manuscript/supplementary/figs/`
 
 Important current observation:
 - The SI draft exists and is much more detailed than the empty SI shell in the current main manuscript. Treat it as source material to merge, trim, and align with the Nature Communications story.
@@ -96,7 +96,7 @@ Do not frame the paper as:
    - Add a lowest-cost-only baseline and compare it with the integrated model. This should become one of the most important NC story figures.
 
 4. Supplementary information gap:
-   - A detailed SI draft exists under `manuscript/supplementary/J14___Supplementary_Information_v0_2/`, but it is not yet integrated with the current NC manuscript.
+   - A detailed SI draft exists under `manuscript/supplementary/`, but it is not yet integrated with the current NC manuscript.
    - The main text repeatedly points to SI for methods, parameters, equations, and model details.
    - The submission blocker is now SI alignment, trimming, cross-referencing, and reproducibility readiness rather than lack of SI source material.
 
@@ -311,7 +311,7 @@ Supplementary figures:
 
 Deliverables:
 - updated `scripts/plotFigures.m` or new focused plotting scripts under `scripts/figures/`
-- updated figure PDFs in `manuscript/figs/`
+- updated figure PDFs in `manuscript/main/figs/`
 - `manuscript/notes/figure_legend_drafts.md`
 
 Acceptance criteria:

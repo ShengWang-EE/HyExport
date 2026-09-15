@@ -74,7 +74,7 @@ Legend logic:
   - International/outside option: red or muted orange.
 - Avoid long in-panel text.
 - Use direct labels for the key countries rather than large legends where possible.
-- Export vector PDFs to `manuscript/figs/` and high-resolution PNGs to `results/figures/`.
+- Export vector PDFs to `manuscript/main/figs/` and high-resolution PNGs to `results/figures/`.
 
 ## Style Pass After Nature-Portfolio Benchmarking
 

@@ -4,20 +4,20 @@ Target journal: Nature Communications
 
 ## Active Sources
 
-- Main manuscript: `hyexport-main.tex`
-- Main bibliography: `sn-bibliography.bib`
-- Current compiled main PDF: `hyexport-main.pdf`
-- Main manuscript figures: `figs/`
+- Main manuscript: `main/hyexport-main.tex`
+- Main bibliography: `main/sn-bibliography.bib`
+- Current compiled main PDF: `main/hyexport-main.pdf`
+- Main manuscript figures: `main/figs/`
 
-Keep these files at the manuscript root for now so the existing LaTeX paths continue to work.
+The main manuscript is kept as an independent LaTeX folder. Compile it from `main/`.
 
 ## Supplementary Information
 
-- SI draft source: `supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`
-- SI draft PDF: `supplementary/J14___Supplementary_Information_v0_2/hyexport-si.pdf`
-- SI draft figures: `supplementary/J14___Supplementary_Information_v0_2/figs/`
+- SI draft source: `supplementary/hyexport-si.tex`
+- SI draft PDF: `supplementary/hyexport-si.pdf`
+- SI draft figures: `supplementary/figs/`
 
-This is the imported SI draft. Treat it as source material for the NC revision, not as final submission-ready SI yet.
+The SI is kept as a separate LaTeX folder. Compile it from `supplementary/`.
 
 ## Notes And Planning
 
@@ -39,4 +39,4 @@ The `build/` folder is ignored by Git.
 
 ## Current Organization Rule
 
-The active main manuscript remains `hyexport-main.tex`. Do not create competing active manuscript drafts without recording the source of truth in this README and the revision plan.
+The active main manuscript remains `main/hyexport-main.tex`, and the active SI remains `supplementary/hyexport-si.tex`. Do not create competing active manuscript drafts without recording the source of truth in this README and the revision plan.

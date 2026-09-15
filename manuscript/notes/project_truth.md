@@ -4,11 +4,11 @@ Last updated: 2026-07-06
 
 ## Source Of Truth
 
-- Active main manuscript: `manuscript/hyexport-main.tex`
+- Active main manuscript: `manuscript/main/hyexport-main.tex`
 - Active main bibliography: `manuscript/sn-bibliography.bib`
-- Current main figures: `manuscript/figs/`
-- Imported SI draft: `manuscript/supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`
-- Imported SI figures: `manuscript/supplementary/J14___Supplementary_Information_v0_2/figs/`
+- Current main figures: `manuscript/main/figs/`
+- Imported SI draft: `manuscript/supplementary/hyexport-si.tex`
+- Imported SI figures: `manuscript/supplementary/figs/`
 
 Do not create a competing active manuscript file unless this file and `manuscript/README.md` are updated.
 

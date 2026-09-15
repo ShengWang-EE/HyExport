@@ -4,12 +4,12 @@ Last updated: 2026-07-06
 
 ## Ready Inputs
 
-- Main manuscript draft exists at `manuscript/hyexport-main.tex`.
-- SI draft exists at `manuscript/supplementary/J14___Supplementary_Information_v0_2/hyexport-si.tex`.
-- Main figures exist in `manuscript/figs/`.
-- SI figures exist in `manuscript/supplementary/J14___Supplementary_Information_v0_2/figs/`.
+- Main manuscript draft exists at `manuscript/main/hyexport-main.tex`.
+- SI draft exists at `manuscript/supplementary/hyexport-si.tex`.
+- Main figures exist in `manuscript/main/figs/`.
+- SI figures exist in `manuscript/supplementary/figs/`.
 - NC revision plan exists at `manuscript/notes/NC_revision_plan.md`.
-- Diagnostic Fig. 7 and robustness Fig. 8 candidates exist at `manuscript/figs/fig_nc_lcoh_counterfactual.pdf` and `manuscript/figs/fig_nc_outside_option_robustness.pdf`.
+- Diagnostic Fig. 7 and robustness Fig. 8 candidates exist at `manuscript/main/figs/fig_nc_lcoh_counterfactual.pdf` and `manuscript/main/figs/fig_nc_outside_option_robustness.pdf`.
 - Main manuscript now includes the counterfactual Results subsection, the outside-option threshold Results subsection, updated figure legends, and a revised abstract/Discussion opening aligned with the new story.
 
 ## Not Yet Ready

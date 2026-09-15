@@ -66,7 +66,7 @@ Acceptance criteria:
 
 Files likely changed:
 - `manuscript/sn-article.tex`
-- `manuscript/supplementary/J14___Supplementary_Information_v0_2/sn-article.tex`
+- `manuscript/supplementary/sn-article.tex`
 - `manuscript/sn-bibliography.bib` only if new references are needed.
 
 ### Step 3: Defend Domestic Absorption Extrapolation
@@ -111,7 +111,7 @@ Acceptance criteria:
 
 Files likely changed:
 - plotting scripts under `scripts/figures/` or `scripts/plotFigures.m`
-- `manuscript/figs/*.pdf`
+- `manuscript/main/figs/*.pdf`
 - `manuscript/sn-article.tex`
 
 ### Step 5: Clarify Carbon Mitigation And Source Numbers
