@@ -1,4 +1,7 @@
-function [GCV, M, fs, a, R, T_stp, Prs_stp, Z, T_gas, eta, CDF,rho_stp] = initializeParameters_J14()
+function [GCV, M, fs, a, R, T_stp, Prs_stp, Z, T_gas, eta, CDF,rho_stp] = initializeParameters_J14(year)
+if nargin < 1
+    year = 2030;
+end
 composition_ng = [91.66 	3.88 	0.46 	0.13 	0.00 	1.54 	2.33] / 100;
 % CH4, C2H6, C3H8, C4H10, H2, N2, CO2
 GCV.CH4 = 3.85 * 1e7;
@@ -53,7 +56,7 @@ T_stp = 288;               % K
 Prs_stp = 101325;          % Pa
 Z = 1;                     % dimenssionless
 T_gas = 281.15;            % K
-eta.electrolysis = 0.7;    % from the energy perspective, the effciency is about 80%
+eta.electrolysis = electrolyserEfficiency(year);
 eta.methanation = 0.8;
 eta.GFU = 0.4211;           % from the energy perspective, 从1/200换算而来
 rho_stp = Prs_stp / (Z * R.ng * T_stp); % kg/m3, not accurate value, Prs_stp / (Z * R_ng * T_stp);

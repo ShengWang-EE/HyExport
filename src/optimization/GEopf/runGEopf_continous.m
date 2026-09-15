@@ -44,7 +44,7 @@ nOnOffGen = size(iOnOffGen,1);
 mpc.gasCompositionForGasSource = repmat([1,0],[nGs,1]);
 % natural gas, hydrogen
 nGasType = 2;
-[GCV, M, fs, a, R, T_stp, Prs_stp, Z_ref, T_gas, eta, CDF,rho_stp] = initializeParameters_J13();
+[GCV, M, fs, a, R, T_stp, Prs_stp, Z_ref, T_gas, eta, CDF,rho_stp] = initializeParameters_J13(options.year);
 
 %% state vars
 Prs = sdpvar(NK,nGb); % bar^2
@@ -123,9 +123,9 @@ nodalGasFlowBalanceCons = [
 % eta.methanation  = 0; % 取消甲烷化功能
 PTGcons = [
     ( Qptg(:,:,1) * 1e6/24/3600 *GCV.ng / eta.methanation + Qptg(:,:,2) * 1e6/24/3600 * GCV.hy ...
-        ) /1e6 == Pptg * baseMVA / eta.electrolysis; % w
+        ) /1e6 == Pptg * baseMVA * eta.electrolysis; % hydrogen-equivalent MW
     Pptg * baseMVA >= 0;
-    Pptg * baseMVA <= QptgMax_hydrogen /24/3600 * GCV.hy * eta.electrolysis; % 如果全用来制氢，    
+    Pptg * baseMVA <= QptgMax_hydrogen /24/3600 * GCV.hy / eta.electrolysis; % 如果全用来制氢，
     0 <= Qptg;
     Qptg(:,:,1) == 0;% 取消甲烷化功能
     ];

@@ -3,7 +3,7 @@
 ## Entry points
 
 - `main.m`: main analysis workflow, kept at the project root for interactive debugging.
-- `setupHyExport.m`: adds `src/`, `map/`, and `matpower7.1/` to the MATLAB path and returns the project root.
+- `setupHyExport.m`: adds `src/`, `data/map/`, and `matpower7.1/` to the MATLAB path and returns the project root.
 - `scripts/runHyExport.m`: compatibility wrapper that runs `main.m`.
 - `scripts/buildMpcIreland.m`: builds and saves the Ireland MATPOWER/Gas-Electric case.
 - `scripts/plotFigures.m`: manuscript figure generation script.
@@ -20,11 +20,13 @@
 
 ## Data and outputs
 
-- `tables/`: spreadsheet and CSV inputs.
-- `map/`: shapefiles and geospatial inputs.
-- `data/raw/`: loose raw data files that are not part of `tables/` or `map/`.
+- `data/tables/`: spreadsheet and CSV inputs.
+- `data/map/`: shapefiles and geospatial inputs.
+- `data/raw/`: loose raw data files that are not part of `data/tables/` or `data/map/`.
 - `results/checkpoints/`: generated `.mat` checkpoints such as `stop1.mat`, `stop2.mat`, `stop3.mat`, and `mpcIreland.mat`.
 - `results/figures/`: loose figure outputs moved from the project root.
 - `figs/`: manuscript figure outputs used by the plotting script.
 - `archive/legacy/`: older copied scripts and machine-specific variants.
 - `archive/autosaves/`: MATLAB `.asv` autosave files.
+
+The complete `data/` and `results/` directories are excluded from Git. Restore input data under `data/raw/`, `data/tables/`, and `data/map/` before running the model; existing results remain local.

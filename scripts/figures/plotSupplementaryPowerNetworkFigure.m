@@ -3,7 +3,7 @@ projectRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
 addpath(projectRoot);
 projectRoot = setupHyExport(projectRoot);
 
-dataFile = projectFile('tables', 'All Island Ten Year Transmission Statement-2021.xlsx');
+dataFile = projectFile('data','tables', 'All Island Ten Year Transmission Statement-2021.xlsx');
 outDir = projectFile('manuscript', 'supplementary', 'J14___Supplementary_Information_v0_2', 'figs');
 outFile = fullfile(outDir, 'fig ireland power system2.pdf');
 

@@ -12,7 +12,7 @@ vesselDensity.value(abs(vesselDensity.value)>500) = nan;
 
 
 % evaluate wake effect (only related to wind turbine not wind speed)
-ratedPower = 8; % 15 MW type model
+ratedPower = 15; % 15 MW model used in the manuscript
 % power curve of wind turbine
 windSpeedTest = 0:0.1:0.1;
 [electricityGenerationCurve,windTurbine] = windTurbineModel(windSpeedTest,ratedPower);
@@ -43,6 +43,8 @@ nGrid = 100; % keep it smaller for demo, and increase afterward
 excludedAreas = [];
 [LCOEcurveAll,LCOHcurveAll,LCOAcurveAll] = deal(zeros(nGrid^2,2*nCountry));
 LCOEall = []; LCOHall = []; LCOAall = [];
+yearSupply.H = cell(3,nCountry); yearSupply.A = cell(3,nCountry);
+yearSupply.depthH = cell(3,nCountry); yearSupply.depthA = cell(3,nCountry);
 
 for i = 1:size(EUcountryList,2)
 % for i = 1:3
@@ -51,7 +53,7 @@ for i = 1:size(EUcountryList,2)
     countryName = char(EUcountryList(i));
     fprintf('Stage 1/5: supply curve %d/%d %s\n',i,nCountry,countryName);
     % countryName = 'Ireland';
-    [LCOE{i},LCOH{i},LCOA{i},distanceToPort{i},waterDepth{i},capacityFactor{i},spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i}] = ...
+    [LCOE{i},LCOH{i},LCOA{i},distanceToPort{i},waterDepth{i},capacityFactor{i},spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i},hydrogenCostByYear] = ...
         evaluateOffshoreProductionCost(countryName,nGrid,EUcitiesCoordinates,OWFcapacity,ratedPower,...
         EUshpEEZ,minDistanceWT,windTurbine);
     [LCOEcurve0{i},LCOHcurve0{i},LCOAcurve0{i},waterDepthColumn{i},vesselDensityGrid{i},powerPerGridNew{i}, ...
@@ -64,6 +66,24 @@ for i = 1:size(EUcountryList,2)
     [LCOEcurve{i},waterDepthArrayE{i},lonColumnE{i},latColumnE{i}] = adjustSupplyCurve(LCOEcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
     [LCOHcurve{i},waterDepthArrayH{i},~,~] = adjustSupplyCurve(LCOHcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
     [LCOAcurve{i},waterDepthArrayA{i},~,~] = adjustSupplyCurve(LCOAcurve0{i},capacityRange,capacityResolution,waterDepthColumn{i},lonColumn{i},latColumn{i});
+    % Rebuild each year's hydrogen/ammonia curves from year-specific sizing.
+    % Each grid already includes annual equipment prices and wind-only learning.
+    for iYear = 1:3
+        [~,hCurve,aCurve,depthYear,~,~,~,~,lonYear,latYear] = evaluateSupplyCurve( ...
+            LCOE{i},hydrogenCostByYear.H(:,:,iYear),hydrogenCostByYear.A(:,:,iYear), ...
+            minDistanceWT,spatiResolution{i},lonGrid_mesh{i},latGrid_mesh{i}, ...
+            waterDepth{i},excludedAreas,vesselDensity,ratedPower,nGrid);
+        [yearSupply.H{iYear,i},yearSupply.depthH{iYear,i}] = adjustSupplyCurve( ...
+            hCurve,capacityRange,capacityResolution,depthYear,lonYear,latYear);
+        % Match ammonia costs with ammonia's own sorted water-depth sequence.
+        valid = ~isnan(powerPerGridNew{i}) & ~isnan(LCOE{i});
+        aGrid = hydrogenCostByYear.A(:,:,iYear);
+        depthGrid = waterDepth{i};
+        [~,orderA] = sort(aGrid(valid));
+        depthA = depthGrid(valid); depthA = depthA(orderA);
+        [yearSupply.A{iYear,i},yearSupply.depthA{iYear,i}] = adjustSupplyCurve( ...
+            aCurve,capacityRange,capacityResolution,depthA,lonYear,latYear);
+    end
     % accumulated curve
     LCOEcurve_accumulated{i} = [LCOEcurve{i}(1,:);[LCOEcurve{i}(2:end,1),cumsum(diff(LCOEcurve{i}(:,1)).*LCOEcurve{i}(1:end-1,2))] ];
     LCOHcurve_accumulated{i} = [LCOHcurve{i}(1,:);[LCOHcurve{i}(2:end,1),cumsum(diff(LCOHcurve{i}(:,1)).*LCOHcurve{i}(1:end-1,2))] ];
@@ -81,14 +101,14 @@ LCOEall(isnan(LCOEall(:,3)),:) = []; LCOHall(isnan(LCOHall(:,3)),:) = []; LCOAal
 
 % cost reduction
 fprintf('Stage 1/5: cost reduction and LCOH ranking\n');
-reductionRate = table2array(readtable(projectFile('tables','offshore wind cost reduction.xlsx'),'Range','O11:P14'));
+reductionRate = table2array(readtable(projectFile('data','tables','offshore wind cost reduction.xlsx'),'Range','O11:P14'));
 [LCOEcurve2030,LCOHcurve2030,LCOAcurve2030,LCOEcurve2030_accumulated,LCOHcurve2030_accumulated,LCOAcurve2030_accumulated, ...
     LCOEcurve2040,LCOHcurve2040,LCOAcurve2040,LCOEcurve2040_accumulated,LCOHcurve2040_accumulated,LCOAcurve2040_accumulated, ...
     LCOEcurve2050,LCOHcurve2050,LCOAcurve2050,LCOEcurve2050_accumulated,LCOHcurve2050_accumulated,LCOAcurve2050_accumulated] = ...
-    owfCostReduction(LCOEcurve,LCOHcurve,LCOAcurve,reductionRate,nCountry,waterDepthArrayE,waterDepthArrayH,waterDepthArrayA);
+    owfCostReduction(LCOEcurve,reductionRate,nCountry,waterDepthArrayE,yearSupply);
 
 % rank the LCOH
-EUoffshoreCapacity = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
+EUoffshoreCapacity = table2array(readtable(projectFile('data','tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
 blueHyPriceCap = 68.92;
 for iYear = 1:3
     switch iYear
@@ -130,7 +150,7 @@ checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
 fprintf('Stage 2/5: load stop1.mat and run unit commitment\n');
 load(fullfile(checkpointDir,'stop1.mat'))
 load(fullfile(checkpointDir,'mpcIreland.mat'))
-irelandPowerSystemOperation = readtable(projectFile('tables','System-Data-Qtr-Hourly-2023.xlsx'));
+irelandPowerSystemOperation = readtable(projectFile('data','tables','System-Data-Qtr-Hourly-2023.xlsx'));
 %
 mpc0 = mpc;
 [PQ, PV, REF, NONE, BUS_I, BUS_TYPE, PD, QD, GS, BS, BUS_AREA, VM, ...
@@ -228,14 +248,14 @@ offshoreByElectricityFactor = usedWindbyEtotal./electricityDemandTotal;
 offshoreByGasFactor = usedWindbyGtotal./gasDemandTotal;
 offshoreCurtailedRate = curtailedWindTotal ./ ([5;20;37]*1e3 * 8760);
 % other countries
-EUhydrogenDemand = readtable(projectFile('tables','tables.xlsx'),'Sheet','hydemand','Range','A36:P47');
-EUoffshoreCapacity = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
+EUhydrogenDemand = readtable(projectFile('data','tables','tables.xlsx'),'Sheet','hydemand','Range','A36:P47');
+EUoffshoreCapacity = table2array(readtable(projectFile('data','tables','tables.xlsx'),'Sheet','offshore goal','Range','C50:E60'));
 % load port data and its countries
 [ferryPortShp_noAggregation,ferryPortShp_aggregated,portIndexPerCountry,portInCountry] ...
     = loadFerryPort(resolveProjectFile('EMODnet_HA_Main_Ports_20231106.shp'),nCountry);
-EUelectricityDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','B26:L53')); % GW
-EUgasDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','P26:Z53')); % GWh/day
-EUnonPowerGasDemand = table2array(readtable(projectFile('tables','tables.xlsx'),'Sheet','energy demand','Range','BD26:BN53'));
+EUelectricityDemand = table2array(readtable(projectFile('data','tables','tables.xlsx'),'Sheet','energy demand','Range','B26:L53')); % GW
+EUgasDemand = table2array(readtable(projectFile('data','tables','tables.xlsx'),'Sheet','energy demand','Range','P26:Z53')); % GWh/day
+EUnonPowerGasDemand = table2array(readtable(projectFile('data','tables','tables.xlsx'),'Sheet','energy demand','Range','BD26:BN53'));
 % estimate offshore wind consumption
 % EUenergyDemand = table2array(readtable('tables.xlsx','Sheet','energy demand','Range','AQ26:BA53')); % GW, average value
 % EUoffshoreDomesticConsumption = ([EUenergyDemand(8,:);EUenergyDemand(18,:);EUenergyDemand(28,:)] .* repmat(offshoreFactor',[1,nCountry]) * 0.6)';

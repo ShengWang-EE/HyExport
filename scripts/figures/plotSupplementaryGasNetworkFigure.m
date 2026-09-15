@@ -4,7 +4,7 @@ addpath(projectRoot);
 projectRoot = setupHyExport(projectRoot);
 
 load(projectFile('results', 'checkpoints', 'mpcIreland.mat'), 'mpc');
-busTable = readtable(projectFile('tables', 'Irish energy system data.xlsx'), ...
+busTable = readtable(projectFile('data','tables', 'Irish energy system data.xlsx'), ...
     'Sheet', 'Gbus', 'Range', 'A1:I145');
 
 lon = table2array(busTable(:, 8));

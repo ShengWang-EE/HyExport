@@ -1,5 +1,5 @@
 function [totalCost,costComposition] = objfcn_exportCost(Q_hyspl,...
-    Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry,costOptions)
+    Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry,costOptions,shipCosts)
 if nargin < 10
     costOptions.importCostMode = "penalty";
     costOptions.importPenalty_EURperMW = 1e9;
@@ -14,13 +14,8 @@ end
 hyProductionCost = sum(hyProductionCostPerCountry) * 8760;
 amProductionCost = sum(amProductionCostPerCountry) * 8760;
 
-C_hyshipcap = 398 * 1e6; C_amshipcap = 52 * 1e6; % investment cost
-C_hyshipom = 0.04 * C_hyshipcap; C_amshipom = 0.04 * C_amshipcap; % maintainess cost per year
-discountRate = 0.06;
-lifetime = 25;
-
-hyTransportationCostPerline = n_hyship * (C_hyshipcap / sum((1+discountRate).^(0:lifetime-1)) + C_hyshipom);
-amTransportationCostPerline = n_amship * (C_amshipcap / sum((1+discountRate).^(0:lifetime-1)) + C_amshipom);
+hyTransportationCostPerline = n_hyship * shipCosts.hyAnnualCost;
+amTransportationCostPerline = n_amship * shipCosts.amAnnualCost;
 hyTransportationCost = sum(sum(hyTransportationCostPerline));
 amTransportationCost = sum(sum(amTransportationCostPerline));
 transportationCostPerline = hyTransportationCostPerline + amTransportationCostPerline;

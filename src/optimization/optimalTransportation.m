@@ -22,21 +22,15 @@ Q_shipammax = 38000 * ammoniaDensity * ammoniaHeatValue /3600; % convert to MWh
 naturalGasHeatValue = 50; % MJ/kg
 shipConsumption = 50 * 1e3 * naturalGasHeatValue / 3600 / 24; % MWh, per ship, per hour
 hyLossRate = 0.002 / 24; % percentage, only for hydrogen, per hour
-switch year
-    case '2030'
-        hyShipInvestmentCost = 398*1e6*u2e;
-        amShipInvestmentCost = 52*1e6*u2e;
-    case '2040'
-        hyShipInvestmentCost = 250*1e6*u2e;
-        amShipInvestmentCost = 52*1e6*u2e;
-    case '2050'
-        hyShipInvestmentCost = 213*1e6*u2e;
-        amShipInvestmentCost = 52*1e6*u2e;
-end
-shipLifeTime = 25; % year
-hyShipOperationCost = (hyShipInvestmentCost / shipLifeTime / 8760) * 2 / Q_shiphymax;
-amShipOperationCost = (amShipInvestmentCost / shipLifeTime / 8760) * 2 / Q_shipammax;
+shipCosts = shippingCostParameters(year);
+hyShipOperationCost = shipCosts.hyAnnualCost / 8760 / Q_shiphymax;
+amShipOperationCost = shipCosts.amAnnualCost / 8760 / Q_shipammax;
 
+% Trade quantities and cost-curve coordinates must both be average hydrogen MW.
+for ic = 1:nCountry
+    [LCOHcurve{ic}, LCOHcurve_accumulated{ic}] = hydrogenEnergySupplyCurve(LCOHcurve{ic}, capacityFactor_mean(ic), year);
+    [LCOAcurve{ic}, LCOAcurve_accumulated{ic}] = hydrogenEnergySupplyCurve(LCOAcurve{ic}, capacityFactor_mean(ic), year);
+end
 
 % min and max
 % Q_hysplmax = zeros(nCountry,1);
@@ -45,43 +39,14 @@ amShipOperationCost = (amShipInvestmentCost / shipLifeTime / 8760) * 2 / Q_shipa
 % end
 % Q_amsupmax = Q_hysplmax * 0.3;
 
-% hydrogen and ammonina demand and capacity
-switch year
-    case '2030'
-        Q_hydm = sum(table2array(EUhydrogenDemand(:,3:5)),2) * 1e6 / 8760;% 2030,MWh/hour
-        Q_amdm = table2array(EUhydrogenDemand(:,2)) * 1e6 / 8760;
-        % Q_hysplmax = (EUoffshoreCapacity(:,1)) * 1e3 * 0.5 .* capacityFactor_mean; % MW
-        % Q_amsupmax = (EUoffshoreCapacity(:,1)) * 1e3 * 0.1 .* capacityFactor_mean; % MW
-        % method 2
-        % Q_hysplmax = max([((EUoffshoreCapacity(:,1)) * 1e3 .* capacityFactor_mean - EUoffshoreDomesticConsumption(:,1)*1e3),repmat(0,[nCountry,1])],[],2); % MW
-        % Q_amsupmax = min([(EUoffshoreCapacity(:,1)) * 1e3 * 0.1 .* capacityFactor_mean,Q_hysplmax],[],2); % MW
-        % method 3
-        Q_hysplmax = EUwindConsump_new{1}(:,3) / 8760 * 1e6 * 1; % MW
-        Q_amsupmax = EUwindConsump_new{1}(:,3) / 8760 * 1e6 * 0.1; % MW
-    case '2040'
-        Q_hydm = sum(table2array(EUhydrogenDemand(:,8:10)),2) * 1e6 / 8760;% 2040
-        Q_amdm = table2array(EUhydrogenDemand(:,7)) * 1e6 / 8760;
-        % Q_hysplmax = (EUoffshoreCapacity(:,2)) * 1e3 * 0.5 .* capacityFactor_mean; % MW
-        % Q_amsupmax = (EUoffshoreCapacity(:,2)) * 1e3 * 0.1 .* capacityFactor_mean; % MW
-        % method 2
-        % Q_hysplmax = max([((EUoffshoreCapacity(:,2)) * 1e3 .* capacityFactor_mean - EUoffshoreDomesticConsumption(:,2)*1e3),repmat(0,[nCountry,1])],[],2); % MW
-        % Q_amsupmax = min([(EUoffshoreCapacity(:,2)) * 1e3 * 0.1 .* capacityFactor_mean,Q_hysplmax],[],2); % MW
-                % method 3
-        Q_hysplmax = EUwindConsump_new{2}(:,3) / 8760 * 1e6 * 1; % MW
-        Q_amsupmax = EUwindConsump_new{2}(:,3) / 8760 * 1e6 * 0.1; % MW
-    case '2050'
-        Q_hydm = sum(table2array(EUhydrogenDemand(:,13:15)),2) * 1e6 / 8760;% 2050
-        Q_amdm = table2array(EUhydrogenDemand(:,12)) * 1e6 / 8760;
-        Q_hysplmax = (EUoffshoreCapacity(:,3)) * 1e3 * 0.5 .* capacityFactor_mean; % MW
-        Q_amsupmax = (EUoffshoreCapacity(:,3)) * 1e3 * 0.1 .* capacityFactor_mean; % MW
-        % method 2
-        % Q_hysplmax = max([((EUoffshoreCapacity(:,3)) * 1e3 .* capacityFactor_mean - EUoffshoreDomesticConsumption(:,3)*1e3),repmat(0,[nCountry,1])],[],2); % MW
-        % Q_amsupmax = min([(EUoffshoreCapacity(:,3)) * 1e3 * 0.1 .* capacityFactor_mean,Q_hysplmax],[],2); % MW
-                % method 3
-        Q_hysplmax = EUwindConsump_new{3}(:,3) / 8760 * 1e6 * 1; % MW
-        Q_amsupmax = EUwindConsump_new{3}(:,3) / 8760 * 1e6 * 0.1; % MW
-end
-
+% Demand is annual energy in the input table; trade variables are average MW.
+yearIndex = find([2030, 2040, 2050] == str2double(string(year)), 1);
+ammoniaColumn = 2 + (yearIndex - 1) * 5;
+Q_hydm = sum(table2array(EUhydrogenDemand(:,ammoniaColumn+(1:3))),2) * 1e6 / 8760;
+Q_amdm = table2array(EUhydrogenDemand(:,ammoniaColumn)) * 1e6 / 8760;
+% Column 3 is residual WIND ELECTRICITY, already net of domestic use/curtailment.
+Q_hysplmax = EUwindConsump_new{yearIndex}(:,3) * 1e6 / 8760 * offshoreHydrogenEfficiency(year);
+Q_amsupmax = 0.1 * Q_hysplmax; % Existing hydrogen-equivalent ammonia allocation.
 
 % number of shipping line, merge the shipping line between countries as the shortest one
 shippingLineMatrix = 1e10*ones(nCountry);
@@ -108,16 +73,21 @@ travelTime = shippingLineArray(:,3) / shipSpeed;
 %% decision vars
 Q_hyspl = sdpvar(nCountry,1);       % hydrogen supply of a country, MWh
 Q_amspl = sdpvar(nCountry,1);       % ammonia supply of a country, MWh
-Q_hytrans = sdpvar(nShippingLine,1);% hydrogen flow between Port
-Q_amtrans = sdpvar(nShippingLine,1);% ammonia flow between Port
-n_hyship = sdpvar(nShippingLine,1); % number of hydrogen ships per shipping line
-n_amship = sdpvar(nShippingLine,1); % number of ammonia ships per shipping line
+% Nonnegative forward/reverse flows let fuel follow the actual exporter.
+Q_hyflow = sdpvar(nShippingLine,2,'full');
+Q_amflow = sdpvar(nShippingLine,2,'full');
+n_hyshipDirection = sdpvar(nShippingLine,2,'full');
+n_amshipDirection = sdpvar(nShippingLine,2,'full');
+Q_hytrans = Q_hyflow(:,1) - Q_hyflow(:,2);
+Q_amtrans = Q_amflow(:,1) - Q_amflow(:,2);
+n_hyship = sum(n_hyshipDirection,2);
+n_amship = sum(n_amshipDirection,2);
 Q_hy_im = sdpvar(nCountry,1); % international import
 Q_am_im = sdpvar(nCountry,1);
 %% constraints
 % 1 supply capacity
 supplyCapacityCons = [
-    Q_hyspl + Q_amspl >= 0;
+    Q_hyspl >= 0;
     Q_hyspl + Q_amspl <= Q_hysplmax; % MW
     Q_amspl >= 0;
     Q_amspl <= Q_amsupmax;
@@ -128,17 +98,18 @@ supplyCapacityCons = [
 % 2 country nodal balance
 Q_hytranssum = sdpvar(nCountry,1);       % hydrogen flow out from a country
 Q_amtranssum = sdpvar(nCountry,1);       % ammonia flow out from a country
-Q_hyshipsum = sdpvar(nCountry,1); 
-Q_amshipsum = sdpvar(nCountry,1); 
-Q_hyship = (shipConsumption + hyLossRate * Q_shiphymax) * operationTime/8760 * n_hyship; % fuel consumption, MWh/h
-Q_amship = shipConsumption * operationTime/8760 * n_amship;
+Q_hyfuelDirection = (shipConsumption + hyLossRate * Q_shiphymax) * operationTime/8760 * n_hyshipDirection;
+Q_amfuelDirection = shipConsumption * operationTime/8760 * n_amshipDirection;
+Q_hyship = sum(Q_hyfuelDirection,2);
+Q_amship = sum(Q_amfuelDirection,2);
+Q_hyshipsum = allocateShippingFuel(shippingLineArray, Q_hyfuelDirection(:,1), Q_hyfuelDirection(:,2), nCountry);
+Q_amshipsum = allocateShippingFuel(shippingLineArray, Q_amfuelDirection(:,1), Q_amfuelDirection(:,2), nCountry);
 for ic = 1:nCountry
     Q_hytranssum(ic) = sum(Q_hytrans(find(shippingLineArray(:,2)==ic))) ...
         - sum(Q_hytrans(find(shippingLineArray(:,1)==ic)));                    % flow in - flow out
     Q_amtranssum(ic) = sum(Q_amtrans(find(shippingLineArray(:,2)==ic))) ...
         - sum(Q_amtrans(find(shippingLineArray(:,1)==ic)));
-    Q_hyshipsum(ic) = sum(Q_hyship(find(shippingLineArray(:,1)==ic))); % ship fuel is counted in the from country
-    Q_amshipsum(ic) = sum(Q_amship(find(shippingLineArray(:,1)==ic)));
+
 end
 
 countryBalanceCons = [
@@ -148,19 +119,19 @@ countryBalanceCons = [
 
 % 3 transportation capacity constraints
 n_trip = operationTime ./ (2 * (travelTime + loadUnloadTime)); % number of trips for a ship per year in a shipping line
-Q_hytransmax = n_trip .* n_hyship * Q_shiphymax / 8760; % MWh/h
-Q_amtransmax = n_trip .* n_amship * Q_shipammax / 8760;
+Q_hytransmax = repmat(n_trip,1,2) .* n_hyshipDirection * Q_shiphymax / 8760;
+Q_amtransmax = repmat(n_trip,1,2) .* n_amshipDirection * Q_shipammax / 8760;
 transportationCapacityCons = [
-    Q_hytrans >= -Q_hytransmax;
-    Q_hytrans <= Q_hytransmax;
-    Q_amtrans >= -Q_amtransmax;
-    Q_amtrans <= Q_amtransmax;
+    Q_hyflow(:) >= 0;
+    Q_hyflow(:) <= Q_hytransmax(:);
+    Q_amflow(:) >= 0;
+    Q_amflow(:) <= Q_amtransmax(:);
     ];
 
 % 4 bounding cons
 boundingCons = [
-    n_hyship >= 0;
-    n_amship >= 0;
+    n_hyshipDirection(:) >= 0;
+    n_amshipDirection(:) >= 0;
     ];
 % test
 testCons = [
@@ -176,7 +147,7 @@ cons = [
     % testCons;
     ];
 %% 
-[objfcn,costComposition] = objfcn_exportCost(Q_hyspl,Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry,costOptions);
+[objfcn,costComposition] = objfcn_exportCost(Q_hyspl,Q_amspl,Q_hy_im,Q_am_im,n_hyship,n_amship,LCOHcurve_accumulated,LCOAcurve_accumulated,nCountry,costOptions,shipCosts);
 options = sdpsettings('verbose',2,'solver','gurobi', 'debug',1,'showprogress',1);
 options.gurobi.MIPGap = 1e-2;
 if isfield(costOptions, 'gurobiMIPGap')
@@ -220,6 +191,13 @@ costComposition.amProductionCost_down = value(costComposition.amProductionCost_d
 costComposition.importCost = value(costComposition.importCost);
 totalCost = value(objfcn);
 sol.totalCost = totalCost;
+sol.shipCosts = shipCosts;
+sol.hydrogenEfficiency = offshoreHydrogenEfficiency(year);
+sol.Q_hysplmax = Q_hysplmax;
+sol.n_hyshipDirection = value(n_hyshipDirection);
+sol.n_amshipDirection = value(n_amshipDirection);
+sol.Q_hyflow = value(Q_hyflow);
+sol.Q_amflow = value(Q_amflow);
 sol.costComposition = costComposition;
 sol.costOptions = costOptions;
 
@@ -251,8 +229,12 @@ for ic = 1:nCountry
 end
 shipHyFuelProportion = shipConsumption .* travelTime / Q_shiphymax; % 每次运输所消耗hy占全船所运的hy的百分比
 shipAmFuelProportion = shipConsumption .* travelTime / Q_shipammax; % 每次运输所消耗am占全船所运的am的百分比
-shipHyFuelCost = shipHyFuelProportion .* marginalCostHy(tradingArray(:,2),2) + hyShipOperationCost * travelTime; % 运送每MWh的hy的fuelcost（marginal）
-shipAmFuelCost = shipAmFuelProportion .* marginalCostAm(tradingArray(:,2),2) + amShipOperationCost * travelTime; % 运送每MWh的am的fuelcost（marginal）
+hyOrigin = tradingArray(:,1);
+amOrigin = tradingArray(:,1);
+hyOrigin(Q_hytrans < 0) = tradingArray(Q_hytrans < 0,2);
+amOrigin(Q_amtrans < 0) = tradingArray(Q_amtrans < 0,2);
+shipHyFuelCost = shipHyFuelProportion .* marginalCostHy(hyOrigin,2) + hyShipOperationCost * travelTime; % 运送每MWh的hy的fuelcost（marginal）
+shipAmFuelCost = shipAmFuelProportion .* marginalCostAm(amOrigin,2) + amShipOperationCost * travelTime; % 运送每MWh的am的fuelcost（marginal）
 tradingArray(:,10:13) = [shipHyFuelProportion,shipAmFuelProportion,shipHyFuelCost,shipAmFuelCost];
 % add intenational trade array
 addTradingArray = zeros(nCountry,size(tradingArray,2));

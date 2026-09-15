@@ -1,24 +1,7 @@
 .DS_Store
 *.asv
-
-# Large local input data copied from external repositories.
 *.nc
-data/raw/bathymetry_2022_Spain.mat
-data/raw/bathymetry_2022_Ireland.mat
-data/raw/bathymetry_2022_Denmark.mat
-data/raw/bathymetry_2022_United Kingdom.mat
-data/raw/bathymetry_2022_Sweden.mat
-data/raw/bathymetry_2022_Germany.mat
-data/raw/bathymetry_2022_France.mat
-data/raw/bathymetry_2022_Portugal.mat
-data/raw/bathymetry_2022_Norway.mat
-data/raw/bathymetry_2022_Norway1.mat
-data/raw/bathymetry_2022_Norway2.mat
 
-# Generated checkpoints and figures.
-results/checkpoints/
-results/figures/areas.fig
-
-# Large map datasets kept locally.
-map/Europe/EEZ/eez_v12.*
-map/gadm41_GBR_shp/
+# Input data and generated results are kept locally, outside Git.
+/data/
+/results/

@@ -50,8 +50,13 @@ for iYear = 1:numel(yearList)
     % LCOH-only 反事实：只看政策 offshore capacity 和 LCOH 供应曲线。
     % 这里不扣除国内电-气系统消纳，也不考虑 shipping 和贸易优化。
     % 单位换算：GW * capacity factor * 8760 h/year = TWh/year 时，系数是 8.76。
-    productionPotentialTWh = data.EUoffshoreCapacity(:,iYear) .* data.capacityFactor_mean * 8.76;
-    lcohOnlySupplyTWh = allocateByLowestLCOH(lcohCurves{iYear}, productionPotentialTWh, totalDemandTWh);
+    productionPotentialTWh = data.EUoffshoreCapacity(:,iYear) .* data.capacityFactor_mean ...
+        * 0.95 * offshoreHydrogenEfficiency(year) * 8.76;
+    energyCurves = lcohCurves{iYear};
+    for ic = 1:numel(energyCurves)
+        energyCurves{ic} = hydrogenEnergySupplyCurve(energyCurves{ic}, data.capacityFactor_mean(ic), year);
+    end
+    lcohOnlySupplyTWh = allocateByLowestLCOH(energyCurves, productionPotentialTWh, totalDemandTWh);
     lcohOnly = summariseLCOHOnlyBaseline(lcohOnlySupplyTWh, countryDemandTWh, integrated.totalCarbonReductionMt, nodeCode);
     summaryRows(end+1,:) = makeSummaryRow(year, "LCOH-only baseline", totalDemandTWh, lcohOnly);
     countryRows = appendCountryRows(countryRows, year, "LCOH-only baseline", nodeCode, ...

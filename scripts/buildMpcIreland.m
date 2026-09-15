@@ -4,7 +4,7 @@ projectRoot = fileparts(fileparts(mfilename('fullpath')));
 addpath(projectRoot);
 projectRoot = setupHyExport(projectRoot);
 checkpointDir = fullfile(projectRoot, 'results', 'checkpoints');
-fileName = projectFile('tables','All Island Ten Year Transmission Statement-2021.xlsx');
+fileName = projectFile('data','tables','All Island Ten Year Transmission Statement-2021.xlsx');
 
 mpc.baseMVA = 100;
 
@@ -213,14 +213,14 @@ mpc.genCarbon = genCarbon;
 % mpopt = mpoption('opf.ac.solver', 'MIPS');
 % runopf(mpc);
 %%
-GbusName = readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','Gbus','range','G1:I145');
+GbusName = readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','Gbus','range','G1:I145');
 mpc.GbusName = GbusName;
 
-mpc.Gbus = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','Gbus','range','A2:F145'));
-mpc.Gline = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','Gline','range','A2:I145'));
-mpc.Gsou = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','Gsou','range','A2:D3'));
-mpc.Gcost = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','Gcost','range','A2:A3'));
-mpc.ptg = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','ptg','range','A2:E8'));
+mpc.Gbus = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','Gbus','range','A2:F145'));
+mpc.Gline = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','Gline','range','A2:I145'));
+mpc.Gsou = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','Gsou','range','A2:D3'));
+mpc.Gcost = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','Gcost','range','A2:A3'));
+mpc.ptg = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','ptg','range','A2:E8'));
 
 %% GEcon
 gppIndex = find(genType == "Gas");
@@ -249,14 +249,14 @@ mpc.ptg = mpc.ptg(1,:);
 %     electricityDemandCurve_24(i) = electricityDemandCurve_48(2*(i-1)+1);
 % end
 % mpc.electricityDemandCuve = (electricityDemandCurve_24 / max(electricityDemandCurve_24) * sum(bus(:,3)))';
-irelandPowerSystemOperation = readtable(projectFile('tables','System-Data-Qtr-Hourly-2023.xlsx'));
+irelandPowerSystemOperation = readtable(projectFile('data','tables','System-Data-Qtr-Hourly-2023.xlsx'));
 
 electricityDemandCurve_24 = irelandPowerSystemOperation.AIDemand;
 electricityDemandCurve_24 = electricityDemandCurve_24(1:4:4*8759+1);
 mpc.electricityDemandCuve = electricityDemandCurve_24;
 
 
-dateTime_raw = convertCharsToStrings(table2cell(readtable(projectFile('tables','Ireland gasconsumption 2023 merged.xlsx'), ...
+dateTime_raw = convertCharsToStrings(table2cell(readtable(projectFile('data','tables','Ireland gasconsumption 2023 merged.xlsx'), ...
     'sheet','merged','range','C1:C8735')));
 for i = 1:size(dateTime_raw,1)
     dateTime_object{i} = datetime(dateTime_raw{i});
@@ -264,11 +264,11 @@ for i = 1:size(dateTime_raw,1)
     dayValue(i) = day(dateTime_object{i});
     hourValue(i) = hour(dateTime_object{i});
 end
-gasDemandCurve_NDM = table2array(readtable(projectFile('tables','Ireland gasconsumption 2023 merged.xlsx'), ...
+gasDemandCurve_NDM = table2array(readtable(projectFile('data','tables','Ireland gasconsumption 2023 merged.xlsx'), ...
     'sheet','merged','range','D1:D8735'));
-gasDemandCurve_LDM = table2array(readtable(projectFile('tables','Ireland gasconsumption 2023 merged.xlsx'), ...
+gasDemandCurve_LDM = table2array(readtable(projectFile('data','tables','Ireland gasconsumption 2023 merged.xlsx'), ...
     'sheet','merged','range','J1:J8735'));
-gasDemandCurve_power = table2array(readtable(projectFile('tables','Ireland gasconsumption 2023 merged.xlsx'), ...
+gasDemandCurve_power = table2array(readtable(projectFile('data','tables','Ireland gasconsumption 2023 merged.xlsx'), ...
     'sheet','merged','range','P1:P8735'));
 gasDemandTotal_raw = gasDemandCurve_NDM + gasDemandCurve_LDM + gasDemandCurve_power;
 gasDemandTotal = zeros(8760,1);
@@ -321,7 +321,7 @@ save(fullfile(checkpointDir,'mpcIreland.mat'),'mpc')
 [solution, solution_info] = runopf_hge_simple(mpc);
 %% future gas demand data
 % 1 best estimate
-futureGasDemand = readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','future gas','range','L1:S11');
+futureGasDemand = readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','future gas','range','L1:S11');
 futureGasDemand_total = table2array(futureGasDemand(:,8));
 futureGasDemand_sector = table2array(futureGasDemand(:,1:8));
 
@@ -332,7 +332,7 @@ for i = 1:8
 end
 
 % 2 low demand
-futureGasDemand = readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','future gas','range','L15:S24');
+futureGasDemand = readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','future gas','range','L15:S24');
 futureGasDemand_total = table2array(futureGasDemand(:,8));
 futureGasDemand_sector = table2array(futureGasDemand(:,1:8));
 
@@ -343,7 +343,7 @@ for i = 1:8
 end
 
 % 3 high demand
-futureGasDemand = readtable(projectFile('tables','Irish energy system data.xlsx'),'sheet','future gas','range','L27:S36');
+futureGasDemand = readtable(projectFile('data','tables','Irish energy system data.xlsx'),'sheet','future gas','range','L27:S36');
 futureGasDemand_total = table2array(futureGasDemand(:,8));
 futureGasDemand_sector = table2array(futureGasDemand(:,1:8));
 

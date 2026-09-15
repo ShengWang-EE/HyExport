@@ -7,7 +7,7 @@ checkpointFile = fullfile(projectRoot, 'results', 'checkpoints', 'stop3.mat');
 data = load(checkpointFile, 'solution');
 
 figureDir = fullfile(projectRoot, 'figs');
-manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'figs');
+manuscriptFigureDir = fullfile(projectRoot, 'manuscript', 'main', 'figs');
 if exist(figureDir, 'dir') ~= 7
     mkdir(figureDir);
 end

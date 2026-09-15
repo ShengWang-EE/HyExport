@@ -408,7 +408,7 @@ set(fig, 'Position', [100, 100, 600, 400]);  % 同样的参数
 exportgraphics(gcf, 'figs/fig LCOH curves.pdf', 'ContentType', 'vector'); 
 %% ireland power system
 geoshow('Ireland and UK boundary low res.shp', 'DisplayType', 'polygon','FaceColor','none','EdgeColor','k');
-busName = readtable(projectFile('tables','All Island Ten Year Transmission Statement-2021.xlsx'),...
+busName = readtable(projectFile('data','tables','All Island Ten Year Transmission Statement-2021.xlsx'),...
         'sheet','bus name','range','A1:D371');
 EbusCoordinate = table2array(busName(1:end,3:4));
 colorSet = colormap(nclCM(15,100));
@@ -446,7 +446,7 @@ end
 exportgraphics(gcf, 'figs/fig ireland power system.pdf', 'ContentType', 'vector'); 
 %% Ireland gas network
 colorSet = colormap(nclCM(15,100));
-GbusCoordinate = table2array(readtable(projectFile('tables','Irish energy system data.xlsx'),...
+GbusCoordinate = table2array(readtable(projectFile('data','tables','Irish energy system data.xlsx'),...
         'sheet','Gbus','range','H2:I145'));
 load(fullfile(checkpointDir,'mpcIreland.mat'))
 mpc1 = mpc;
@@ -483,7 +483,7 @@ c.TickLabels = linspace(0, max(gasDemand), 6);
 geoshow('Ireland and UK boundary low res.shp', 'DisplayType', 'polygon','FaceColor','none','EdgeColor','k');
 exportgraphics(gcf, 'figs/fig ireland gas system.pdf', 'ContentType', 'vector'); 
 %% ireland gas demand
-gasDemand = readtable(projectFile('tables','Irish energy system data.xlsx'),'Sheet','future gas','Range','J40:Q70');
+gasDemand = readtable(projectFile('data','tables','Irish energy system data.xlsx'),'Sheet','future gas','Range','J40:Q70');
 gasDemand = table2array(gasDemand(:,2:end));
 colors = colororder('gem12');
 % colors = colororder(generateColorData());
@@ -545,7 +545,7 @@ hold off;
 clear
 clc
 
-capacityTable = readtable(projectFile('tables','tables.xlsx'),'Sheet','offshore goal','Range','A1:E35');
+capacityTable = readtable(projectFile('data','tables','tables.xlsx'),'Sheet','offshore goal','Range','A1:E35');
 EUcountryList = ["Belgium", "Denmark", "France", "Germany", "Ireland", "Netherlands", "Norway", "Portugal", "Spain", "Sweden", "United Kingdom"];
 resourceList = ["Offshore wind","hydrogen","ammonia"];
 
@@ -1237,7 +1237,7 @@ text(0,0,'2050','FontWeight','bold', 'HorizontalAlignment', 'center', 'VerticalA
 exportgraphics(gcf, 'figs/fig wind decomposition.pdf', 'ContentType', 'vector');
 
 %% 各个国家的表格转图
-costTable = readtable(projectFile('tables','tables.xlsx'),'Sheet','cost table');
+costTable = readtable(projectFile('data','tables','tables.xlsx'),'Sheet','cost table');
 regions = {"BE","DK","FR","DE","IE","NL","NO","PT","ES","SE","GB"};
 scenarios = {'Average LCOH', 'Marginal LCOH', 'Low-price hydrogen'};
 

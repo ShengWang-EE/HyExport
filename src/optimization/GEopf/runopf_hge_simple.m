@@ -1,4 +1,7 @@
-function [solution, solution_info] = runopf_hge_simple(mpc)
+function [solution, solution_info] = runopf_hge_simple(mpc,year)
+if nargin < 2
+    year = 2030;
+end
 %% paras
 hymax = 1;
 [PQ, PV, REF, NONE, BUS_I, BUS_TYPE, PD, QD, GS, BS, BUS_AREA, VM, ...
@@ -27,7 +30,7 @@ iGd = find(mpc.Gbus(:,3)~=0);
 mpc.gasCompositionForGasSource = repmat([1,0],[nGs,1]);
 % natural gas, hydrogen
 nGasType = 2;
-[GCV, M, fs, a, R, T_stp, Prs_stp, Z_ref, T_gas, eta, CDF,rho_stp] = initializeParameters_J13();
+[GCV, M, fs, a, R, T_stp, Prs_stp, Z_ref, T_gas, eta, CDF,rho_stp] = initializeParameters_J13(year);
 
 %% state vars
 Prs = sdpvar(nGb,1); % bar^2
@@ -71,9 +74,9 @@ nodalGasFlowBalanceCons = [
 %
 PTGcons = [
     ( Qptg(:,1) * 1e6/24/3600 *GCV.CH4 / eta.methanation + Qptg(:,2) * 1e6/24/3600 * GCV.hy ...
-        ) /1e6 == Pptg * baseMVA / eta.electrolysis; % w
+        ) /1e6 == Pptg * baseMVA * eta.electrolysis; % hydrogen-equivalent MW
     Pptg * baseMVA >= 0;
-    Pptg * baseMVA <= QptgMax_hydrogen /24/3600 * GCV.hy * eta.electrolysis; % 如果全用来制氢，    
+    Pptg * baseMVA <= QptgMax_hydrogen /24/3600 * GCV.hy / eta.electrolysis; % 如果全用来制氢，
     0 <= Qptg;
     ];
 

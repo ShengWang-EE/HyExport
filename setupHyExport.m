@@ -5,7 +5,7 @@ end
 
 addpath(genpath(fullfile(root, 'src')));
 addpath(genpath(fullfile(root, 'scripts')));
-addpath(genpath(fullfile(root, 'map')));
+addpath(genpath(fullfile(root, 'data', 'map')));
 addpath(genpath(fullfile(root, 'matpower7.1')));
 addpath(genpath(fullfile(root, 'toolbox_user', 'YALMIP-master')));
 rmpath(fullfile(root, 'matpower7.1', 'mp-opt-model', '.github', 'osqp'));
